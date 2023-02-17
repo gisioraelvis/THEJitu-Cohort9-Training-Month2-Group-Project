@@ -1,0 +1,22 @@
+<div class="form-group">
+ <form #addStudent="ngForm" (ngSubmit)="onClickSubmit(addStudent.value)">
+  <h2>Enter your student details</h2>
+  <label for="name">Fullname</label>
+  <input ngModel type="text" name="name" id="name" required />
+  <label for="reg_no">Registration No</label>
+  <input ngModel type="text" name="reg_no" id="reg_no" required />
+  <label for="balance">Balance</label>
+  <input ngModel type="number" name="balance" id="balance" required />
+  <button type="submit" value="submit">Submit</button>
+ </form>
+</div>
+<div class="heading">
+  <h2>All students</h2>
+</div>
+<div class="display-students" >
+ <div class="view-students" *ngFor="let student of students">
+  <h3>{{student.name}}</h3>
+  <p>{{student.reg_no}}</p>
+  <p>{{student.balance}}</p>
+ </div>
+</div>

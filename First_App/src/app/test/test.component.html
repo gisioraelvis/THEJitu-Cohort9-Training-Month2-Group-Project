@@ -1,12 +1,35 @@
 <h2>My first custom component</h2>
 <img [src]="image" alt="person">
 
-<div class="question">
- <div class="question-content">Question 1</div>
- <div class="question-num"><button [disabled] ="allow"><h2>+</h2></button></div>
-</div>
+<div class="container">
+ <div class="question">
+  <div class="question-content">Question 1</div>
+  <div class="question-num">
+   <button *ngIf="shwquiz" (click)="showQuestion()">
+    <h2>+</h2>
+   </button>
+   <button *ngIf="!shwquiz" (click)="showQuestion()">
+    <h2>-</h2>
+   </button>
+  </div>
+ </div>
+ <div *ngIf="!shwquiz" class="display">
+  <p> Please watch the video provided below and answer the following questions</p>
+  <div class="answer-num">
+   <div class="answer-content">Answer </div>
+   <button *ngIf="shwans" (click)="showAnswer()">
+    <h2>+</h2>
+   </button>
+   <button *ngIf="!shwans" (click)="showAnswer()">
+    <h2>-</h2>
+   </button>
+  </div>
+ </div>
 
-<div class="answer">
- <div class="answer-content">Answer </div>
- <div class="answer-num"><button [disabled] ="allow"><h2>+</h2></button></div>
+ <div *ngIf="!shwans" class="answer">
+  <div class="answer-content">
+   <p>Finished on the assignment on displaying questions and answers using ngIf</p>
+
+  </div>
+ </div>
 </div>

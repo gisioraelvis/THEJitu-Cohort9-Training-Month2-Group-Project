@@ -9,6 +9,15 @@ import { Component } from "@angular/core";
 })
 export class Test{
  image = '../../favicon.ico'
- allow = true
+ shwquiz=true
+ showQuestion(){
+  this.shwquiz= !this.shwquiz
+ }
+
+ shwans = true;
+  
+  showAnswer() {
+    this.shwans = !this.shwans;
+  }
 
 }

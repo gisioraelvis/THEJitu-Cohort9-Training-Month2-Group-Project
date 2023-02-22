@@ -1,0 +1,114 @@
+.container{
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;*/
+    height: 100vh; 
+}
+.header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: hsl(0, 6%, 87%);
+}
+.header h3{
+    padding-top: 20px;
+}
+
+nav button{
+    background-color: hsl(202, 87%, 54%);
+    border-radius: 10px;
+    height: 3rem;
+    width: 100%;
+    border: none;
+    color: white;
+    padding: 10px;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+form h2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid hsl(202, 87%, 54%);
+}
+form input{
+    border-radius: 10px;
+    border: 2px solid hsl(202, 87%, 54%);
+    height: 3rem;
+    width: 300px;
+    outline: none;
+
+}
+
+button:hover{
+ cursor: pointer;
+}
+form button {
+    background-color: hsl(202, 87%, 54%);
+    border-radius: 10px;
+    height: 3rem;
+    width: 300px;
+    border: none;
+    color: white;
+}
+.to-do-container button{
+    background-color: hsl(202, 87%, 54%);
+    border-radius: 10px;
+    height: 3rem;
+    width: 100%;
+    border: none;
+    color: white;
+}
+
+nav{
+    display: flex;
+    padding: 20px;
+}
+nav ul{
+    display: flex;
+    gap: 20px;
+
+}
+nav ul li{
+    list-style: none;
+    width: 100px;
+
+}
+.content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.to-do-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+.to-do-container h2{
+    font-size: 40px;
+
+}
+.to-do-container p{
+    font-size: 18px;
+
+}
+/* 
+#editForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+} */
+button ion-icon{
+    color: white;
+}

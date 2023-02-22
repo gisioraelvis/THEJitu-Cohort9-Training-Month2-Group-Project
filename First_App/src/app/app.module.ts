@@ -4,8 +4,10 @@ import { AppComponent } from './app.component';
 import { Header } from './Header/header.component';
 import { BodyComponent } from './body/body.component';
 import { FooterComponent } from './footer/footer.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Test } from './test/test.component';
+import { Shorten } from 'src/Shorten';
+import { FilterPipe } from './filter.pipe';
 
 
 @NgModule({
@@ -14,7 +16,10 @@ import { Test } from './test/test.component';
     Header,
     BodyComponent,
     FooterComponent,
-    Test
+    Test,
+    Shorten,
+    FilterPipe,
+    ReactiveFormsModule
   ],
   imports: [
     BrowserModule,

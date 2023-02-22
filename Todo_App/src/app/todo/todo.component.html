@@ -1,0 +1,68 @@
+<div class="container">
+  <div class="header">
+    <h3>Welcome to My Todo App</h3>
+
+    <nav>
+      <ul>
+        <li><button (click)="addTodo()" id="add-to-do">Add to do</button></li>
+        <li><button id="completed">Completed</button></li>
+        <li><button id="incomplete">Incomplete</button></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="content">
+    <div class="to-do-container" *ngFor="let todo of Todos">
+      <div class="todo">
+        <h2>{{ todo.title }}</h2>
+        <p>{{ todo.description }}</p>
+        <p>{{ todo.date }}</p>
+        <button (click)="editTodo()" (click)="updateTask(todo.id)" class="taskEdit">
+          update toDO
+        </button>
+        <button (click)="complete(todo.id)">Mark as complete</button>
+        <button (click)="deleteTask(todo.id)">Delete</button>
+        <!-- <button (click)="updateTask(todo.id)" class="taskEdit">
+          <ion-icon name="create"></ion-icon>
+        </button> -->
+        <!-- <button (click)="complete(todo.id)">Complete</button>
+        <button (click)="deleteTask(todo.id)">
+          <ion-icon name="trash"></ion-icon>
+        </button> -->
+      </div>
+
+      <h2>Your to do is empty</h2>
+      <form
+        #addtodo="ngForm"
+        (ngSubmit)="onClickSubmit(addtodo)"
+        *ngIf="shwform"
+      >
+        <h2>Add Your tasks here</h2>
+        <label for="title">Title</label>
+        <input ngModel type="text" name="title" id="title" required />
+        <label for="description">Description</label>
+        <input
+          ngModel
+          type="text"
+          name="description"
+          id="description"
+          required
+        />
+        <label for="date">Date</label>
+        <input ngModel type="date" name="date" id="date" required />
+        <button type="submit" value="submit">Submit</button>
+      </form>
+      <form *ngIf="!shwform" id="editForm">
+        <h2>Edit Your to do here</h2>
+        <label for="title">Title</label>
+        <input ngModel type="text" name="title" id="title" required />
+        <label for="description">Description</label>
+        <input ngModel type="text" name="description" id="description" required/>
+        <label for="date">Date</label>
+        <input ngModel type="date" name="date" id="date" required />
+        <input ngModel type="text" id="id" name="id" hidden />
+        <button>Submit</button>
+      </form>
+    </div>
+  </div>
+
+</div>

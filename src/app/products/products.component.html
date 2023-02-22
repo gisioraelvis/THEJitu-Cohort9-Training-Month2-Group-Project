@@ -1,0 +1,18 @@
+
+<!-- http://localhost:4200/addProduct/34/single/update -->
+<!-- <a (click)= "LoadAdd()">Show product 2</a> -->
+
+<!-- Absolute Path --> 
+<!-- http://localhost:4200/addProduct -->
+
+<!-- Relative -->
+<!-- http://localhost:4200/products/addProduct -->
+
+<div class="container">
+    <div class="left">
+        <li *ngFor="let c of categories" (click)="showProducts(c)">{{c}}</li>
+    </div>
+    <div class="right">
+        <router-outlet></router-outlet>
+    </div>
+</div>

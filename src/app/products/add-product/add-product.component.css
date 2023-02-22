@@ -1,0 +1,43 @@
+.content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin: 10px;
+    }
+    
+    .left {
+    
+        width: 400px;
+        height: 400px;
+    
+    }
+    .left img{
+        width: 100%;
+        height: 100%;
+    }
+    .right {
+    
+        width: 400px;
+        height: 400px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+    }
+    
+    .right input{
+        padding: 10px;
+    }
+    
+    .right button{
+        padding: 5px 15px;
+        border-style: none;
+        background-color: coral;
+        color: white;
+    }
+
+    input.ng-invalid.ng-touched{
+        border: 1px solid red;
+    }
+    

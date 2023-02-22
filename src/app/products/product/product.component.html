@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="content">
+        <div class="left" *ngIf="product;else noProduct">
+            <img src={{product.image}}
+                alt="Roccat" />
+               
+        </div>
+
+        <div class="right">
+            <h1>{{product.name}}</h1>
+            <p>{{product.description}}</p>
+            <p *ngIf="show"> {{product.price | currency}}</p>
+            <button (click)="Update()">Update</button>
+        </div>
+    </div>
+</div>
+
+
+<ng-template #noProduct>
+<p>No Product with that Id was Found</p>
+</ng-template>
+<!-- <a [routerLink]="['/products', 2]">Load a Product</a> -->

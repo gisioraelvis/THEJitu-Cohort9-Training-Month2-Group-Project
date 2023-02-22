@@ -1,0 +1,25 @@
+<div class="content">
+    <div class="left">
+        <img src={{product.image}} alt="">
+    </div>
+    <form [formGroup]="form" (ngSubmit)="UpdateProduct()">
+    <div class="right">
+      
+        <h1> Update Product</h1>
+        <Label>Name</Label>
+        <input type="text" formControlName="name" />
+
+        <Label>Description</Label>
+        <input type="text" formControlName="description" />
+
+        <Label>Image</Label>
+        <input type="text" formControlName="image" />
+
+          <Label>Price</Label>
+        <input type="text" formControlName="price" />
+
+        <button type="submit">Update Product</button>
+    
+    </div>
+</form>
+</div>

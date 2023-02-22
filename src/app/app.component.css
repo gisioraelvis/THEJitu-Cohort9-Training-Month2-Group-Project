@@ -1,0 +1,36 @@
+
+
+.navbar{
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 30px;
+    align-items: center;
+    background-color: black;
+}
+.logo{
+    height: 100%;
+}
+.logo img{
+    width: 80%;
+    height: 80%;
+}
+.links{
+    width: 20%;
+    display: flex;
+    justify-content: space-evenly;
+}
+a{
+    color: white;
+    text-decoration: none;
+}
+
+.auth {
+    display: flex;
+    width: 20%;
+    justify-content: space-evenly;
+}
+
+.active{
+    color: red;
+}

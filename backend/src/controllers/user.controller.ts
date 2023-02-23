@@ -41,6 +41,11 @@ export const loginUser = async (req: Request, res: Response) => {
       return res.status(404).json({ message: "User does not exist" });
     }
 
+    // Check if user is soft deleted
+    if (user.recordset[0].isDeleted) {
+      return res.status(404).json({ message: "User does not exist" });
+    }
+
     const isMatch = await Bcrypt.compare(password, user.recordset[0].password);
 
     if (isMatch) {
@@ -82,6 +87,14 @@ export const registerUser = async (req: Request, res: Response) => {
 
   try {
     const user = await dbUtils.exec("usp_FindUserByEmail", { email });
+
+    // check if user was soft deleted
+    if (user.recordset.length > 0 && user.recordset[0].isDeleted) {
+      return res.status(400).json({
+        message:
+          "Email has been registered before, please try another email or contact support",
+      });
+    }
 
     if (user.recordset.length > 0) {
       return res.status(400).json({
@@ -353,6 +366,25 @@ export const getAllUsers = async (req: Request, res: Response) => {
 };
 
 /**
+ * @desc    Get all soft deleted users
+ * @route   GET /api/users/soft-deleted
+ * @access  Private - Admin only
+ */
+export const getAllSoftDeletedUsers = async (req: Request, res: Response) => {
+  try {
+    const users = await dbUtils.query(
+      "SELECT * FROM Users WHERE isDeleted = 1"
+    );
+
+    // returns the users else if ther's none an empty array is returned
+    return res.status(200).json(users.recordset);
+  } catch (error: any) {
+    res.status(500).json(error.message);
+    CreateLog.error(error);
+  }
+};
+
+/**
  * @desc    Get user by ID
  * @route   GET /api/users/:id
  * @access  Private - Admin only
@@ -458,7 +490,7 @@ export const updateUserProfileByAdmin = async (
     return res.status(422).json(error.details[0].message);
   }
 
-  const { name, email, isAdmin } = req.body;
+  const { name, email, isDeleted, isAdmin } = req.body;
 
   try {
     const user = await dbUtils.exec("usp_FindUserById", { id: userId });
@@ -481,6 +513,7 @@ export const updateUserProfileByAdmin = async (
         const updatedUser = await dbUtils.exec("usp_UpdateUserProfileByAdmin", {
           id: userId,
           name,
+          isDeleted,
           isAdmin,
         });
 
@@ -499,6 +532,7 @@ export const updateUserProfileByAdmin = async (
           id: userId,
           name,
           email,
+          isDeleted,
           isAdmin,
         });
 

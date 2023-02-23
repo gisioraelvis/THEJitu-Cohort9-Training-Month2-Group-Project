@@ -11,6 +11,7 @@ import {
   updateUserProfileByAdmin,
   forgotPassword,
   resetPassword,
+  getAllSoftDeletedUsers,
 } from "../controllers/user.controller";
 import {
   authenticateUser,
@@ -20,8 +21,11 @@ import {
 
 const userRoutes = express.Router();
 
-// Fetch all users - admin only
+// Get all users - admin only
 userRoutes.route("/").get(authenticateUser, authorizeAdmin, getAllUsers);
+
+// Get all deleted users - admin only
+userRoutes.route("/soft-deleted").get(authenticateUser, authorizeAdmin, getAllSoftDeletedUsers);
 
 // Register a new user - public
 userRoutes.route("/signup").post(registerUser);

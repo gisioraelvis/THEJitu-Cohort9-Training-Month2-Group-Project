@@ -52,7 +52,7 @@ export const authenticateUser = async (
   }
 
   if (!token) {
-    return res.status(401).json({ message: "Unauthorized, no JWT }" });
+    return res.status(401).json({ message: "Unauthorized, no JWT" });
   }
 };
 

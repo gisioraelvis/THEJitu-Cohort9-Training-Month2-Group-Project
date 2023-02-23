@@ -5,4 +5,5 @@ AS
 BEGIN
     SELECT id, name, email, isAdmin, isDeleted, createdAt, updatedAt
     FROM users
+    WHERE isDeleted = 0;
 END

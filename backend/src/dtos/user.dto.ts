@@ -99,5 +99,6 @@ export const UserUpdateProfileByAdminDto = Joi.object({
     "string.empty": "Please provide an email",
     "string.email": "Invalid email",
   }),
+  isDeleted: Joi.boolean(),
   isAdmin: Joi.boolean(),
 });

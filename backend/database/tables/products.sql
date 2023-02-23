@@ -8,9 +8,11 @@ CREATE TABLE products
     description VARCHAR(1000) NOT NULL,
     price DECIMAL(10, 2) NOT NULL,
     countInStock INT NOT NULL,
+    brandId INT,
     createdAt DATETIME DEFAULT GETDATE(),
     updatedAt DATETIME DEFAULT GETDATE(),
-    FOREIGN KEY (userId) REFERENCES users(id)
+    FOREIGN KEY (userId) REFERENCES users(id),
+    FOREIGN KEY (brandId) REFERENCES brands(id)
 );
 
 DROP TABLE IF EXISTS brands
@@ -20,18 +22,6 @@ CREATE TABLE brands
     name VARCHAR(100) NOT NULL,
     createdAt DATETIME DEFAULT GETDATE(),
     updatedAt DATETIME DEFAULT GETDATE()
-);
-
-DROP TABLE IF EXISTS product_brand
-CREATE TABLE product_brand
-(
-    productId INT NOT NULL,
-    brandId INT NOT NULL,
-    createdAt DATETIME DEFAULT GETDATE(),
-    updatedAt DATETIME DEFAULT GETDATE(),
-    PRIMARY KEY (productId, brandId),
-    FOREIGN KEY (productId) REFERENCES Products(id),
-    FOREIGN KEY (brandId) REFERENCES Brands(id)
 );
 
 DROP TABLE IF EXISTS categories

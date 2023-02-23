@@ -32,9 +32,11 @@ CREATE TABLE products
     description VARCHAR(1000) NOT NULL,
     price DECIMAL(10, 2) NOT NULL,
     countInStock INT NOT NULL,
-    createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
-    updatedAt DATETIME DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (userId) REFERENCES users(id)
+    brandId INT,
+    createdAt DATETIME DEFAULT GETDATE(),
+    updatedAt DATETIME DEFAULT GETDATE(),
+    FOREIGN KEY (userId) REFERENCES users(id),
+    FOREIGN KEY (brandId) REFERENCES brands(id)
 );
 
 CREATE TABLE brands

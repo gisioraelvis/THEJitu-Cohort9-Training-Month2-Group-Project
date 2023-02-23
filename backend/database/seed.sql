@@ -22,18 +22,18 @@ DELETE FROM products;
 DBCC CHECKIDENT('products', RESEED, 1);
 
 INSERT INTO products
-    (userId, name, image, description, price, countInStock)
+    (userId, name, image, description, price, countInStock, brandId)
 VALUES
-    (1, 'Product 1', 'https://raw.githubusercontent.com/gisioraelvis/THEJitu-Cohort9-Training-Month1-Group-Project/intergration/frontend/assests/images/playstation.jpg', 'This is the description of Product 1', 19.99, 10),
-    (1, 'Product 2', 'https://raw.githubusercontent.com/gisioraelvis/THEJitu-Cohort9-Training-Month1-Group-Project/intergration/frontend/assests/images/playstation.jpg', 'This is the description of Product 2', 29.99, 20),
-    (1, 'Product 3', 'https://raw.githubusercontent.com/gisioraelvis/THEJitu-Cohort9-Training-Month1-Group-Project/intergration/frontend/assests/images/playstation.jpg', 'This is the description of Product 3', 39.99, 30),
-    (1, 'Product 4', 'https://raw.githubusercontent.com/gisioraelvis/THEJitu-Cohort9-Training-Month1-Group-Project/intergration/frontend/assests/images/playstation.jpg', 'This is the description of Product 4', 49.99, 40),
-    (1, 'Product 5', 'https://raw.githubusercontent.com/gisioraelvis/THEJitu-Cohort9-Training-Month1-Group-Project/intergration/frontend/assests/images/playstation.jpg', 'This is the description of Product 5', 59.99, 50),
-    (1, 'Product 6', 'https://raw.githubusercontent.com/gisioraelvis/THEJitu-Cohort9-Training-Month1-Group-Project/intergration/frontend/assests/images/playstation.jpg', 'This is the description of Product 6', 69.99, 60),
-    (1, 'Product 7', 'https://raw.githubusercontent.com/gisioraelvis/THEJitu-Cohort9-Training-Month1-Group-Project/intergration/frontend/assests/images/playstation.jpg', 'This is the description of Product 7', 79.99, 70),
-    (1, 'Product 8', 'https://raw.githubusercontent.com/gisioraelvis/THEJitu-Cohort9-Training-Month1-Group-Project/intergration/frontend/assests/images/playstation.jpg', 'This is the description of Product 8', 89.99, 80),
-    (1, 'Product 9', 'https://raw.githubusercontent.com/gisioraelvis/THEJitu-Cohort9-Training-Month1-Group-Project/intergration/frontend/assests/images/playstation.jpg', 'This is the description of Product 9', 99.99, 90),
-    (1, 'Product 10', 'https://raw.githubusercontent.com/gisioraelvis/THEJitu-Cohort9-Training-Month1-Group-Project/intergration/frontend/assests/images/playstation.jpg', 'This is the description of Product 10', 109.99, 100);
+    (1, 'Product 1', 'https://raw.githubusercontent.com/gisioraelvis/THEJitu-Cohort9-Training-Month1-Group-Project/intergration/frontend/assests/images/playstation.jpg', 'This is the description of Product 1', 19.99, 10, 1),
+    (1, 'Product 2', 'https://raw.githubusercontent.com/gisioraelvis/THEJitu-Cohort9-Training-Month1-Group-Project/intergration/frontend/assests/images/playstation.jpg', 'This is the description of Product 2', 29.99, 20, 2),
+    (1, 'Product 3', 'https://raw.githubusercontent.com/gisioraelvis/THEJitu-Cohort9-Training-Month1-Group-Project/intergration/frontend/assests/images/playstation.jpg', 'This is the description of Product 3', 39.99, 30, 3),
+    (1, 'Product 4', 'https://raw.githubusercontent.com/gisioraelvis/THEJitu-Cohort9-Training-Month1-Group-Project/intergration/frontend/assests/images/playstation.jpg', 'This is the description of Product 4', 49.99, 40, 4),
+    (1, 'Product 5', 'https://raw.githubusercontent.com/gisioraelvis/THEJitu-Cohort9-Training-Month1-Group-Project/intergration/frontend/assests/images/playstation.jpg', 'This is the description of Product 5', 59.99, 50, 5),
+    (1, 'Product 6', 'https://raw.githubusercontent.com/gisioraelvis/THEJitu-Cohort9-Training-Month1-Group-Project/intergration/frontend/assests/images/playstation.jpg', 'This is the description of Product 6', 69.99, 60, 1),
+    (1, 'Product 7', 'https://raw.githubusercontent.com/gisioraelvis/THEJitu-Cohort9-Training-Month1-Group-Project/intergration/frontend/assests/images/playstation.jpg', 'This is the description of Product 7', 79.99, 70, 2),
+    (1, 'Product 8', 'https://raw.githubusercontent.com/gisioraelvis/THEJitu-Cohort9-Training-Month1-Group-Project/intergration/frontend/assests/images/playstation.jpg', 'This is the description of Product 8', 89.99, 80, 3),
+    (1, 'Product 9', 'https://raw.githubusercontent.com/gisioraelvis/THEJitu-Cohort9-Training-Month1-Group-Project/intergration/frontend/assests/images/playstation.jpg', 'This is the description of Product 9', 99.99, 90, 4),
+    (1, 'Product 10', 'https://raw.githubusercontent.com/gisioraelvis/THEJitu-Cohort9-Training-Month1-Group-Project/intergration/frontend/assests/images/playstation.jpg', 'This is the description of Product 10', 109.99, 100, 5);
 
 -- -- reviews
 DELETE FROM reviews;
@@ -76,32 +76,6 @@ VALUES
 
 
 -- -- -- -- To be run after users, products, brands, categories , reviews -- -- -- -- -- --
-
--- product_brand
-DELETE FROM product_brand;
-INSERT INTO product_brand
-    (productId, brandId)
-VALUES
-    (1, 1),
-    (2, 2),
-    (3, 3),
-    (4, 4),
-    (5, 5),
-    (6, 1),
-    (7, 2),
-    (8, 3),
-    (9, 4),
-    (10, 5),
-    (1, 2),
-    (2, 3),
-    (3, 4),
-    (4, 5),
-    (5, 1),
-    (6, 2),
-    (7, 3),
-    (8, 4),
-    (9, 5),
-    (10, 1);
 
 -- product_category
 DELETE FROM product_category;

@@ -24,16 +24,16 @@ DBCC CHECKIDENT('products', RESEED, 1);
 INSERT INTO products
     (userId, name, image, description, price, countInStock, brandId)
 VALUES
-    (1, 'Product 1', 'https://raw.githubusercontent.com/gisioraelvis/THEJitu-Cohort9-Training-Month1-Group-Project/intergration/frontend/assests/images/playstation.jpg', 'This is the description of Product 1', 19.99, 10, 1),
-    (1, 'Product 2', 'https://raw.githubusercontent.com/gisioraelvis/THEJitu-Cohort9-Training-Month1-Group-Project/intergration/frontend/assests/images/playstation.jpg', 'This is the description of Product 2', 29.99, 20, 2),
-    (1, 'Product 3', 'https://raw.githubusercontent.com/gisioraelvis/THEJitu-Cohort9-Training-Month1-Group-Project/intergration/frontend/assests/images/playstation.jpg', 'This is the description of Product 3', 39.99, 30, 3),
-    (1, 'Product 4', 'https://raw.githubusercontent.com/gisioraelvis/THEJitu-Cohort9-Training-Month1-Group-Project/intergration/frontend/assests/images/playstation.jpg', 'This is the description of Product 4', 49.99, 40, 4),
-    (1, 'Product 5', 'https://raw.githubusercontent.com/gisioraelvis/THEJitu-Cohort9-Training-Month1-Group-Project/intergration/frontend/assests/images/playstation.jpg', 'This is the description of Product 5', 59.99, 50, 5),
-    (1, 'Product 6', 'https://raw.githubusercontent.com/gisioraelvis/THEJitu-Cohort9-Training-Month1-Group-Project/intergration/frontend/assests/images/playstation.jpg', 'This is the description of Product 6', 69.99, 60, 1),
-    (1, 'Product 7', 'https://raw.githubusercontent.com/gisioraelvis/THEJitu-Cohort9-Training-Month1-Group-Project/intergration/frontend/assests/images/playstation.jpg', 'This is the description of Product 7', 79.99, 70, 2),
-    (1, 'Product 8', 'https://raw.githubusercontent.com/gisioraelvis/THEJitu-Cohort9-Training-Month1-Group-Project/intergration/frontend/assests/images/playstation.jpg', 'This is the description of Product 8', 89.99, 80, 3),
-    (1, 'Product 9', 'https://raw.githubusercontent.com/gisioraelvis/THEJitu-Cohort9-Training-Month1-Group-Project/intergration/frontend/assests/images/playstation.jpg', 'This is the description of Product 9', 99.99, 90, 4),
-    (1, 'Product 10', 'https://raw.githubusercontent.com/gisioraelvis/THEJitu-Cohort9-Training-Month1-Group-Project/intergration/frontend/assests/images/playstation.jpg', 'This is the description of Product 10', 109.99, 100, 5);
+    (1, 'Product 1', 'https://res.cloudinary.com/webapp-assets/image/upload/v1677145663/samples/ecommerce/ps5_wb6syv.webp', 'This is the description of Product 1', 19.99, 10, 1),
+    (1, 'Product 2', 'https://res.cloudinary.com/webapp-assets/image/upload/v1677145663/samples/ecommerce/Galaxy-S23-Ultra_lp9l3q.png', 'This is the description of Product 2', 29.99, 20, 2),
+    (1, 'Product 3', 'https://res.cloudinary.com/webapp-assets/image/upload/v1677145662/samples/ecommerce/iphone14-pro-max_rclytu.jpg', 'This is the description of Product 3', 39.99, 30, 3),
+    (1, 'Product 4', 'https://res.cloudinary.com/webapp-assets/image/upload/v1677145663/samples/ecommerce/logitech-mx3_lqmhth.jpg', 'This is the description of Product 4', 49.99, 40, 4),
+    (1, 'Product 5', 'https://res.cloudinary.com/webapp-assets/image/upload/v1677145661/samples/ecommerce/airpods-g3_jk6ian.jpg', 'This is the description of Product 5', 59.99, 50, 5),
+    (1, 'Product 6', 'https://res.cloudinary.com/webapp-assets/image/upload/v1677145663/samples/ecommerce/playstation_ahrpeh.jpg', 'This is the description of Product 6', 69.99, 60, 1),
+    (1, 'Product 7', 'https://res.cloudinary.com/webapp-assets/image/upload/v1677145663/samples/ecommerce/phone_nibiyh.jpg', 'This is the description of Product 7', 79.99, 70, 2),
+    (1, 'Product 8', 'https://res.cloudinary.com/webapp-assets/image/upload/v1677145663/samples/ecommerce/mouse_hmuueu.jpg', 'This is the description of Product 8', 89.99, 80, 3),
+    (1, 'Product 9', 'https://res.cloudinary.com/webapp-assets/image/upload/v1677145662/samples/ecommerce/canon-90d_ydrlj7.jpg', 'This is the description of Product 9', 99.99, 90, 4),
+    (1, 'Product 10', 'https://res.cloudinary.com/webapp-assets/image/upload/v1677145662/samples/ecommerce/google-assistant_yw534q.jpg', 'This is the description of Product 10', 109.99, 100, 5);
 
 -- -- reviews
 DELETE FROM reviews;

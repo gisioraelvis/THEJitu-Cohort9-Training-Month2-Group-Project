@@ -114,17 +114,6 @@ export const registerUser = async (req: Request, res: Response) => {
     if (newUser.recordset.length > 0) {
       const { id, name, email, isAdmin } = newUser.recordset[0];
 
-      // Send email to welcome new user to the system(GadgetHub)
-      const subject = "Welcome to GadgetHub";
-      const html = `<h1>Welcome to GadgetHub</h1>
-      <p>Dear ${name},</p>
-      <p>Thank you for registering an account with GadgetHub.</p>
-      <P>We are happy to have you on board and ready to serve you.</P>
-      <P>Happy <a href=${process.env.CLIENT_URL}>Shopping</a> 🎉</P>
-      <p>Regards,<br/>GadgetHub Team</p>`;
-
-      sendEmail(subject, email, html);
-
       const JWT = generateJWT(
         {
           id,

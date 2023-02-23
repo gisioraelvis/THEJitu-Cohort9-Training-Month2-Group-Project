@@ -7,6 +7,8 @@ import productRoutes from "./router/product.routes";
 import orderRoutes from "./router/order.routes";
 import dotenv from "dotenv";
 import cartRoutes from "./router/cart.routes";
+import cron from "node-cron";
+import { sendWelcomeEmail } from "./emails/welcome-email";
 dotenv.config({ path: __dirname + "/../.env" });
 
 dotenv.config();
@@ -34,4 +36,10 @@ const PORT = process.env.PORT || 5500;
 
 app.listen(PORT, () => {
   CreateLog.info(`Server running on http://${HOST}:${PORT}`);
+});
+
+// send welcome email to newly registered users
+cron.schedule("*/10 * * * * *", async () => {
+  // CreateLog.info("New users welcome email cron job");
+  await sendWelcomeEmail();
 });

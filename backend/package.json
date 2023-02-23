@@ -24,6 +24,7 @@
     "jsonwebtoken": "^9.0.0",
     "morgan": "^1.10.0",
     "mssql": "^9.1.1",
+    "node-cron": "^3.0.2",
     "nodemailer": "^6.9.1",
     "uuid": "^9.0.0",
     "winston": "^3.8.2"
@@ -32,6 +33,7 @@
     "@types/cors": "^2.8.13",
     "@types/jsonwebtoken": "^9.0.1",
     "@types/morgan": "^1.9.4",
+    "@types/node-cron": "^3.0.7",
     "@types/nodemailer": "^6.4.7",
     "nodemon": "^2.0.20"
   }

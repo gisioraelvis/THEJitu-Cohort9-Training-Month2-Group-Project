@@ -1,0 +1,56 @@
+<p>Working with Template variables</p>
+<!-- <input type="text" #name>
+<button type="submit" (click)="onSubmit(name)" >Submit</button>
+<p *ngIf="!shwname">Your name is {{myname}}</p> -->
+
+<div class="content">
+  <div class="form-group">
+    <div class="input-control">
+      <label for="name">Name</label>
+      <input type="text" #miname>
+    </div>
+  
+    <div class="input-control">
+      <label for="role">Role</label>
+      <select #role name="roles" id="role">
+        <option value="Student">Student</option>
+        <option value="Staff">Staff</option>
+      </select>
+    </div>
+    <button type="submit" (click)="addPerson(miname,role)">Add Student</button>
+  </div>
+</div>
+
+<div *ngIf="data.length>0; else nodata">
+
+  <div class="body-div" *ngFor="let x of data; let i = index"  (click)="delete(i)">
+    <h2 [ngClass]="{red:x.role==='Student', blue:x.role==='Staff'}"
+    [ngStyle]="{color:x.role==='Student'?'white':'yellow'}"
+    >{{x.name}}</h2>
+    <p>{{x.role}}</p>
+    <p>{{i}}</p>
+
+  </div>
+</div>
+
+<ng-template #nodata>
+
+  <p>No student/staff!!. Please add one</p>
+
+
+</ng-template>
+
+<div [ngSwitch]="day" class="div"> <!-- Evaluating and expression -->
+  
+  
+
+  <p *ngSwitchCase="1">The Day is Monday</p> <!--  Passing a value to the DOMc-->
+  <p *ngSwitchCase="2">The Day is Tuesday</p>
+  <p *ngSwitchCase="3">The Day is Wednesday</p>
+  <p *ngSwitchCase="4">The Day is Thursday</p>
+  <p *ngSwitchCase="5">The Day is Friday</p>
+  <p *ngSwitchCase="6">The Day is Saturday</p>
+  <p *ngSwitchCase="7">The Day is Sunday</p>
+  <p *ngSwitchDefault>Wrong Input try again</p>
+
+</div>

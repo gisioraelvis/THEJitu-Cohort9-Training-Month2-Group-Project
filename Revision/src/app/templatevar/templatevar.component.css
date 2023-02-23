@@ -1,0 +1,39 @@
+.content{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form-group{
+  height: 40%;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid black;
+  gap: 20px;
+}
+
+.input-control{
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+}
+.input-control input{
+  height: 1.5rem;
+}
+.input-control select{
+  height: 2rem;
+}
+
+.red {
+  background-color: red;
+  color: white;
+  padding:10px
+}
+
+.blue {
+  background-color: blue;
+  color: white;
+  padding:10px
+}

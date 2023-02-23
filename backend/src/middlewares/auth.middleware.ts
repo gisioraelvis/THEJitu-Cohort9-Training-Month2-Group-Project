@@ -45,8 +45,8 @@ export const authenticateUser = async (
       req.user = user;
 
       next();
-    } catch (error) {
-      res.status(401).json({ message: "Unauthorized, JWT failed" });
+    } catch (error: any) {
+      res.status(401).json({ message: `Unauthorized, ${error.message}` });
       CreateLog.error(error);
     }
   }

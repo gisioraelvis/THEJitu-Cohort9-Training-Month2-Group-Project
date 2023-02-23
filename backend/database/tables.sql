@@ -6,7 +6,6 @@ DROP TABLE IF EXISTS reviews;
 DROP TABLE IF EXISTS brands;
 DROP TABLE IF EXISTS categories;
 DROP TABLE IF EXISTS product_review;
-DROP TABLE IF EXISTS product_brand;
 DROP TABLE IF EXISTS product_category;
 DROP TABLE IF EXISTS orders;
 DROP TABLE IF EXISTS order_items;
@@ -19,6 +18,15 @@ CREATE TABLE users
     email VARCHAR(255) NOT NULL UNIQUE,
     password VARCHAR(255) NOT NULL,
     isAdmin BIT NOT NULL DEFAULT 0,
+    isDeleted BIT NOT NULL DEFAULT 0,
+    createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updatedAt DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE brands
+(
+    id INT IDENTITY(1,1) PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
     createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
     updatedAt DATETIME DEFAULT CURRENT_TIMESTAMP
 );
@@ -32,19 +40,11 @@ CREATE TABLE products
     description VARCHAR(1000) NOT NULL,
     price DECIMAL(10, 2) NOT NULL,
     countInStock INT NOT NULL,
-    brandId INT,
+    brandId INT NOT NULL,
     createdAt DATETIME DEFAULT GETDATE(),
     updatedAt DATETIME DEFAULT GETDATE(),
     FOREIGN KEY (userId) REFERENCES users(id),
     FOREIGN KEY (brandId) REFERENCES brands(id)
-);
-
-CREATE TABLE brands
-(
-    id INT IDENTITY(1,1) PRIMARY KEY,
-    name VARCHAR(100) NOT NULL,
-    createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
-    updatedAt DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE categories
@@ -75,17 +75,6 @@ CREATE TABLE product_category
     PRIMARY KEY (productId, categoryId),
     FOREIGN KEY (productId) REFERENCES products(id),
     FOREIGN KEY (categoryId) REFERENCES categories(id)
-);
-
-CREATE TABLE product_brand
-(
-    productId INT NOT NULL,
-    brandId INT NOT NULL,
-    createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
-    updatedAt DATETIME DEFAULT CURRENT_TIMESTAMP,
-    PRIMARY KEY (productId, brandId),
-    FOREIGN KEY (productId) REFERENCES products(id),
-    FOREIGN KEY (brandId) REFERENCES brands(id)
 );
 
 CREATE TABLE product_review

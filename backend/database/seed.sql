@@ -1,21 +1,31 @@
 USE GadgetHub;
 
--- -- -- Run users, products, brands, categories, reviews first & -- -- -- -- -- -- -- -- -- --
--- -- -- then run product_brand, product_category, product_review aftwards to prevent errors --
-
 -- -- users
 DELETE FROM users;
 DBCC CHECKIDENT('users', RESEED, 1);
 
 INSERT INTO users
-    (name, email, password, isAdmin)
+    (name, email, password, isAdmin, isDeleted)
 VALUES
-    ('Admin User', 'admin@example.com', '$2b$10$NI/h5/TnaDWYlKTok5BfXeIXYCWCXuetW.dZMxxj/myjUSY7DpeA6', 1),
-    ('John Doe', 'johndoe@example.com', '$2b$10$NI/h5/TnaDWYlKTok5BfXeIXYCWCXuetW.dZMxxj/myjUSY7DpeA6', 1),
-    ('Jane Doe', 'janedoe@example.com', '$2b$10$NI/h5/TnaDWYlKTok5BfXeIXYCWCXuetW.dZMxxj/myjUSY7DpeA6', 0),
-    ('Jim Smith', 'jimsmith@example.com', '$2b$10$NI/h5/TnaDWYlKTok5BfXeIXYCWCXuetW.dZMxxj/myjUSY7DpeA6', 0),
-    ('Sarah Johnson', 'sarahjohnson@example.com', '$2b$10$NI/h5/TnaDWYlKTok5BfXeIXYCWCXuetW.dZMxxj/myjUSY7DpeA6', 0),
-    ('Tommy Lee', 'tommylee@example.com', '$2b$10$NI/h5/TnaDWYlKTok5BfXeIXYCWCXuetW.dZMxxj/myjUSY7DpeA6', 0);
+    ('Admin User', 'admin@example.com', '$2b$10$NI/h5/TnaDWYlKTok5BfXeIXYCWCXuetW.dZMxxj/myjUSY7DpeA6', 1, 0),
+    ('John Doe', 'johndoe@example.com', '$2b$10$NI/h5/TnaDWYlKTok5BfXeIXYCWCXuetW.dZMxxj/myjUSY7DpeA6', 1, 0),
+    ('Jane Doe', 'janedoe@example.com', '$2b$10$NI/h5/TnaDWYlKTok5BfXeIXYCWCXuetW.dZMxxj/myjUSY7DpeA6', 0, 0),
+    ('Jim Smith', 'jimsmith@example.com', '$2b$10$NI/h5/TnaDWYlKTok5BfXeIXYCWCXuetW.dZMxxj/myjUSY7DpeA6', 0, 0),
+    ('Sarah Johnson', 'sarahjohnson@example.com', '$2b$10$NI/h5/TnaDWYlKTok5BfXeIXYCWCXuetW.dZMxxj/myjUSY7DpeA6', 0, 0),
+    ('Tommy Lee', 'tommylee@example.com', '$2b$10$NI/h5/TnaDWYlKTok5BfXeIXYCWCXuetW.dZMxxj/myjUSY7DpeA6', 0, 0);
+
+-- -- brands
+DELETE FROM brands;
+DBCC CHECKIDENT('brands', RESEED, 1);
+
+INSERT INTO brands
+    (name)
+VALUES
+    ('Brand 1'),
+    ('Brand 2'),
+    ('Brand 3'),
+    ('Brand 4'),
+    ('Brand 5');
 
 -- -- products
 DELETE FROM products;
@@ -48,19 +58,6 @@ VALUES
     (4, 'Sarah Johnson', 2, 'This is a review of Product 4'),
     (5, 'Tommy Lee', 1, 'This is a review of Product 5');
 
--- -- brands
-DELETE FROM brands;
-DBCC CHECKIDENT('brands', RESEED, 1);
-
-INSERT INTO brands
-    (name)
-VALUES
-    ('Brand 1'),
-    ('Brand 2'),
-    ('Brand 3'),
-    ('Brand 4'),
-    ('Brand 5');
-
 -- -- categories
 DELETE FROM categories;
 DBCC CHECKIDENT('categories', RESEED, 1);
@@ -73,9 +70,6 @@ VALUES
     ('Category 3'),
     ('Category 4'),
     ('Category 5');
-
-
--- -- -- -- To be run after users, products, brands, categories , reviews -- -- -- -- -- --
 
 -- product_category
 DELETE FROM product_category;
@@ -129,9 +123,6 @@ VALUES
     (9, 5),
     (10, 1);
 
-
--- -- -- -- -- To be run after users, products, brands, categories , reviews, product_brand, product_category, product_review -- -- -- -- -- --
-
 --  Orders 
 DELETE FROM orders;
 DBCC CHECKIDENT('orders', RESEED, 1);
@@ -159,9 +150,6 @@ VALUES
     (3, 4, 1),
     (4, 5, 6),
     (5, 1, 1);
-
-
--- -- -- -- -- To be run after users, products, brands, categories , reviews, product_brand, product_category, product_review, orders, order_items -- -- -- -- -- --
 
 -- --  Cart
 DELETE FROM cart;

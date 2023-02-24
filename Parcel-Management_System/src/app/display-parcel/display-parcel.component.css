@@ -1,0 +1,19 @@
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 10px;
+}
+h2{
+  text-align: center;
+  padding: 20px;
+}
+.content{
+  padding: 20px;
+  border-radius: 5px;
+  background-color: grey;
+  color: white;
+  border: 2px solid hsl(202, 87%, 54%);
+}

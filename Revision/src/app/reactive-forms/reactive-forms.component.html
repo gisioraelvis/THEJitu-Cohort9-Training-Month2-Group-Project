@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="content">
+    <form [formGroup]="form" (ngSubmit)="submitData()">
+      <div class="form-img">
+        <img src="https://mcdn.wallpapersafari.com/medium/2/30/mXLdoZ.jpg" alt="pc">
+      </div>
+      <div class="form-group">
+        <h2>Template Driven Forms</h2>
+          <div class="input-group">
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" required formControlName="username">
+            <!-- <span *ngIf=" !username.valid && username.touched" class="error">Please enter a valid Username</span> -->
+          </div>
+          <div class="input-group">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" required email formControlName="email" />
+            <!-- <span *ngIf=" !email.valid && email.touched" class="error">Please enter a Valid Email</span> -->
+          </div>
+          <div class="input-group">
+            <label for="phone">Phone Number</label>
+            <input type="number" name="phone" id="phone" formControlName="phone" required />
+          </div>
+          <div class="input-group">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" formControlName="password" required
+              pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&.,])[A-Za-z\d@$!%*?&.,]{8,}$" />
+            <!-- <span *ngIf=" !pass.valid && pass.touched" class="error">Please enter a Valid Password</span>
+            <span class="error" *ngIf="pass.errors?.['pattern']">Password must contain a minimum of eight characters, at least one uppercase letter, one lowercase letter, one number and one special character</span> -->
+        </div>
+        <div class="input-group">
+          <label for="position">Occupation</label>
+          <select formControlName="position" name="position" id="pst" required>
+            <option value="default">Select a position that fits you.</option>
+            <option value="Staff">Staff</option>
+            <option value="Student">Student</option>
+            <option value="Lecturer">Lecturer</option>
+          </select>
+        </div>
+        <div class="input-group">
+          <div class="gender" *ngFor="let g of genders">
+            <label>
+              <input formControlName="gender" type="radio" [value]="g" formControlName="gender" />{{ g }}
+            </label>
+            <!-- <span class="error">Please select Gender</span> -->
+          </div>
+        </div>
+        <button type="submit" >Submit</button>
+      </div>
+      <!-- <button type="reset">reset</button> -->
+
+    </form>
+  </div>
+
+<!-- "^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" -->
+<!-- Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character: -->
+
+</div>

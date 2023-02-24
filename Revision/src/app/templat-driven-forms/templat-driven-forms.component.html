@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="content">
+    <form #addDetails="ngForm" (ngSubmit)="submitForm()">
+      <div class="form-img">
+        <img src="https://mcdn.wallpapersafari.com/medium/2/30/mXLdoZ.jpg" alt="pc">
+      </div>
+      <div class="form-group">
+        <h2>Template Driven Forms</h2>
+        <div ngModelGroup="personalDetails">
+          <div class="input-group">
+            <label for="username">Username</label>
+            <input ngModel type="text" name="username" id="username" required #username="ngModel" />
+            <span *ngIf=" !username.valid && username.touched" class="error">Please enter a valid Username</span>
+          </div>
+          <div class="input-group">
+            <label for="email">Email</label>
+            <input ngModel type="email" name="email" id="email" required email #email="ngModel" />
+            <span *ngIf=" !email.valid && email.touched" class="error">Please enter a Valid Email</span>
+          </div>
+          <div class="input-group">
+            <label for="phone">Phone Number</label>
+            <input ngModel type="number" name="phone" id="phone" #phone required />
+          </div>
+          <div class="input-group">
+            <label for="password">Password</label>
+            <input ngModel type="password" name="password" id="password" #pass="ngModel" required
+              pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&.,])[A-Za-z\d@$!%*?&.,]{8,}$" />
+            <span *ngIf=" !pass.valid && pass.touched" class="error">Please enter a Valid Password</span>
+            <span class="error" *ngIf="pass.errors?.['pattern']">Password must contain a minimum of eight characters, at least one uppercase letter, one lowercase letter, one number and one special character</span>
+
+          </div>
+        </div>
+        <div class="input-group">
+          <label for="position">Occupation</label>
+          <select [ngModel]="default" #role name="position" id="pst" required>
+            <option value="default">Select a position that fits you.</option>
+            <option value="Staff">Staff</option>
+            <option value="Student">Student</option>
+            <option value="Lecturer">Lecturer</option>
+          </select>
+        </div>
+        <button type="submit" [disabled]="!addDetails.valid">Submit</button>
+      </div>
+      <!-- <button type="reset">reset</button> -->
+
+    </form>
+  </div>
+
+<!-- "^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" -->
+<!-- Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character: -->
+
+</div>
+
+<!-- Pre-populate values in a form -->
+<button (click)="prePopulate()">Prepopulate</button>
+

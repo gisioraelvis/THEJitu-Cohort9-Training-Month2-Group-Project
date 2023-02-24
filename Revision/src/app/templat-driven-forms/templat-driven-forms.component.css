@@ -1,0 +1,110 @@
+
+.content{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* Form styles start */
+/* form img styles start */
+form{
+  display: flex;
+  gap: 20px;
+  /* border: 2px solid red; */
+  width: fit-content;
+}
+.form-img{
+  display: flex;
+  justify-content: flex-start;
+  /* height: 100%; */
+  width: 50%;
+  /* border: 2px solid green; */
+
+}
+.form-img img{
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+/* form img styles end */
+.form-group{
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  /* border: 2px solid blue; */
+
+}
+.form-group h2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-bottom: 1px solid hsl(202, 87%, 54%);
+}
+
+.input-group{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  /* border: 2px solid red; */
+}
+.input-group input{
+    border-radius: 10px;
+    border: 2px solid hsl(202, 87%, 54%);
+    height: 3rem;
+    width: 300px;
+    outline: none;
+
+}
+.input-group select{
+    border-radius: 10px;
+    border: 2px solid hsl(202, 87%, 54%);
+    height: 2.5rem;
+    width: 300px;
+    outline: none;
+
+}
+
+
+button:hover{
+ cursor: pointer;
+}
+form button {
+    background-color: hsl(202, 87%, 54%);
+    border-radius: 10px;
+    height: 2.5rem;
+    width: 300px;
+    border: none;
+    color: white;
+}
+/* Form stytles end */
+/* Validation start */
+
+.error{
+    color: red;
+    width: 70%;
+
+}
+
+input.ng-invalid.ng-touched{
+  border: 2px solid red;
+}
+
+select.ng-invalid.ng-touched{
+  border: 2px solid red;
+}
+
+form button:disabled{
+  background-color: grey;
+  color: white;
+}
+/* form button:disabled,
+form button[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+} */
+/* validation end */

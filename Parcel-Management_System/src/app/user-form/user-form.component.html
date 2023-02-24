@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="content">
+    <form [formGroup]="form" (ngSubmit)="submitData()">
+      <div class="form-img">
+        <img src="https://mcdn.wallpapersafari.com/medium/2/30/mXLdoZ.jpg" alt="pc">
+      </div>
+      <div class="form-group">
+        <h2>Enter your details here</h2>
+        <div class="input-group">
+          <label for="name">Name</label>
+          <input type="text" name="name" id="name" required formControlName="name">
+          <span class="error" *ngIf="!form.get('name')?.valid &&
+                        form.get('name')?.touched">
+            <span *ngIf="form.get('name')!.errors!['required']">Please provide a
+              Username</span>
+           
+          </span>
+        </div>
+        <div class="input-group">
+          <label for="email">Email</label>
+          <input type="email" name="email" id="email" required email formControlName="email" />
+          <span *ngIf="!form.get('email')?.valid && form.get('email')?.touched " class="error">
+            <span *ngIf="form.get('email')!.errors!['required']">Please input a Value</span>
+            <span *ngIf="form.get('email')!.errors!['pattern']">Please Enter a valid email with @travel.com</span>
+            <span *ngIf="form.get('email')!.errors!['email']">Please Enter a valid
+              Email</span>
+             
+          </span>
+        </div>
+        <div class="input-group">
+          <label for="destination">Destination</label>
+          <input type="text" name="destination" id="destination" formControlName="destination" required />
+        </div>
+
+        <button type="submit">Submit</button>
+      </div>
+
+    </form>
+  </div>
+
+
+</div>

@@ -36,7 +36,7 @@
           <input type="text" name="description" id="description" formControlName="description" required />
         </div>
 
-        <button type="submit">Submit</button>
+        <button [disabled]="!form.valid" type="submit">Submit</button>
       </div>
 
     </form>

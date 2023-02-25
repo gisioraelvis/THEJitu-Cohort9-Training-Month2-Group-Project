@@ -21,7 +21,7 @@ export class UserFormComponent implements OnInit {
   ngOnInit(): void {
     this.form = this.fb.group({
       name: [null, [Validators.required]],
-      email: [null, [Validators.required, Validators.pattern("@travel.com")]],
+      email: [null, [Validators.required]],
       destination: [null, [Validators.required]],
       description: [null, [Validators.required]]
     })

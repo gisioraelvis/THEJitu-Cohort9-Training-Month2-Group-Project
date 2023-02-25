@@ -1,0 +1,9 @@
+<div class="container">
+
+  <div class="content" *ngFor=" let parcel of parcels">
+    <p>{{parcel.name|shorten:16}}</p>
+    <p>{{parcel.email}}</p>
+    <p>{{parcel.destination}}</p>
+    <p>{{parcel.description|shorten:16}}</p>
+  </div>
+</div>

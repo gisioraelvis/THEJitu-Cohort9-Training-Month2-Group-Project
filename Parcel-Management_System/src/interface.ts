@@ -1,5 +1,6 @@
 export interface Parcel {
   name: string
   email: string
-  destination: string
+  destination: string,
+  description: string
 }

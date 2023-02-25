@@ -13,7 +13,7 @@
                         form.get('name')?.touched">
             <span *ngIf="form.get('name')!.errors!['required']">Please provide a
               Username</span>
-           
+
           </span>
         </div>
         <div class="input-group">
@@ -24,12 +24,16 @@
             <span *ngIf="form.get('email')!.errors!['pattern']">Please Enter a valid email with @travel.com</span>
             <span *ngIf="form.get('email')!.errors!['email']">Please Enter a valid
               Email</span>
-             
+
           </span>
         </div>
         <div class="input-group">
           <label for="destination">Destination</label>
           <input type="text" name="destination" id="destination" formControlName="destination" required />
+        </div>
+        <div class="input-group">
+          <label for="description">Description</label>
+          <input type="text" name="description" id="description" formControlName="description" required />
         </div>
 
         <button type="submit">Submit</button>

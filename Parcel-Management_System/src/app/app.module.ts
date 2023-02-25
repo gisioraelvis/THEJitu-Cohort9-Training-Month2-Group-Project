@@ -6,12 +6,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserFormComponent } from './user-form/user-form.component';
 import { DisplayParcelComponent } from './display-parcel/display-parcel.component';
+import { Shorten } from './shorten.pipe';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserFormComponent,
-    DisplayParcelComponent
+    DisplayParcelComponent,
+    Shorten,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

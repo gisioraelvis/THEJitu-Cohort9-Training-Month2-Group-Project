@@ -1,9 +1,10 @@
 <h2>All Parcels</h2>
 <div class="container">
-  
+
   <div class="content" *ngFor=" let parcel of parcels">
-    <p>{{parcel.name}}</p>
+    <p>{{parcel.name|shorten:16}}</p>
     <p>{{parcel.email}}</p>
     <p>{{parcel.destination}}</p>
-  </div>
+    <p>{{parcel.description|shorten:16}}</p>
+    </div>
 </div>

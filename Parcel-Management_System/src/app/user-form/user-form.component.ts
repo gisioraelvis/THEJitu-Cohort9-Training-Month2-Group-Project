@@ -22,7 +22,8 @@ export class UserFormComponent implements OnInit {
     this.form = this.fb.group({
       name: [null, [Validators.required]],
       email: [null, [Validators.required, Validators.pattern("@travel.com")]],
-      destination: [null, [Validators.required]]
+      destination: [null, [Validators.required]],
+      description: [null, [Validators.required]]
     })
     console.log(this.reg);
   }

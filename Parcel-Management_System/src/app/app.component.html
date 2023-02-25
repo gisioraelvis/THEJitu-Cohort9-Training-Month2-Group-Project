@@ -1,3 +1,14 @@
+<header>
+  <nav>
+    <ul>
+      <li><a routerLink="" class="current-page">HOME</a></li>
+      <li><a routerLink="addparcel">Add Parcel</a></li>
+      <li><a [routerLink]="['parcels']">Display Parcels</a></li> <!-- using property binding -- used for complex -->
+    </ul>
+  </nav>
+</header>
+
 <h2>Parcel Management System</h2>
-<app-user-form [reg]="reg"></app-user-form>
-<app-display-parcel (sentData)="Update($event)"></app-display-parcel>
+<!-- <app-user-form [reg]="reg"></app-user-form>
+<app-display-parcel (sentData)="Update($event)"></app-display-parcel> -->
+<router-outlet></router-outlet>

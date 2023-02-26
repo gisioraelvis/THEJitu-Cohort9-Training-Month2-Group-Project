@@ -10,6 +10,11 @@
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
+.product a {
+  text-decoration: none;
+  color: #000;
+}
+
 .image {
   display: flex;
   justify-content: center;

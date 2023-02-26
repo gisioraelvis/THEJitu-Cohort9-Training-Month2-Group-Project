@@ -6,6 +6,8 @@
         <h2>Latest Products </h2>
     </div>
     <div class="products">
-        <app-product *ngFor="let product of products"></app-product>
+        <span *ngFor="let product of products">
+            <app-product-card [product]="product"></app-product-card>
+        </span>
     </div>
 </div>

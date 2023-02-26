@@ -10,6 +10,13 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'product/:id',
+    loadComponent: () =>
+      import('./shopping/components/product/product.component').then(
+        (c) => c.ProductComponent
+      ),
+  },
+  {
     path: 'customer-dashboard',
     loadChildren: () =>
       import('./customer-dashboard/customer-dashboard.module').then(

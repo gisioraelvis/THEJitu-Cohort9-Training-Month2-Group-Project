@@ -21,11 +21,10 @@
   font-weight: 600;
 }
 
-/* 3 products per row */
 .products {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  /* flex-wrap: wrap; */
+  justify-content: space-between;
   align-items: center;
   width: 100%;
   height: 100%;

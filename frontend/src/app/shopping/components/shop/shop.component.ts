@@ -1,8 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavbarComponent } from 'src/app/shared/components/navbar/navbar.component';
+import { IProduct } from 'src/app/shared/models/product';
+import { ProductService } from 'src/app/shared/services/product.service';
 import { CarouselComponent } from './carousel/carousel.component';
-import { ProductCardComponent } from './product/product.component';
+import { ProductCardComponent } from './product-card/product-card.component';
 
 @Component({
   standalone: true,
@@ -16,6 +18,17 @@ import { ProductCardComponent } from './product/product.component';
     ProductCardComponent,
   ],
 })
-export class ShopComponent {
-  products = [1, 2, 3, 4, 5, 6];
+export class ShopComponent implements OnInit {
+  products: IProduct[] = [];
+  constructor(private productService: ProductService) {}
+
+  ngOnInit(): void {
+    this.getProducts();
+  }
+
+  getProducts(): void {
+    this.productService.getProducts().subscribe((products) => {
+      this.products = products;
+    });
+  }
 }

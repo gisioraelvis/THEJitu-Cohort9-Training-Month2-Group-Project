@@ -4,7 +4,11 @@ import { DatabaseUtils } from "../utils/db.util";
 import { CreateLog } from "../utils/logger.util";
 import { IRequestWithUser } from "../interfaces/request-with-user.interface";
 import dotenv from "dotenv";
-import { Product } from "../interfaces/product.interface";
+import {
+  IProduct,
+  IProductObject,
+  Product,
+} from "../interfaces/product.interface";
 dotenv.config({ path: __dirname + "/../../.env" });
 
 import {
@@ -51,9 +55,48 @@ export const getProductById = async (req: Request, res: Response) => {
       productId,
     });
 
-    // TODO: return catories, brands and reviews as array of objects
+    function reduceProducts(products: IProduct[]): IProductObject {
+      const reduced: IProductObject = {
+        id: products[0].id,
+        userId: products[0].userId,
+        name: products[0].name,
+        image: products[0].image,
+        description: products[0].description,
+        price: products[0].price,
+        countInStock: products[0].countInStock,
+        brandName: products[0].brandName,
+        categories: [],
+        reviews: [],
+        createdAt: products[0].createdAt,
+        updatedAt: products[0].updatedAt,
+      };
+
+      products.forEach((product) => {
+        const category = {
+          categoryId: product.categoryId,
+          categoryName: product.categoryName,
+        };
+        if (
+          !reduced.categories.some((c) => c.categoryId === category.categoryId)
+        ) {
+          reduced.categories.push(category);
+        }
+
+        const review = {
+          reviewId: product.reviewId,
+          rating: product.rating,
+          comment: product.comment,
+        };
+        if (!reduced.reviews.some((r) => r.reviewId === review.reviewId)) {
+          reduced.reviews.push(review);
+        }
+      });
+
+      return reduced;
+    }
+
     if (product.recordset.length > 0) {
-      return res.status(200).json(product.recordset);
+      return res.status(200).json(reduceProducts(product.recordset));
     } else {
       return res.status(404).json({ message: "Product not found" });
     }

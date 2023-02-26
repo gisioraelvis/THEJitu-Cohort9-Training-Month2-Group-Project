@@ -1,2 +1,11 @@
 <app-navbar></app-navbar>
-<p>home works!</p>
+<app-carousel></app-carousel>
+<!-- Products -->
+<div class="products-container">
+    <div class="products-title">
+        <h2>Latest Products </h2>
+    </div>
+    <div class="products">
+        <app-product *ngFor="let product of products"></app-product>
+    </div>
+</div>

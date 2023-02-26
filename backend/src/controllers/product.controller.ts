@@ -4,11 +4,7 @@ import { DatabaseUtils } from "../utils/db.util";
 import { CreateLog } from "../utils/logger.util";
 import { IRequestWithUser } from "../interfaces/request-with-user.interface";
 import dotenv from "dotenv";
-import {
-  IProduct,
-  IProductObject,
-  Product,
-} from "../interfaces/product.interface";
+import { IProduct, IProductObject } from "../interfaces/product.interface";
 dotenv.config({ path: __dirname + "/../../.env" });
 
 import {

@@ -5,18 +5,16 @@ import { AdminDashboardModule } from './admin-dashboard/admin-dashboard.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CustomerDashboardModule } from './customer-dashboard/customer-dashboard.module';
-import { SharedModule } from './shared/shared.module';
-import { ShoppingModule } from './shopping/shopping.module';
+import { FooterComponent } from './shared/components/footer/footer.component';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    SharedModule,
-    ShoppingModule,
     CustomerDashboardModule,
     AdminDashboardModule,
+    FooterComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -2,11 +2,12 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'shop', pathMatch: 'full' },
   {
-    path: 'shop',
-    loadChildren: () =>
-      import('./shopping/shopping.module').then((m) => m.ShoppingModule),
+    path: '',
+    loadComponent: () =>
+      import('./shopping/components/shop/shop.component').then(
+        (c) => c.ShopComponent
+      ),
   },
   {
     path: 'customer-dashboard',
@@ -22,6 +23,15 @@ const routes: Routes = [
         (m) => m.AdminDashboardModule
       ),
   },
+  {
+    path: 'not-found',
+    loadComponent: () =>
+      import('./shared/components/not-found/not-found.component').then(
+        (c) => c.NotFoundComponent
+      ),
+    data: { message: 'Page not found!' },
+  },
+  { path: '**', redirectTo: '/not-found' },
 ];
 
 @NgModule({

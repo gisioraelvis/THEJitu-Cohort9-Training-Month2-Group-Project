@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { IProduct } from 'src/app/shared/models/product';
@@ -7,7 +8,7 @@ import { IProduct } from 'src/app/shared/models/product';
   selector: 'app-product-card',
   templateUrl: './product-card.component.html',
   styleUrls: ['./product-card.component.css'],
-  imports: [RouterModule],
+  imports: [CommonModule, RouterModule],
 })
 export class ProductCardComponent {
   @Input() product?: IProduct;

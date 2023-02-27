@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { NavbarComponent } from 'src/app/shared/components/navbar/navbar.component';
 import { IProduct } from 'src/app/shared/models/product';
 import { ProductService } from 'src/app/shared/services/product.service';
@@ -13,6 +14,7 @@ import { ProductCardComponent } from './product-card/product-card.component';
   styleUrls: ['./shop.component.css'],
   imports: [
     CommonModule,
+    RouterModule,
     NavbarComponent,
     CarouselComponent,
     ProductCardComponent,

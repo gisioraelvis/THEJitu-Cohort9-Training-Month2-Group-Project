@@ -1,16 +1,4 @@
-.product {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: space-between;
-  width: 40%;
-  margin: 1rem;
-  background-color: var(--background);
-  border-radius: 0.5rem;
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-}
-
-.product a {
+a {
   text-decoration: none;
   color: #000;
 }
@@ -63,8 +51,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50%;
-  height: 60%;
   background-color: grey;
   border: none;
   border-radius: 1rem;

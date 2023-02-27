@@ -12,7 +12,7 @@ const routes: Routes = [
   {
     path: 'product/:id',
     loadComponent: () =>
-      import('./shopping/components/product/product.component').then(
+      import('./shopping/components/product-page/product.component').then(
         (c) => c.ProductComponent
       ),
   },

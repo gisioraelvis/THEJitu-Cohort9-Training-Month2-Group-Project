@@ -34,7 +34,7 @@ export class EditProductComponent implements OnInit, CanDeactivateComponent {
       price:[null, Validators.required]
     })
     this.route.params.subscribe((params:Params)=>{
-      this.product= this.productService.getOneProduct(+params['id'])
+      this.product= this.productService.getOneProduct(params['id'])
     })
     this.form.setValue({
       name:this.product.name,

@@ -48,3 +48,14 @@ button{
     width: 100px;
     border-radius: 5px;
 }
+
+
+.delete{
+    color: white;
+    background-color: red;
+    padding: 10px 16px;
+    border-style: none;
+    margin-top: 15px;
+    width: 100px;
+    border-radius: 5px;
+}

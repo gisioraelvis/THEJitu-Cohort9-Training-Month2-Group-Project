@@ -12,6 +12,6 @@ export class ProductResolverService implements Resolve<Product> {
     constructor( private productService:ProductService){}
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot)
   : Product | Observable<Product> | Promise<Product> {
-   return this.productService.getOneProduct(+route.params['id'])
+   return this.productService.getOneProduct(route.params['id'])
   }
 }

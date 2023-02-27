@@ -9,8 +9,10 @@
         <div class="right">
             <h1>{{product.name}}</h1>
             <p>{{product.description}}</p>
-            <p *ngIf="show"> {{product.price | currency}}</p>
+            <p> {{product.price |currency}}</p>
             <button (click)="Update()">Update</button>
+
+            <button class="delete" (click)="Delete()">Delete</button>
         </div>
     </div>
 </div>

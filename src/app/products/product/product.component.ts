@@ -14,15 +14,15 @@ import { ProductService } from '../../Services/ProductService/product.service';
 export class ProductComponent implements OnInit  {
 product!:Product
 show!:boolean
+id=''
 constructor(private route:ActivatedRoute, private router:Router,
   private productService:ProductService) {
 }
 
 ngOnInit(): void {
-  // this.route.params.subscribe((params:Params)=>{
-  //   console.log(params['id']);
-  //   this.product=this.productService.getOneProduct(+params['id'])
-  // })
+  this.route.params.subscribe((params:Params)=>{
+  this.id=params['id']
+  })
 
   this.route.data.subscribe((data:Data)=>{
     this.product= data['product']
@@ -40,5 +40,9 @@ ngOnInit(): void {
 
 Update(){
 this.router.navigate(['edit'], {relativeTo:this.route})
+}
+
+Delete(){
+this.productService.deleteProduct(this.id)
 }
 }

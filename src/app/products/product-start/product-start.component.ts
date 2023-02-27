@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, RouterModule } from '@angular/router';
 import { Product } from '../../Interfaces';
 import { ProductService } from '../../Services/ProductService/product.service';
-
+import { map } from 'rxjs';
 @Component({
   selector: 'app-product-start',
   templateUrl: './product-start.component.html',
@@ -18,7 +18,17 @@ export class ProductStartComponent implements OnInit {
   
   ngOnInit(): void {
   this.route.queryParams.subscribe((params:Params)=>{
-    this.products=this.productService.getProducts()
+    this.productService.getProducts().pipe(map(x=>{
+      let productsArray=[]
+      for(let key in x){
+        productsArray.push({...x[key], id:key})
+      }
+      return productsArray
+    })).subscribe(product=>{
+      this.products=product
+    })
+
+
   })
   }
 }

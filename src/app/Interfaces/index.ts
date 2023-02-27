@@ -9,7 +9,7 @@ export interface AddProduct{
 
 
 export interface Product{
-    id:number
+    id:string
     name:string
     description:string
     image:string

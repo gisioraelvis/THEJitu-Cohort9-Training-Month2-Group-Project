@@ -1,0 +1,40 @@
+
+<section>
+  <header>
+   <h3>Add A New Product</h3>
+  </header>
+
+  <hr/>
+  <div class="show_products">
+   <div class="addButton"><a routerLink="../../product"><button type="button"> Manage Products</button></a></div>
+   <div class="form">
+    <form [formGroup]=" AddProduct">
+      <div class="form-group">
+        <label>Full Name</label>
+        <input formControlName="name" type="text" />
+      <span> <small *ngIf="AddProduct.controls['name'].dirty && AddProduct.hasError('required','name')">Kindly add text to the input field</small></span> 
+      </div>
+      <div class="form-group">
+        <label>Image</label>
+        <input formControlName="image" type="url" />
+        <span><small *ngIf="AddProduct.controls['image'].dirty && AddProduct.hasError('required','image')">Kindly add text to the input field</small></span> 
+      </div>
+      <div class="form-group">
+        <label>Description</label>
+        <input formControlName="description" type="text" />
+        <span><small *ngIf="AddProduct.controls['description'].dirty && AddProduct.hasError('required','description')">Kindly add text to the input field</small></span> 
+      </div>
+      <div class="form-group">
+        <label>Price</label>
+        <input formControlName="price" type="text" />
+        <span>  <small *ngIf="AddProduct.controls['price'].dirty && AddProduct.hasError('required','price')">Kindly add text to the input field</small></span> 
+      </div>
+    
+      <div class="form-group">
+        <input (click)="onSubmit()" type="submit"  value="Submit">
+      </div>
+    </form>
+   </div>
+ 
+  </div>
+</section>

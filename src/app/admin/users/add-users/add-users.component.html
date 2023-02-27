@@ -1,0 +1,43 @@
+
+<section>
+  <header>
+   <h3>Add A New User</h3>
+  </header>
+
+  <hr/>
+
+  <div class="show_products">
+   <div class="addButton"><a routerLink="../../users"><button type="button"> Manage Users</button></a></div>
+   <div class="form">
+    <form [formGroup]="SignupForm">
+      <div class="form-group">
+        <label>FirstName</label>
+        <input formControlName="name" type="text" />
+      <span> <small *ngIf="SignupForm.controls['name'].dirty && SignupForm.hasError('required','name')">Kindly add text to the input field</small></span> 
+      </div>
+
+      <div class="form-group">
+        <label>Email</label>
+        <input formControlName="email" type="email" />
+        <span><small *ngIf="SignupForm.controls['email'].dirty && SignupForm.hasError('required','email')">Kindly add text to the input field</small></span> 
+      </div>
+      <div class="form-group">
+        <label> Confirm password</label>
+        <input formControlName="Confirmpassword" type="password" />
+        <span>  <small *ngIf="SignupForm.controls['Confirmpassword'].dirty && SignupForm.hasError('required','Confirmpassword')">Kindly add text to the input field</small></span> 
+      </div>
+      
+      <div class="form-group">
+        <label>Password</label>
+        <input formControlName="password"   type="password"/>
+        <span> <small *ngIf="SignupForm.controls['password'].dirty && SignupForm.hasError('required','password')"> Kindly add text to the input field</small></span> 
+      </div>
+    
+      <div class="form-group">
+        <input (click)="onSubmit()" type="submit"  value="Submit">
+      </div>
+    </form>
+   </div>
+ 
+  </div>
+</section>

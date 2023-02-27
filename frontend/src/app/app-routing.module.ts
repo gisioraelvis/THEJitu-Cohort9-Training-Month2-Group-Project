@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthguardService } from './shared/services/guard/authguard.service';
 
 const routes: Routes = [
   {
@@ -9,12 +10,15 @@ const routes: Routes = [
         (c) => c.ShopComponent
       ),
   },
+  
+  { path: 'login', loadComponent: () => import('./core/components/login/login.component').then(l => l.LoginComponent)},
+  { path: 'register', loadComponent: () => import('./core/components/register/register.component').then(r => r.RegisterComponent) },
   {
     path: 'product/:id',
     loadComponent: () =>
       import('./shopping/components/product-page/product.component').then(
         (c) => c.ProductComponent
-      ),
+      ),canActivate:[AuthguardService]
   },
   {
     path: 'customer-dashboard',

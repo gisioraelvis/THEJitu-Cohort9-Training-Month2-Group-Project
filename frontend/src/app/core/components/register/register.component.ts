@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { User } from '../../../shared/Interfaces/auth/user';
+import { User } from '../../../shared/Interfaces/auth/interfaces/user';
 import { AuthService } from 'src/app/shared/services/auth/auth.service';
 import { HttpClient, HttpClientModule, HttpErrorResponse } from '@angular/common/http';
 // import { throwError } from 'rxjs';

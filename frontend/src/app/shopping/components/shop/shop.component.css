@@ -25,6 +25,7 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
   width: 90%;
   height: 100%;
   margin: 1.5rem 0;
@@ -36,6 +37,7 @@
   justify-content: center;
   align-items: space-between;
   width: 20%;
+  height: 100%;
   margin: 1.5rem;
   background-color: var(--background);
   border-radius: 0.5rem;

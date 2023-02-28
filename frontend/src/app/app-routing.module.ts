@@ -8,7 +8,7 @@ const routes: Routes = [
     loadComponent: () =>
       import('./shopping/components/shop/shop.component').then(
         (c) => c.ShopComponent
-      ),
+      )
   },
 
   {

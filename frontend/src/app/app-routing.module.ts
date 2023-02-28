@@ -26,6 +26,14 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'cart',
+    loadComponent: () =>
+      import('./shopping/components/cart/cart.component').then(
+        (c) => c.CartComponent
+      ),
+    // canActivate: [AuthguardService],
+  },
+  {
     path: 'product/:id',
     loadComponent: () =>
       import('./shopping/components/product-page/product.component').then(

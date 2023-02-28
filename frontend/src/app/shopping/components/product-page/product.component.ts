@@ -1,17 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule, Location } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { IProductObject } from 'src/app/shared/Interfaces/product';
 import { ProductService } from 'src/app/shared/services/product.service';
 import { NavbarComponent } from 'src/app/shared/components/navbar/navbar.component';
 import { FormsModule } from '@angular/forms';
+import { GoBackComponent } from 'src/app/shared/components/go-back/go-back.component';
 
 @Component({
   standalone: true,
   selector: 'app-product',
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.css'],
-  imports: [CommonModule, FormsModule, NavbarComponent],
+  imports: [CommonModule, FormsModule, NavbarComponent, GoBackComponent],
 })
 export class ProductComponent implements OnInit {
   product?: IProductObject | undefined;
@@ -20,7 +21,8 @@ export class ProductComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private productService: ProductService,
-    private location: Location
+    private location: Location,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -34,11 +36,7 @@ export class ProductComponent implements OnInit {
     });
   }
 
-  goBack(): void {
-    this.location.back();
-  }
-
   addToCart(): void {
-    console.log('Added to cart');
+    this.router.navigate(['/cart']);
   }
 }

@@ -7,50 +7,6 @@
   height: 100%;
 }
 
-.back-btn-container {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  width: 100%;
-  height: 10vh;
-}
-
-.back-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 10%;
-  height: 80%;
-  background-color: grey;
-  border: none;
-  border-radius: 1rem;
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #fff;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-  padding: 1rem 2rem;
-  margin: 1rem;
-}
-
-.back-btn a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  color: #fff;
-  text-decoration: none;
-}
-
-.back-btn a:hover {
-  color: #fff;
-}
-
-.back-btn:hover {
-  background-color: var(--primary);
-}
-
 .product-cart-container {
   display: flex;
   justify-content: space-between;
@@ -253,46 +209,42 @@
 }
 
 @media only screen and (max-width: 600px) {
-  .back-btn {
-    width: 30%;
-  }
-
-  .product-cart-container{
+  .product-cart-container {
     width: 95%;
   }
 
-  .product{
+  .product {
     width: 60%;
     height: 80%;
   }
 
-  .product-img img{
+  .product-img img {
     width: 80%;
     height: 90%;
   }
 
-  .product-page-cart{
+  .product-page-cart {
     width: 35%;
     height: 40%;
   }
 
-  .product-page-add-to-cart .product-page-price h3{
+  .product-page-add-to-cart .product-page-price h3 {
     font-size: 1.5rem;
   }
 
-  .product-page-add-to-cart .product-page-status h3{
+  .product-page-add-to-cart .product-page-status h3 {
     font-size: 1.2rem;
   }
 
-  .status{
+  .status {
     font-size: 1.2rem;
   }
 
-  .product-page-qty label{
+  .product-page-qty label {
     font-size: 1.2rem;
   }
 
-  .product-page-qty input{
+  .product-page-qty input {
     width: 4rem;
     height: 2rem;
     padding: 0.2rem;
@@ -300,13 +252,12 @@
     margin: 0 0.5rem;
   }
 
-  .product-page-add-to-cart .add-to-cart-btn{
+  .product-page-add-to-cart .add-to-cart-btn {
     font-size: 1.2rem;
   }
 
-  .product-page-add-to-cart .add-to-cart-btn .material-icons{
+  .product-page-add-to-cart .add-to-cart-btn .material-icons {
     font-size: 1.5rem;
     margin-right: 0.5rem;
   }
-
 }

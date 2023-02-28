@@ -31,10 +31,8 @@ export class ShopComponent implements OnInit {
   }
 
   getProducts(): void {
-    setTimeout(() => {
-      this.productService.getProducts().subscribe((products) => {
-        this.products = products;
-      });
-    }, 2000);
+    this.productService.getProducts().subscribe((products) => {
+      this.products = products;
+    });
   }
 }

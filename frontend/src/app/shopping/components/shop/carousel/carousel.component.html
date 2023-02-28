@@ -1,4 +1,4 @@
-<div class="carousel-container">
+<!-- <div class="carousel-container">
     <div class="carousel">
         <div class="left-arrow">
             <span class="material-icons" title="slide left">navigate_before</span>
@@ -25,4 +25,25 @@
         <span class="material-icons">radio_button_unchecked</span>
         <span class="material-icons">radio_button_unchecked</span>
     </div>
-</div>
+</div> -->
+
+
+<c-carousel>
+    <c-carousel-indicators></c-carousel-indicators>
+    <c-carousel-inner>
+      <c-carousel-item *ngFor="let slide of slides">
+        <img
+          alt="{{slide.title}}"
+          class="d-block w-100"
+          loading="lazy"
+          src="{{slide.src}}"
+        />
+        <c-carousel-caption class="d-none d-md-block">
+          <h3>{{slide.title}}</h3>
+          <p>{{slide.subtitle}}</p>
+        </c-carousel-caption>
+      </c-carousel-item>
+    </c-carousel-inner>
+    <c-carousel-control [routerLink] caption="Previous" direction="prev"></c-carousel-control>
+    <c-carousel-control [routerLink] caption="Next" direction="next"></c-carousel-control>
+  </c-carousel>

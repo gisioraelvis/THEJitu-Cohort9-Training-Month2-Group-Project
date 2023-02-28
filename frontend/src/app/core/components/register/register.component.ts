@@ -5,7 +5,7 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { User } from '../../../shared/Interfaces/auth/user';
 import { AuthService } from 'src/app/shared/services/auth/auth.service';
 import { HttpClient, HttpClientModule, HttpErrorResponse } from '@angular/common/http';
-import { throwError } from 'rxjs';
+// import { throwError } from 'rxjs';
 
 @Component({
   selector: 'app-register',

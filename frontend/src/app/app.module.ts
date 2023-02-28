@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { CarouselModule } from '@coreui/angular';
+import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [AppComponent],
@@ -15,6 +16,8 @@ import { CarouselModule } from '@coreui/angular';
     FooterComponent,
     HttpClientModule,
     CarouselModule,
+    BrowserAnimationsModule,
+    NoopAnimationsModule,
     // ReactiveFormsModule
   ],
   providers: [],

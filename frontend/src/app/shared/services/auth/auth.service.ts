@@ -80,6 +80,6 @@ loginUrl:string = "http://localhost:5500/api/users/signin"
   logout(){
     localStorage.removeItem(this.tokenKey);
     this.isLoggedIn=false;
-    this.router.navigate(['/login'])
+    this.router.navigate(['/'])
   }
 }

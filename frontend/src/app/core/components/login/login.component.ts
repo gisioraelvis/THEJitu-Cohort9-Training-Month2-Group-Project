@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Router, RouterModule } from '@angular/router';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/shared/services/auth/auth.service';
-import { Login } from '../../../shared/Interfaces/auth/interfaces/user';
+import { Login } from '../../../shared/Interfaces/user';
 import { HttpClientModule } from '@angular/common/http';
 
 @Component({

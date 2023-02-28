@@ -1,4 +1,4 @@
-<form action="">
+<form [formGroup]="loginForm" (ngSubmit)="login()">
     <h3 style="text-align: center;">Sign In</h3>
     
      <div class="input">
@@ -11,9 +11,14 @@
         <input type="password" placeholder="Enter your password" formControlName="password">
      </div>
 
+     <div class="error" *ngIf="error">
+      <p>{{errorMessage}}</p>
+    </div>
 
     <button type="submit">Sign In</button>
 
     <p>New Customer? <a routerLink="/register">Sign Up</a></p>
 </form>
 
+<!-- INTERFACE LOGIN USER
+INTERFACE MESSAGE -->

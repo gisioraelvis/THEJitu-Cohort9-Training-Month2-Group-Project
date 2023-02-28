@@ -22,6 +22,9 @@
                 <span class="material-icons" title="profile">person</span>
                 Sign In
             </button>
+            <a *ngIf="authService.isLoggedIn" (click)="authService.logout()">Logout</a>
+       
         </div>
+        
     </div>
 </header>

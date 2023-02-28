@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 // import { catchError, retry } from 'rxjs/operators';
 import { catchError, Observable, throwError } from 'rxjs';
-import { User } from 'src/app/core/auth/interfaces/user';
+import { Login, User } from 'src/app/core/auth/interfaces/user';
 import { Router } from '@angular/router';
 
 
@@ -40,6 +40,7 @@ export class AuthService {
 
 
 userUrl:string = "http://localhost:5500/api/users/signup"
+loginUrl:string = "http://localhost:5500/api/users/signin"
 
  public postUser(user:User):Observable<User> {
     return this.http.post<User>(this.userUrl, user)
@@ -51,6 +52,9 @@ userUrl:string = "http://localhost:5500/api/users/signup"
     
   }
 
+  public loginUser(userlogin:Login):Observable<Login> {
+    return this.http.post<Login>(this.loginUrl, userlogin)
+  }
 
   
    getAuthStatus():Promise<boolean>{

@@ -1,5 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+// import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AdminDashboardModule } from './admin-dashboard/admin-dashboard.module';
 
@@ -16,7 +17,8 @@ import { FooterComponent } from './shared/components/footer/footer.component';
     CustomerDashboardModule,
     AdminDashboardModule,
     FooterComponent,
-    HttpClientModule
+    HttpClientModule,
+    // ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

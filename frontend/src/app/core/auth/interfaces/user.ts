@@ -7,7 +7,8 @@ export interface User{
     JWT:string
 }
 
-export interface login{
+export interface Login{
     email:string
     password:string
+    JWT:string
 }

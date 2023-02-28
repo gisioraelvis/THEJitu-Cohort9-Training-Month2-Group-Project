@@ -18,14 +18,15 @@ export class RegisterComponent {
  
   error = false
   errorMessage = ''
-
+  registerForm!:FormGroup
+  
   constructor( private fb: FormBuilder,private router:Router, private userService:AuthService){}
   // isLoggedIn=false
   private tokenKey = 'token';
   
   // / logic
      
-  registerForm!:FormGroup
+
   ngOnInit(): void {
     this.registerForm= this.fb.group({
       name:[null, Validators.required],

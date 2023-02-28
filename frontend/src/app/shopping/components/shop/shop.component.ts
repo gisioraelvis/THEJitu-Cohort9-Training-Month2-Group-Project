@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { LoadingSpinnerComponent } from 'src/app/shared/components/loading-spinner/loading-spinner.component';
 import { NavbarComponent } from 'src/app/shared/components/navbar/navbar.component';
 import { IProduct } from 'src/app/shared/Interfaces/product';
 import { ProductService } from 'src/app/shared/services/product.service';
@@ -18,6 +19,7 @@ import { ProductCardComponent } from './product-card/product-card.component';
     NavbarComponent,
     CarouselComponent,
     ProductCardComponent,
+    LoadingSpinnerComponent,
   ],
 })
 export class ShopComponent implements OnInit {
@@ -29,8 +31,10 @@ export class ShopComponent implements OnInit {
   }
 
   getProducts(): void {
-    this.productService.getProducts().subscribe((products) => {
-      this.products = products;
-    });
+    setTimeout(() => {
+      this.productService.getProducts().subscribe((products) => {
+        this.products = products;
+      });
+    }, 2000);
   }
 }

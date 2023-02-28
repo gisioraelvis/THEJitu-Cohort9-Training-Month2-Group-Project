@@ -10,28 +10,26 @@ const routes: Routes = [
         (c) => c.ShopComponent
       ),
   },
-  
-  { path: 'login', loadComponent: () => import('./core/components/login/login.component').then(l => l.LoginComponent)},
-  { path: 'register', loadComponent: () => import('./core/components/register/register.component').then(r => r.RegisterComponent) },
+
+  {
+    path: 'login',
+    loadComponent: () =>
+      import('./core/components/login/login.component').then(
+        (l) => l.LoginComponent
+      ),
+  },
+  {
+    path: 'register',
+    loadComponent: () =>
+      import('./core/components/register/register.component').then(
+        (r) => r.RegisterComponent
+      ),
+  },
   {
     path: 'product/:id',
     loadComponent: () =>
       import('./shopping/components/product-page/product.component').then(
         (c) => c.ProductComponent
-      ),canActivate:[AuthguardService]
-  },
-  {
-    path: 'customer-dashboard',
-    loadChildren: () =>
-      import('./customer-dashboard/customer-dashboard.module').then(
-        (m) => m.CustomerDashboardModule
-      ),
-  },
-  {
-    path: 'admin-dashboard',
-    loadChildren: () =>
-      import('./admin-dashboard/admin-dashboard.module').then(
-        (m) => m.AdminDashboardModule
       ),
   },
   {

@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NavbarComponent } from 'src/app/shared/components/navbar/navbar.component';
-import { IProduct } from 'src/app/shared/models/product';
+import { IProduct } from 'src/app/shared/Interfaces/product';
 import { ProductService } from 'src/app/shared/services/product.service';
 import { CarouselComponent } from './carousel/carousel.component';
 import { ProductCardComponent } from './product-card/product-card.component';

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule, Location } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
-import { IProductObject } from 'src/app/shared/models/product';
+import { IProductObject } from 'src/app/shared/Interfaces/product';
 import { ProductService } from 'src/app/shared/services/product.service';
 import { NavbarComponent } from 'src/app/shared/components/navbar/navbar.component';
 import { FormsModule } from '@angular/forms';

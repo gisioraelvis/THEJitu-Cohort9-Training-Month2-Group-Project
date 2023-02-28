@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { Observable, of } from 'rxjs';
 import { PRODUCTOBJ, PRODUCTS } from 'src/app/mock-products';
-import { IProduct, IProductObject } from '../models/product';
+import { IProduct, IProductObject } from '../Interfaces/product';
 
 @Injectable({
   providedIn: 'root',

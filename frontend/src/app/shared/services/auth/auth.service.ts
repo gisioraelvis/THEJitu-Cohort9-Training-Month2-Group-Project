@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 // import { catchError, retry } from 'rxjs/operators';
 import { catchError, Observable, throwError } from 'rxjs';
-import { Login, User } from 'src/app/core/auth/interfaces/user';
+import { Login, User } from 'src/app/shared/Interfaces/auth/interfaces/user';
 import { Router } from '@angular/router';
 
 

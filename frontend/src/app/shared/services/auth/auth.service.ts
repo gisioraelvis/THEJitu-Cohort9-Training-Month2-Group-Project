@@ -52,11 +52,6 @@ userUrl:string = "http://localhost:5500/api/users/signup"
   }
 
 
-
-
-
-
-
   
    getAuthStatus():Promise<boolean>{
     const promise = new Promise<boolean>((resolve,reject)=>{

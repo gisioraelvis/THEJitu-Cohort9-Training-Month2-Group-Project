@@ -14,7 +14,7 @@
 .carousel {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   width: 100%;
   height: 95%;
 }
@@ -22,7 +22,7 @@
 .left-arrow {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   width: 10%;
   height: 100%;
   cursor: pointer;
@@ -40,7 +40,7 @@
 .product-container {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   width: 80%;
   height: 90%;
 }
@@ -49,7 +49,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   width: 60%;
   height: 90%;
   background-color: var(--background);
@@ -60,7 +60,7 @@
 .product .title {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   height: 20%;
   width: 100%;
 }
@@ -75,7 +75,7 @@
 .product .image {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   height: 80%;
   width: 100%;
 }
@@ -89,7 +89,7 @@
 .product .price {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   height: 20%;
   width: 100%;
 }
@@ -103,7 +103,7 @@
 .right-arrow {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   width: 10%;
   height: 100%;
   cursor: pointer;
@@ -121,7 +121,7 @@
 .dots {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   width: 100%;
   height: 10%;
   margin-bottom: 3rem;
@@ -143,20 +143,12 @@
   color: var(--active);
 }
 
-@media screen and (max-width: 768px) {
+@media only screen and (max-width: 600px) {
   .product-container {
-    width: 100%;
+    width: 90%;
   }
 
   .product {
-    width: 100%;
-  }
-
-  .product .title h2 {
-    font-size: 1.5rem;
-  }
-
-  .product .price p {
-    font-size: 1.2rem;
+    width: 80%;
   }
 }

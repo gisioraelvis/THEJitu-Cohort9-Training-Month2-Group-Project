@@ -6,13 +6,20 @@ import { ProductService } from 'src/app/shared/services/product.service';
 import { NavbarComponent } from 'src/app/shared/components/navbar/navbar.component';
 import { FormsModule } from '@angular/forms';
 import { GoBackComponent } from 'src/app/shared/components/go-back/go-back.component';
+import { LoadingSpinnerComponent } from 'src/app/shared/components/loading-spinner/loading-spinner.component';
 
 @Component({
   standalone: true,
   selector: 'app-product',
   templateUrl: './product.component.html',
   styleUrls: ['./product.component.css'],
-  imports: [CommonModule, FormsModule, NavbarComponent, GoBackComponent],
+  imports: [
+    CommonModule,
+    FormsModule,
+    NavbarComponent,
+    GoBackComponent,
+    LoadingSpinnerComponent,
+  ],
 })
 export class ProductComponent implements OnInit {
   product?: IProductObject | undefined;

@@ -1,7 +1,8 @@
 <app-navbar></app-navbar>
 <app-go-back></app-go-back>
-<div class="product-page-container">    
-    <div class="product-cart-container">
+<div class="product-page-container">
+    <app-loading-spinner *ngIf="!product"></app-loading-spinner>
+    <div class="product-cart-container" *ngIf="product">
         <div class="product">
             <div class="product-image">
                 <img src="{{product!.image}}" alt="product image">

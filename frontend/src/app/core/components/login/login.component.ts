@@ -5,11 +5,12 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { AuthService } from 'src/app/shared/services/auth/auth.service';
 import { Login } from '../../../shared/Interfaces/user';
 import { HttpClientModule } from '@angular/common/http';
+import { NavbarComponent } from 'src/app/shared/components/navbar/navbar.component';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, RouterModule,ReactiveFormsModule],
+  imports: [CommonModule, RouterModule,ReactiveFormsModule,NavbarComponent],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })

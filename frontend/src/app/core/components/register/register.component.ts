@@ -5,12 +5,13 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import { User } from '../../../shared/Interfaces/user';
 import { AuthService } from 'src/app/shared/services/auth/auth.service';
 import { HttpClient, HttpClientModule, HttpErrorResponse } from '@angular/common/http';
+import { NavbarComponent } from 'src/app/shared/components/navbar/navbar.component';
 // import { throwError } from 'rxjs';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [CommonModule, RouterModule,ReactiveFormsModule,HttpClientModule, FormsModule],
+  imports: [CommonModule, RouterModule,ReactiveFormsModule,HttpClientModule, FormsModule,NavbarComponent],
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })

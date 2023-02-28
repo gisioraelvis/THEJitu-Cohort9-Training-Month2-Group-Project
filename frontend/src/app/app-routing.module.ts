@@ -39,6 +39,7 @@ const routes: Routes = [
       import('./shopping/components/product-page/product.component').then(
         (c) => c.ProductComponent
       ),
+    // canActivate: [AuthguardService]
   },
   {
     path: 'not-found',

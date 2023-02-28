@@ -1,3 +1,4 @@
+import { ICartItem } from './shared/Interfaces/cart';
 import { IProduct, IProductObject } from './shared/Interfaces/product';
 
 export const PRODUCTS: IProduct[] = [
@@ -168,3 +169,22 @@ export const PRODUCTOBJ: IProductObject = {
   createdAt: '2023-02-23T10:36:57.830Z',
   updatedAt: '2023-02-23T10:36:57.830Z',
 };
+
+export const CARTITEMS: ICartItem[] = [
+  {
+    id: 1,
+    userId: 1,
+    productId: 1,
+    qty: 5,
+    createdAt: '2023-02-23T10:36:57.860Z',
+    updatedAt: '2023-02-23T10:36:57.860Z',
+  },
+  {
+    id: 6,
+    userId: 1,
+    productId: 2,
+    qty: 1,
+    createdAt: '2023-02-23T10:36:57.860Z',
+    updatedAt: '2023-02-23T10:36:57.860Z',
+  },
+];

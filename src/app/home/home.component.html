@@ -1,47 +1,59 @@
-<div class="container">
-    <div class="content">
-        <div class="left">
-            <img src="https://cdn.shopify.com/s/files/1/0508/6747/0494/files/CG_Doc_Header_v5_2x_6e375c2a-e113-41f4-99ec-57892f69fb73.jpg?v=1631291254"
-                alt="Roccat" />
-               
+<section>
+    <header>
+        <div class="header">
+            <h2>
+                Gadget Hub
+            </h2>
         </div>
-
-        <div class="right">
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic dolores asperiores, incidunt amet assumenda
-               e, quasi consequatur accusamus. Libero ullam soluta qui maiores
-                quisquam tenetur. Iusto distinctio aliquam asperiores. Libero, quae? Laborum, iste. Ex possimus libero
-                tempore impedit dignissimos expedita nemo aliquid exercitationem quis. Sequi labore repellat autem quas
-                magni perferendis explicabo neque! Harum, odit quo! Ad cupiditate modi ipsam ab officiis dolor ea porro
-                rem quas perferendis aut voluptatibus deserunt, quia laborum aspernatur similique odio. Fugit quisquam
-                cum maiores labore inventore illum officia pariatur ipsum, excepturi porro voluptas error aliquam neque.
-
-                
-            </p>
-        </div>
-    </div>
-</div>
-
-<div class="container">
-    <div class="content">
-        <div class="left1">
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic dolores asperiores, incidunt amet assumenda
-                nihil, fugit dicta ut, aliquid iure facere! Dicta corporis beatae eum ipsam ad modi officiis expedita
-                amet, animi hic quos perspiciatis similique eaque odit possimus eligendi doloremque nostrum eos
-                consequatur, ab repudiandae. Ab, tempore sunt. Nulla, explicabo odit voluptatum aut aspernatur nihil,
-                sunt similique provident ex corporis consequatur repudiandae necessitatibus laboriosam velit
-             it? d cupiditate modi ipsam ab officiis dolor ea porro
-                rem quas perferendis aut voluptatibus deserunt, quia laborum aspernatur similique odio. Fugit quisquam
-                cum maiores labore inventore illum officia pariatur ipsum, excepturi porro voluptas error aliquam neque.
-
-                
-            </p>
-               
-        </div>
-
-        <div class="right1">
+        <div class="navbar">
+            <div>
+                <img src="../../../assets/images/person.jfif" alt=""/>
+                 <h3>samuelnderitu@gmail.com</h3>
+            </div>
             
-            <img src="https://i.shgcdn.com/4d709b4f-cc11-4984-9fb7-03405cfa2f74/-/format/auto/-/preview/3000x3000/-/quality/best/"
-                alt="Roccat" />
+            <h3><a>Logout</a></h3>
         </div>
+    </header>
+</section>
+
+<section class="body">
+    <div class="container-1">
+        <h3>Dashboard</h3>
+       <div class="profile">
+           <div class="profile-start">
+                <img src="../../../assets/images/person1.png" alt=""/>
+           </div>
+           <div class="profile-end">
+                <h4>Samuel Nderitu</h4>
+                <p>samuel@gmail.com</p>
+           </div>
+       </div>
+       <div class="container-1__body">
+          <h4>General</h4>
+          <hr/>
+          <div class="container-1__body_start">
+            <ul>
+              
+                <li><i class="fa fa-users" aria-hidden="true"></i><a routerLink="../users">Manage Users</a>
+                    
+                </li>  <li><i class="fa fa-trash" aria-hidden="true"></i><a routerLink="../users/softdelete">Soft deleted Users</a></li>
+                <li><i class="fa-regular fa-store"></i><a routerLink="../products/product-start">Manage Products</a></li>
+                <li><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!-- Font Awesome Pro 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) --><path d="M624 352h-16V243.9c0-12.7-5.1-24.9-14.1-33.9L494 110.1c-9-9-21.2-14.1-33.9-14.1H416V48c0-26.5-21.5-48-48-48H112C85.5 0 64 21.5 64 48v48H8c-4.4 0-8 3.6-8 8v16c0 4.4 3.6 8 8 8h272c4.4 0 8 3.6 8 8v16c0 4.4-3.6 8-8 8H40c-4.4 0-8 3.6-8 8v16c0 4.4 3.6 8 8 8h208c4.4 0 8 3.6 8 8v16c0 4.4-3.6 8-8 8H8c-4.4 0-8 3.6-8 8v16c0 4.4 3.6 8 8 8h208c4.4 0 8 3.6 8 8v16c0 4.4-3.6 8-8 8H64v128c0 53 43 96 96 96s96-43 96-96h128c0 53 43 96 96 96s96-43 96-96h48c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16zM160 464c-26.5 0-48-21.5-48-48s21.5-48 48-48 48 21.5 48 48-21.5 48-48 48zm320 0c-26.5 0-48-21.5-48-48s21.5-48 48-48 48 21.5 48 48-21.5 48-48 48zm80-208H416V144h44.1l99.9 99.9V256z"/></svg><a routerLink="../orders">Manage Orders</a></li>
+             
+                <li><i class="fa fa-sign-out" aria-hidden="true"></i><a>Logout</a></li>
+            </ul>
+          </div>
+       </div>
     </div>
-</div>
+    <div class="container-2">
+      
+      <router-outlet> </router-outlet>
+    </div>
+</section>
+<section>
+ 
+        <div class="footer">
+            <p>&copy;GadgetHub | By Group One | 2023</p>
+        </div>
+   
+</section>

@@ -1,7 +1,12 @@
-<div class="content">
-    <div class="left">
-        <img src="https://imgs.search.brave.com/RXGbu7H62Myf-n35HIPXL2_kpJNhVSYLeVvRVw0KL74/rs:fit:1200:876:1/g:ce/aHR0cHM6Ly9pbWFn/ZXMuZ2FtZXdhdGNo/ZXJzdGF0aWMuY29t/L2ltYWdlL2ZpbGUv/My9iMS8xMTIwNTMv/Z2FsbGVyeTAzLTAx/LWZ1bGwtMngtdjIt/Mi5qcGc" alt="">
-    </div>
+<section>
+    <header>
+     <h3>Add A New Product</h3>
+    </header>
+  
+    <hr/>
+    <div class="show_products">
+        <div class="addButton"><a routerLink="../products/product-start"><button type="button">  Manage Products</button></a></div>
+     <div class="form">
     <form [formGroup]="addProduct" (ngSubmit)="AddProduct()">
     <div class="right">
       
@@ -23,3 +28,6 @@
     </div>
 </form>
 </div>
+ 
+</div>
+</section>

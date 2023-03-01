@@ -18,31 +18,40 @@ export class EditProductComponent implements OnInit, CanDeactivateComponent {
   product!:Product
   updated=false
 
-  constructor( private fb: FormBuilder, 
+  constructor(
+    private fb: FormBuilder, 
     private route:ActivatedRoute,
     private router:Router,
-    private productService:ProductService) {
-        
+    private productService:ProductService
+  ) {
+    this.route.params.subscribe((params: Params) => {
+       this.productService.getOneProduct(params['id']).subscribe(response =>{
+        this.product= response;   this.form.setValue({
+          name: this.product.name,
+          description: this.product.description,
+          image: this.product.image,
+          price: this.product.price,
+         
+        });
+        console.log(response)
+      });
+    
+    
+    });
   }
-
 
   ngOnInit(): void {
-    this.form= this.fb.group({
-      name:[null, Validators.required],
-      description:[null, Validators.required],
-      image:[null, Validators.required],
-      price:[null, Validators.required]
-    })
-    this.route.params.subscribe((params:Params)=>{
-      this.product= this.productService.getOneProduct(params['id'])
-    })
-    this.form.setValue({
-      name:this.product.name,
-      description:this.product.description,
-      image:this.product.image,
-      price:this.product.price
-    })
+    this.form = this.fb.group({
+      name: [null, Validators.required],
+      description: [null, Validators.required],
+      image: [null, Validators.required],
+      price: [null, Validators.required],
+    
+    });
+    this.route.params.subscribe((response)=>{console.log(response)})
   }
+
+
 
   UpdateProduct(){
     let product:Product= {...this.product ,...this.form.value}
@@ -50,6 +59,9 @@ export class EditProductComponent implements OnInit, CanDeactivateComponent {
     this.router.navigate(['../'],{relativeTo:this.route})
     this.updated=true
   }
+
+
+
 
   canDeactive():boolean | Promise<boolean> | Observable<boolean>{
    

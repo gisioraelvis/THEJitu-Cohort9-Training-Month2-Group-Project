@@ -1,15 +1,16 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Params, RouterModule } from '@angular/router';
+import { ActivatedRoute, Params, RouterModule} from '@angular/router';
 import { Product } from '../../Interfaces';
 import { ProductService } from '../../Services/ProductService/product.service';
 import { map } from 'rxjs';
+
 @Component({
   selector: 'app-product-start',
   templateUrl: './product-start.component.html',
   styleUrls: ['./product-start.component.css'],
   standalone: true,
-  imports: [CommonModule,RouterModule]
+  imports: [CommonModule,RouterModule,]
 })
 export class ProductStartComponent implements OnInit {
 
@@ -30,5 +31,10 @@ export class ProductStartComponent implements OnInit {
 
 
   })
+  }
+  deleteProduct(id: string) {
+    this.productService.deleteProduct(id);
+    // remove the deleted product from the local products array
+    this.products = this.products.filter(product => product.id !== id);
   }
 }

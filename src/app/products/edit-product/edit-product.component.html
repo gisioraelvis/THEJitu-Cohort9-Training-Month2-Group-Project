@@ -1,7 +1,12 @@
-<div class="content">
-    <div class="left">
-        <img src={{product.image}} alt="">
-    </div>
+<section>
+    <header>
+     <h3>Update the product</h3>
+    </header>
+  
+    <hr/>
+    <div class="show_products">
+        <div class="addButton"><a routerLink="../products/product-start"><button type="button">  Manage Products</button></a></div>
+        <div class="form">
     <form [formGroup]="form" (ngSubmit)="UpdateProduct()">
     <div class="right">
       
@@ -23,3 +28,5 @@
     </div>
 </form>
 </div>
+    </div>
+</section>

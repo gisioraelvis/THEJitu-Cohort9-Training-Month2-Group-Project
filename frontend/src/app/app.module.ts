@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { FooterComponent } from './shared/footer/footer.component';
 import { CarouselModule } from '@coreui/angular';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [AppComponent],

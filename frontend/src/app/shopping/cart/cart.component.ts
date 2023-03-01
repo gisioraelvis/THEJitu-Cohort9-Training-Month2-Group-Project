@@ -73,4 +73,10 @@ export class CartComponent implements OnInit {
       this.cartItems = cartItems;
     });
   }
+
+  checkOut() {
+    // this.cartService.checkOut().subscribe((cartItems) => {
+    //   this.cartItems = cartItems;
+    // });
+  }
 }

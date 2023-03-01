@@ -9,19 +9,14 @@ import {
   Validators,
 } from '@angular/forms';
 import { AuthService } from 'src/app/shared/services/auth/auth.service';
-import { HttpClientModule } from '@angular/common/http';
+
+import { NavbarComponent } from 'src/app/shared/navbar/navbar.component';
 import { Login } from 'src/app/shared/interfaces/user';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [
-    CommonModule,
-    RouterModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    FormsModule,
-  ],
+  imports: [CommonModule, RouterModule, ReactiveFormsModule, NavbarComponent],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })

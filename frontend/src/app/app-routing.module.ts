@@ -28,6 +28,26 @@ const routes: Routes = [
     // canActivate: [AuthguardService],
   },
   {
+    path: 'shipping',
+    loadComponent: () =>
+      import('./shopping/shipping/shipping.component').then(
+        (s) => s.ShippingComponent
+      ),
+  },
+  {
+    path: 'payment',
+    loadComponent: () =>
+      import('./shopping/payment/payment.component').then(
+        (p) => p.PaymentComponent
+      ),
+  },
+  {
+    path: 'product/:id',
+    loadComponent: () =>
+      import('./shopping/cart/cart.component').then((c) => c.CartComponent),
+    // canActivate: [AuthguardService],
+  },
+  {
     path: 'products/:id',
     loadComponent: () =>
       import('./shopping/product-page/product.component').then(

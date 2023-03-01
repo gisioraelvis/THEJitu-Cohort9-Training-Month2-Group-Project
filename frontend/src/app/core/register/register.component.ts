@@ -8,13 +8,14 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { User } from '../../shared/interfaces/user';
 import { AuthService } from 'src/app/shared/services/auth/auth.service';
 import {
   HttpClient,
   HttpClientModule,
   HttpErrorResponse,
 } from '@angular/common/http';
+import { NavbarComponent } from 'src/app/shared/navbar/navbar.component';
+import { User } from 'src/app/shared/interfaces/user';
 // import { throwError } from 'rxjs';
 
 @Component({
@@ -26,6 +27,7 @@ import {
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
+    NavbarComponent,
   ],
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css'],

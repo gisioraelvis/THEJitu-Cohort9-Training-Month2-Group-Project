@@ -2,25 +2,23 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 // import { catchError, retry } from 'rxjs/operators';
 import { catchError, Observable, throwError } from 'rxjs';
-import { Login, User } from '../../Interfaces/user';
+import { Login, User } from '../../interfaces/user';
 import { Router } from '@angular/router';
 
-
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-  errorMessage = ''
+  errorMessage = '';
 
-  constructor(private http:HttpClient, private router:Router) { }
+  constructor(private http: HttpClient, private router: Router) {}
 
-  isLoggedIn = false
+  isLoggedIn = false;
   private tokenKey = 'token';
 
-  setLoginTrue(){
-    this.isLoggedIn = true
+  setLoginTrue() {
+    this.isLoggedIn = true;
   }
-  
 
   // public handleError(error: HttpErrorResponse) {
   //   if (error.status === 0) {
@@ -38,48 +36,43 @@ export class AuthService {
   //   return throwError(() => new Error('Something bad happened; please try again later.'));
   // }
 
+  userUrl: string = 'http://localhost:5500/api/users/signup';
+  loginUrl: string = 'http://localhost:5500/api/users/signin';
 
-userUrl:string = "http://localhost:5500/api/users/signup"
-loginUrl:string = "http://localhost:5500/api/users/signin"
+  public postUser(user: User): Observable<User> {
+    return this.http.post<User>(this.userUrl, user);
 
- public postUser(user:User):Observable<User> {
-    return this.http.post<User>(this.userUrl, user)
-   
     // .pipe(
     //   catchError(this.handleError)
-   
+
     // );
-    
   }
 
-  public loginUser(userlogin:Login):Observable<Login> {
-    return this.http.post<Login>(this.loginUrl, userlogin)
+  public loginUser(userlogin: Login): Observable<Login> {
+    return this.http.post<Login>(this.loginUrl, userlogin);
   }
 
-  
-   getAuthStatus():Promise<boolean>{
-    const promise = new Promise<boolean>((resolve,reject)=>{
-    setTimeout(()=>{
-      resolve(this.isLoggedIn)
-    },10)
-    })
+  getAuthStatus(): Promise<boolean> {
+    const promise = new Promise<boolean>((resolve, reject) => {
+      setTimeout(() => {
+        resolve(this.isLoggedIn);
+      }, 10);
+    });
     return promise;
   }
 
   // register
-  public register(user:User){
-    this.postUser(user)
-    .subscribe((token) => {
+  public register(user: User) {
+    this.postUser(user).subscribe((token) => {
       localStorage.setItem(this.tokenKey, token.email);
-      this.isLoggedIn=true
+      this.isLoggedIn = true;
       this.router.navigate(['/']);
     });
-
   }
 
-  logout(){
+  logout() {
     localStorage.removeItem(this.tokenKey);
-    this.isLoggedIn=false;
-    this.router.navigate(['/'])
+    this.isLoggedIn = false;
+    this.router.navigate(['/']);
   }
 }

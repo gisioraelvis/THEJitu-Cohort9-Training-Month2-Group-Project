@@ -1,0 +1,29 @@
+<div class="carousel-container">
+  <div class="carousel">
+    <!-- <div class="left-arrow">
+      <span class="material-icons" title="slide left">navigate_before</span>
+    </div> -->
+    <div class="product-container">
+      <c-carousel class="product" [interval]="5000" transition="slide">
+        <app-loading-spinner *ngIf="products.length===0"></app-loading-spinner>
+        <c-carousel-inner *ngIf="products.length>0">
+          <c-carousel-item *ngFor="let product of products">
+            <a routerLink="/products/{{product.id}}">
+              <h2 class="title">{{product.name}}</h2>
+              <img class="image" alt="{{product.name}}" class="d-block w-100" loading="lazy" src="{{product.image}}" />
+              <c-carousel-caption class="d-none d-md-block">
+                <h2 class="title">{{product.price | currency:"Ksh "}}</h2>
+              </c-carousel-caption>
+            </a>
+          </c-carousel-item>
+        </c-carousel-inner>
+        <!-- <c-carousel-control [routerLink] caption="Previous" direction="prev"></c-carousel-control>
+        <c-carousel-control [routerLink] caption="Next" direction="next"></c-carousel-control>
+        <c-carousel-indicators></c-carousel-indicators> -->
+      </c-carousel>
+    </div>
+    <!-- <div class="right-arrow">
+      <span class="material-icons" title="slide right">navigate_next</span>
+    </div> -->
+  </div>
+</div>

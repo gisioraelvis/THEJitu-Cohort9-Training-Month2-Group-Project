@@ -1,0 +1,53 @@
+<app-navbar></app-navbar>
+<app-go-back></app-go-back>
+<div class="product-page-container">
+    <app-loading-spinner *ngIf="!product"></app-loading-spinner>
+    <div class="product-cart-container" *ngIf="product">
+        <div class="product">
+            <div class="product-image">
+                <img src="{{product!.image}}" alt="product image">
+            </div>
+            <div class="product-details">
+                <div class="product-title price">
+                    <h2 class="product-title">{{product!.name}}</h2>
+                    <div class="line-separator"></div>
+                    <p class="product-price">{{product!.price | currency: "Ksh "}}</p>
+                </div>
+                <div class="line-separator"></div>
+                <div class="product-description">
+                    <h3>Description:</h3>
+                    <p>{{product!.description}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="product-page-cart">
+            <div class="product-page-add-to-cart">
+                <div class="product-page-price">
+                    <h3>{{product!.price * qty | currency: "Ksh "}}</h3>
+                </div>
+                <div class="line-separator"></div>
+                <div class="product-page-status">
+                    <h3>Status:
+                        <span class="status" *ngIf="product!.countInStock>0">
+                            In Stock
+                        </span>
+                        <span class="status out-of-stock" *ngIf="product!.countInStock==0">
+                            Out Of Stock
+                        </span>
+                    </h3>
+                </div>
+                <div class="line-separator"></div>
+                <div class="product-page-qty">
+                    <label for="qty">Qty:</label>
+                    <input type="number" name="qty" id="qty" [(ngModel)]="qty" min="1">
+                </div>
+                <div class="line-separator"></div>
+                <button class="add-to-cart-btn" type="button" [disabled]="product!.countInStock==0"
+                    (click)="addToCart()">
+                    <span class="material-icons" title="add to cart">add_shopping_cart</span>
+                    Add To Cart
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

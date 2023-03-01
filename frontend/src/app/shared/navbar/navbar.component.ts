@@ -12,5 +12,10 @@ import { AuthService } from '../services/auth/auth.service';
   imports: [RouterModule, CommonModule, ReactiveFormsModule],
 })
 export class NavbarComponent {
+  // userName: string;
   constructor(public authService: AuthService) {}
+
+  logout() {
+    this.authService.logout();
+  }
 }

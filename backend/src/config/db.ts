@@ -9,7 +9,7 @@ export const sqlConfig: ImssqlConfig = {
   user: process.env.DB_USER,
   password: process.env.DB_PWD,
   database: process.env.DB_NAME,
-  server: "172.17.0.1", // Connect to docker container
+  server: "localhost", // Connect to docker container
   pool: {
     max: 10,
     min: 0,

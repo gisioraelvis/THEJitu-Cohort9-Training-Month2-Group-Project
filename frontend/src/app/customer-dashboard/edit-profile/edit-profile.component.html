@@ -1,0 +1,53 @@
+
+<div class="container">
+  <div class="content">    
+    <form [formGroup]="form" (ngSubmit)="submitData()">
+      <div class="form-group">
+        <div class="heading">
+          <h2>USER PROFILE</h2>
+        </div>
+        <div class="input-group">
+          <div class="label-control">
+            <label for="name">Name</label>
+          </div>
+          <div class="input-control">
+            <input type="text" name="name" id="name" required formControlName="name">
+          </div>
+        </div>
+
+        <div class="input-group">
+          <div class="label-control">
+            <label for="email">Email Address</label>
+          </div>
+          <div class="input-control">
+            <input type="email" name="email" id="email" required email formControlName="email" />
+          </div>
+
+        </div>
+        <div class="input-group">
+          <div class="label-control">
+            <label for="password">Password</label>
+          </div>
+          <div class="input-control">
+            <input type="password" name="password" id="password" formControlName="password" required />
+          </div>
+        </div>
+        <div class="input-group">
+          <div class="label-control">
+            <label for="confirmpass">Confirm Password</label>
+          </div>
+          <div class="input-control">
+            <input type="password" name="confirmpass" id="confirmpass" formControlName="confirmpass" required />
+          </div>
+        </div>
+
+        <div class="btn-style">
+          <button type="submit">UPDATE</button>
+        </div>
+      </div>
+    </form>
+
+  </div>
+
+
+</div>

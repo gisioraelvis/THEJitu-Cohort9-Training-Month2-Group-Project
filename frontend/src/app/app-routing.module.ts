@@ -1,3 +1,4 @@
+import { CustomerComponent } from './customer-dashboard/customer/customer.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -21,6 +22,27 @@ const routes: Routes = [
     loadChildren: () =>
       import('./customer-dashboard/customer-dashboard.module').then(
         (m) => m.CustomerDashboardModule
+      ),
+  },
+  {
+    path: 'editProfile',
+    loadComponent: () =>
+      import('./customer-dashboard/edit-profile/edit-profile.component').then(
+        (c) => c.EditProfileComponent
+      ),
+  },
+  {
+    path: 'myOrders',
+    loadComponent: () =>
+      import('./customer-dashboard/my-orders/my-orders.component').then(
+        (c) => c.MyOrdersComponent
+      ),
+  },
+  {
+    path: 'customer-profile',
+    loadComponent: () =>
+      import('./customer-dashboard/customer/customer.component').then(
+        (c) => c.CustomerComponent
       ),
   },
   {

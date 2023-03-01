@@ -21,13 +21,14 @@
                 <c-carousel-inner>
                   <c-carousel-item *ngFor="let slide of slides">
                     <img
+                    class="image"
                       alt="{{slide.title}}"
                       class="d-block w-100"
                       loading="lazy"
                       src="{{slide.src}}"
                     />
                     <c-carousel-caption class="d-none d-md-block">
-                      <h2>{{slide.title}}</h2 >
+                      <h2 class="title">{{slide.title}}</h2 >
                       <p>{{slide.subtitle}}</p>
                     </c-carousel-caption>
                   </c-carousel-item>

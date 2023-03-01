@@ -7,10 +7,8 @@ import { NavbarComponent } from 'src/app/shared/navbar/navbar.component';
 @Component({
   selector: 'app-payment',
   standalone: true,
-  imports: [CommonModule,RouterModule,ReactiveFormsModule,NavbarComponent],
+  imports: [CommonModule, RouterModule, ReactiveFormsModule, NavbarComponent],
   templateUrl: './payment.component.html',
-  styleUrls: ['./payment.component.css']
+  styleUrls: ['./payment.component.css'],
 })
-export class PaymentComponent {
-
-}
+export class PaymentComponent {}

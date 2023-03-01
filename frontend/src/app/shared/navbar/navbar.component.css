@@ -1,0 +1,159 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  height: 12vh;
+  background-color: var(--primary);
+  padding: 0 10rem;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+}
+
+.nav .logo {
+  color: var(--background);
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.nav .logo a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.nav .search {
+  display: flex;
+  align-items: center;
+  width: 40%;
+  height: 90%;
+}
+
+.nav .search input {
+  width: 70%;
+  height: 70%;
+  border: none;
+  outline: none;
+  border-radius: 5rem 0 0 5rem;
+  padding: 0 3rem;
+  font-size: 1.2rem;
+}
+
+.nav .search button {
+  width: 10%;
+  height: 70%;
+  padding: 0 0.5rem 0 0;
+  border: none;
+  outline: none;
+  color: #fff;
+  border-radius: 0 5rem 5rem 0;
+  cursor: pointer;
+  background-color: grey;
+}
+
+.nav .search input:focus {
+  outline: 2px solid var(--active);
+}
+
+.search .material-icons:hover {
+  transform: scale(1.5);
+}
+
+.nav .cart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10%;
+  height: 100%;
+}
+
+.nav .cart button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  background-color: var(--primary);
+  color: var(--background);
+  cursor: pointer;
+}
+
+.cart-btn .material-icons {
+  font-size: 4rem;
+}
+
+.cart-btn .material-icons:hover {
+  transform: scale(1.3);
+}
+
+.nav .sign {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 10%;
+  height: 100%;
+}
+
+.nav .sign button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  background-color: var(--primary);
+  color: #fff;
+  cursor: pointer;
+}
+
+.sign-btn .material-icons {
+  font-size: 4rem;
+}
+
+.sign-btn .material-icons:hover {
+  transform: scale(1.3);
+}
+
+@media only screen and (max-width: 600px) {
+  .nav {
+    align-items: center;
+    height: 10vh;
+    padding: 0 1rem;
+  }
+
+  .nav .logo {
+    font-size: 0.8rem;
+  }
+
+  .nav .search {
+    width: 50%;
+    align-items: center;
+    font-size: 0.7rem;
+  }
+
+  .nav .search input {
+    width: 67%;
+    height: 70%;
+    border-radius: 5rem 0 0 5rem;
+    padding: 0 1rem;
+  }
+
+  .nav .search button {
+    width: 15%;
+    height: 70%;
+    padding: 0 0.5rem 0 0;
+    border-radius: 0 5rem 5rem 0;
+  }
+
+  .cart-btn .material-icons {
+    font-size: 3rem;
+  }
+
+  .sign-btn .material-icons {
+    font-size: 3rem;
+  }
+}

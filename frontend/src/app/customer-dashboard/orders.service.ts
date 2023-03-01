@@ -8,7 +8,7 @@ import { Observable, Subject } from 'rxjs';
 })
 export class OrdersService {
 
-  constructor(private http:HttpClient, private httpHeaders:HttpHeaders){ }
+  constructor(private http:HttpClient){ }
 
   // order$ = new Subject<IOrder[]>()
 
@@ -22,9 +22,10 @@ export class OrdersService {
   // }
 
   getUserOrders():Observable<IOrder[]>{
-    const accessToken = localStorage.getItem('token') || "";
-   return  this.http.get<IOrder[]>('http://localhost:5500/api/orders/getorders', {
-     headers:this.httpHeaders.set('Bearer', accessToken)})
+    
+    const accessToken = localStorage.getItem('token') || "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywibmFtZSI6IkphbmUgRG9lIiwiZW1haWwiOiJqYW5lZG9lQGV4YW1wbGUuY29tIiwiaXNBZG1pbiI6ZmFsc2UsImlhdCI6MTY3NzY3MjEyMiwiZXhwIjoxNjc3NzU4NTIyfQ.3EDbhyt1FEQOEK17VuF_FSu9HrLYSGLYW8wuekRSKMw";
+    return this.http.get<IOrder[]>('http://localhost:5500/api/orders/myorders', {
+     headers: new HttpHeaders().set("Authorization", 'Bearer ' + accessToken)})
 
   }
 

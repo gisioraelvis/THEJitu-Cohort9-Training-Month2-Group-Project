@@ -1,0 +1,12 @@
+<app-navbar></app-navbar>
+<app-carousel></app-carousel>
+<!-- Products -->
+<div class="products-container">
+    <div class="products-title">
+        <h2>Latest Products </h2>
+    </div>
+    <app-loading-spinner *ngIf="products.length === 0"></app-loading-spinner>
+    <div class="products">
+        <app-product-card class="product" *ngFor="let product of products" [product]="product"></app-product-card>
+    </div>
+</div>

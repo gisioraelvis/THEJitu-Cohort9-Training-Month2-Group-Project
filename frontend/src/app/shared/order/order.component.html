@@ -1,0 +1,46 @@
+<app-navbar></app-navbar>
+<app-go-back></app-go-back>
+<div class="order-container">
+    <div class="order-details">
+        <div class="cart-details">
+            <p class="title">Order ID:</p>
+            <p class="order-id">{{ order.id }}</p>
+            <hr>
+            <p class="title">Shipping To:</p>
+            <p class="shipping-address">{{ order.shippingAddress }}</p>
+            <!-- <p class="delivery-state">{{ order.shippingState }}</p> -->
+            <hr>
+            <p class="title">Payment Method:</p>
+            <p class="payment-method">{{ order.paymentMethod }}</p>
+            <p class="payment-state">{{ order.paymentResultStatus }}</p>
+            <hr>
+        </div>
+        <div class="order-summary">
+            <p class="title">Order Summary</p>
+            <hr>
+            <div class="item-summary">
+                <p>Items:</p>
+                <!-- <p class="item-price">(3 x KSH {{ order. }})</p> -->
+            </div>
+            <hr>
+            <div class="shipping-summary">
+                <p>Shipping:</p>
+                <p class="shipping-price">{{ order.shippingPrice }}</p>
+            </div>
+            <hr>
+            <div class="tax-summary">
+                <p>Tax:</p>
+                <p class="tax-price">Ksh {{ order.taxPrice }}</p>
+            </div>
+            <hr>
+            <div class="total-summary">
+                <p>Total:</p>
+                <p class="total-price">Ksh {{ order.totalPrice }}</p>
+            </div>
+            <hr>
+            <p class="payment-option">Pay With M-pesa Xpress</p>
+            <input type="text" class="phone-number" placeholder="Enter your M-Pesa" [(ngModel)]="phoneNumber">
+            <button class="place-order-button" (click)="pay()">Pay</button>
+        </div>
+    </div>
+</div>

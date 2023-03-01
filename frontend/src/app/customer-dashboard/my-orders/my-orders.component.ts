@@ -13,16 +13,18 @@ import { IOrder } from '../interface';
 })
 export class MyOrdersComponent implements OnInit {
   orders: IOrder[]=[]
+  
 
   constructor(public ordersService:OrdersService){
 
   }
 
   ngOnInit(): void {
-    this.ordersService.getUserOrders().subscribe((orders)=>{
-      this.orders = orders
+
+    this.ordersService.getUserOrders().subscribe((order)=>{
+      this.orders = order
     })
-    console.log(this.orders);
+
     
     
   }

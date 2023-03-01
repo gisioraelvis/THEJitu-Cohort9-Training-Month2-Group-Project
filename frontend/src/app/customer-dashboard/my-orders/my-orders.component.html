@@ -13,13 +13,13 @@
 
 
   </tr>
-  <!-- *ngFor="let order of ordersService.order$ |async" -->
-  <tr>
-    <td>order.ID</td>
-    <td>order.date</td>
-    <td>order.total</td>
-    <td>order.paid</td>
-    <td>order.delivered</td>
+  
+  <tr *ngFor="let order of orders">
+    <td>{{order.id}}</td>
+    <td>{{order.updatedAt|date:"short"}}</td>
+    <td>{{order.totalPrice}}</td>
+    <td>{{order.isPaid}}</td>
+    <td>{{order.isDelivered}}</td>
     <td><button>DETAILS</button></td>
   </tr>
 </table>

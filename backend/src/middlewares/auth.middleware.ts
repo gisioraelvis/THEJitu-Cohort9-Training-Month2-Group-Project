@@ -20,12 +20,15 @@ export const authenticateUser = async (
   next: NextFunction
 ): Promise<any> => {
   let token: string | undefined;
+  console.log(req.headers.authorization);
 
   if (
     req.headers.authorization &&
     req.headers.authorization.startsWith("Bearer")
   ) {
     try {
+      
+      
       // Get token from header
       token = req.headers.authorization.split(" ")[1];
       const jwtSecret = process.env.JWT_SECRET as string;

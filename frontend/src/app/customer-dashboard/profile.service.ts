@@ -13,7 +13,7 @@ export class ProfileService {
 
 
   getUserById():Observable<IUser[]>{
-   return  this.http.get<IUser[]>('http://localhost:5500/api/orders/getorders')
+    return this.http.get<IUser[]>('http://localhost:5500/api/orders/myorders')
   }
   // updateProfile(id: string, updateProfile): Observable<Message> {
   //   return this.http.put<Message>(`http://localhost:4000/api/users/profile`, updatedProfile)

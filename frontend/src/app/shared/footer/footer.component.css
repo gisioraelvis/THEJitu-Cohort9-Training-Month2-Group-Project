@@ -1,0 +1,22 @@
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  height: 10vh;
+}
+
+footer p {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+@media screen and (max-width: 768px) {
+  footer {
+    height: 10vh;
+  }
+
+  footer p {
+    font-size: 1.2rem;
+  }
+}

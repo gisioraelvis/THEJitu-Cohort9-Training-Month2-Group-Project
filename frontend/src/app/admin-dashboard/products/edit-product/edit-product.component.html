@@ -1,0 +1,32 @@
+<section>
+    <header>
+     <h3>Update the product</h3>
+    </header>
+  
+    <hr/>
+    <div class="show_products">
+        <div class="addButton"><a routerLink="../products/product-start"><button type="button">  Manage Products</button></a></div>
+        <div class="form">
+    <form [formGroup]="form" (ngSubmit)="UpdateProduct()">
+    <div class="right">
+      
+        <h1> Update Product</h1>
+        <Label>Name</Label>
+        <input type="text" formControlName="name" />
+
+        <Label>Description</Label>
+        <input type="text" formControlName="description" />
+
+        <Label>Image</Label>
+        <input type="text" formControlName="image" />
+
+          <Label>Price</Label>
+        <input type="text" formControlName="price" />
+
+        <button type="submit">Update Product</button>
+    
+    </div>
+</form>
+</div>
+    </div>
+</section>

@@ -1,0 +1,86 @@
+<!-- <section>
+    <header>
+     <h3>Manage Users</h3>
+    </header>
+    <div class="Products_search">
+         <div class="Products_search_pro">
+             <input type="text" placeholder="Search User..."/>
+             <button type="submit">search</button>
+          </div>
+    
+    </div>
+    <hr/>
+    <div class="show_products">
+     <div class="addButton"><a routerLink="../users/add-users"><button type="button"> <span>+</span> Add New User</button></a></div>
+     <table>
+         <tr>
+             <th>Id</th>
+             <th>Name</th>
+             <th>Email</th>
+             <th>Type</th>
+             <th colspan="2">Action</th>
+         </tr>
+         <tr>
+             <td>1</td>
+             <td>Samuel Waweru</td>
+             <td>samuel@gmail.com</td>
+             <td>Admin</td>
+             <td>update</td>
+             <td>delete</td>
+         </tr>
+         <tr>
+             <td>2</td>
+             <td>Samuel Waweru</td>
+             <td>samuel@gmail.com</td>
+             <td>Admin</td>
+             <td>update</td>
+             <td>delete</td>
+         </tr>
+         <tr>
+             <td>3</td>
+             <td>Samuel Waweru</td>
+             <td>samuel@gmail.com</td>
+             <td>Admin</td>
+             <td>update</td>
+             <td>delete</td>
+         </tr>
+     </table>
+    </div>
+ </section> -->
+
+
+ <section>
+    <header>
+     <h3>Manage Users</h3>
+    </header>
+    <div class="Products_search">
+         <div class="Products_search_pro">
+             <input type="text" placeholder="Search User..."/>
+             <button type="submit">search</button>
+          </div>
+    
+    </div>
+    <hr/>
+    <div class="show_products">
+     <!-- <div class="addButton"><a    routerLink="users/addUser"><button type="button"> <span>+</span> Add New User</button></a></div> -->
+  
+     <table>
+         <tr>
+             <th>Id</th>
+             <th>Name</th>
+             <th>Email</th>
+             <th>Type</th>
+             <th>Action</th>
+         </tr>
+         <tr *ngFor="let user of users">
+    
+             <td>{{ user.id }}</td>
+             <td>{{ user.name }}</td>
+             <td>{{ user.email }}</td>
+             <td>{{ user. isAdmin }}</td>
+             <td><button (click)="deleteUser(user.id)">Disable</button></td>
+         </tr>
+     </table>
+    </div>
+ </section> 
+

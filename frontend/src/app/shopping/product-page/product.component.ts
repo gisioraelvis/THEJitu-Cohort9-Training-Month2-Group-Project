@@ -28,7 +28,6 @@ export class ProductComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private productService: ProductService,
-    private location: Location,
     private router: Router
   ) {}
 

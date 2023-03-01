@@ -6,9 +6,7 @@ const routes: Routes = [
   {
     path: '',
     loadComponent: () =>
-      import('./shopping/shop/shop.component').then(
-        (c) => c.ShopComponent
-      ),
+      import('./shopping/shop/shop.component').then((c) => c.ShopComponent),
   },
 
   {
@@ -28,16 +26,22 @@ const routes: Routes = [
   {
     path: 'cart',
     loadComponent: () =>
-      import('./shopping/cart/cart.component').then(
-        (c) => c.CartComponent
-      ),
+      import('./shopping/cart/cart.component').then((c) => c.CartComponent),
     // canActivate: [AuthguardService],
   },
   {
-    path: 'product/:id',
+    path: 'products/:id',
     loadComponent: () =>
       import('./shopping/product-page/product.component').then(
         (c) => c.ProductComponent
+      ),
+    // canActivate: [AuthguardService]
+  },
+  {
+    path: 'user/orders/:id',
+    loadComponent: () =>
+      import('./shared/components/order/order.component').then(
+        (c) => c.OrderComponent
       ),
     // canActivate: [AuthguardService]
   },

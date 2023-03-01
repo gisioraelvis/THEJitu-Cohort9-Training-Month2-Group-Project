@@ -1,3 +1,4 @@
+<!-- <link rel="stylesheet" href="https://unpkg.com/@coreui/icons/css/all.min.css"> -->
 <div class="carousel-container">
     <div class="carousel">
         <div class="left-arrow">
@@ -16,7 +17,7 @@
                 </div>
             </div> -->
             <!-- <img src="../../../../../assets/images/ps5.jpg"> -->
-            <c-carousel class="product">
+            <c-carousel class="product"  [interval]="5000" transition="slide">
                 <c-carousel-indicators></c-carousel-indicators>
                 <c-carousel-inner>
                   <c-carousel-item *ngFor="let slide of slides">

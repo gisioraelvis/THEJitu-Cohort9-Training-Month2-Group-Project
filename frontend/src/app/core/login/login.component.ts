@@ -9,8 +9,8 @@ import {
   Validators,
 } from '@angular/forms';
 import { AuthService } from 'src/app/shared/services/auth/auth.service';
-import { Login } from '../../../shared/Interfaces/user';
 import { HttpClientModule } from '@angular/common/http';
+import { Login } from 'src/app/shared/interfaces/user';
 
 @Component({
   selector: 'app-login',

@@ -12,14 +12,12 @@ const routes: Routes = [
   {
     path: 'login',
     loadComponent: () =>
-      import('./core/components/login/login.component').then(
-        (l) => l.LoginComponent
-      ),
+      import('./core/login/login.component').then((l) => l.LoginComponent),
   },
   {
     path: 'register',
     loadComponent: () =>
-      import('./core/components/register/register.component').then(
+      import('./core/register/register.component').then(
         (r) => r.RegisterComponent
       ),
   },
@@ -40,15 +38,13 @@ const routes: Routes = [
   {
     path: 'user/orders/:id',
     loadComponent: () =>
-      import('./shared/components/order/order.component').then(
-        (c) => c.OrderComponent
-      ),
+      import('./shared/order/order.component').then((c) => c.OrderComponent),
     // canActivate: [AuthguardService]
   },
   {
     path: 'not-found',
     loadComponent: () =>
-      import('./shared/components/not-found/not-found.component').then(
+      import('./shared/not-found/not-found.component').then(
         (c) => c.NotFoundComponent
       ),
     data: { message: 'Page not found!' },

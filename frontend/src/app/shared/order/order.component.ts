@@ -2,8 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { IOrderItem } from '../../Interfaces/order';
 import { GoBackComponent } from '../go-back/go-back.component';
+import { IOrderItem } from '../interfaces/order';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { OrderService } from './order.service';
 

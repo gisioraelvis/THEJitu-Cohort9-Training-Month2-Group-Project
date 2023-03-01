@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { IProduct } from 'src/app/shared/Interfaces/product';
+import { IProduct } from 'src/app/shared/interfaces/product';
 
 @Component({
   standalone: true,

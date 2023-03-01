@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 
-import { IOrderItem } from '../../Interfaces/order';
 import { ORDERS } from 'src/app/mock-data';
+import { IOrderItem } from '../interfaces/order';
 
 @Injectable({
   providedIn: 'root',

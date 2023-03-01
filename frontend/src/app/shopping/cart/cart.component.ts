@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NavbarComponent } from 'src/app/shared/components/navbar/navbar.component';
-import { GoBackComponent } from 'src/app/shared/components/go-back/go-back.component';
 import { CartService } from './cart.service';
-import { ICartItem } from 'src/app/shared/Interfaces/cart';
-import { IProductObject } from 'src/app/shared/Interfaces/product';
-import { LoadingSpinnerComponent } from 'src/app/shared/components/loading-spinner/loading-spinner.component';
+import { ICartItem } from 'src/app/shared/interfaces/cart';
+import { IProductObject } from 'src/app/shared/interfaces/product';
 import { RouterModule } from '@angular/router';
+import { GoBackComponent } from 'src/app/shared/go-back/go-back.component';
+import { LoadingSpinnerComponent } from 'src/app/shared/loading-spinner/loading-spinner.component';
+import { NavbarComponent } from 'src/app/shared/navbar/navbar.component';
 
 @Component({
   standalone: true,

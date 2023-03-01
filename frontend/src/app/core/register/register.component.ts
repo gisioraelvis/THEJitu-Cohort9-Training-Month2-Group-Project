@@ -8,7 +8,7 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { User } from '../../../shared/Interfaces/user';
+import { User } from '../../shared/interfaces/user';
 import { AuthService } from 'src/app/shared/services/auth/auth.service';
 import {
   HttpClient,

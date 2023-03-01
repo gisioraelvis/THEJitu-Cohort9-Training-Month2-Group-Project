@@ -1,6 +1,6 @@
-import { ICartItem } from './shared/Interfaces/cart';
-import { IOrderItem } from './shared/Interfaces/order';
-import { IProduct, IProductObject } from './shared/Interfaces/product';
+import { ICartItem } from './shared/interfaces/cart';
+import { IOrderItem } from './shared/interfaces/order';
+import { IProduct, IProductObject } from './shared/interfaces/product';
 
 export const PRODUCTS: IProduct[] = [
   {

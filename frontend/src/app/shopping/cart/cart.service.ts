@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 
 import { Observable, of } from 'rxjs';
 import { CARTITEMS } from 'src/app/mock-data';
-import { ICartItem } from 'src/app/shared/Interfaces/cart';
-import { IProductObject } from 'src/app/shared/Interfaces/product';
+import { ICartItem } from 'src/app/shared/interfaces/cart';
+import { IProductObject } from 'src/app/shared/interfaces/product';
 import { ProductService } from 'src/app/shared/services/product.service';
 
 @Injectable({

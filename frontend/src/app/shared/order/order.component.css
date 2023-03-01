@@ -1,69 +1,130 @@
 .order-container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 80%;
+  height: 60vh;
+  margin-top: 20px;
 }
 
 .order-details {
-  background-color: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  width: 60%;
 }
 
-.cart-details,
-.order-summary {
+.cart-details {
+  height: 50%;
   width: 100%;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.order-id {
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.shipping-address {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-top: 0.5rem;
+}
+
+.payment-method {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-top: 0.5rem;
+}
+
+.payment-status {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-top: 0.5rem;
+}
+
+.payment-status .pending {
+  color: #ff0000;
+}
+
+.payment-status .success {
+  color: #00ce75;
+}
+
+.order-summary {
+  width: 30%;
+  height: 50%;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 .title {
-  font-weight: bold;
+  font-size: 2rem;
+  font-weight: 400;
 }
 
-.order-id,
-.shipping-address,
-.payment-method {
-  margin: 0;
-}
-
-.delivery-state,
-.payment-state {
-  margin: 0 0 20px 0;
-}
-
-.item-summary,
-.shipping-summary,
-.tax-summary,
-.total-summary {
+.shipping-summary {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
 }
 
-.item-price,
-.shipping-price,
-.tax-price,
+.shipping-price {
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.tax-summary {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.tax-price {
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.total-summary {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .total-price {
-  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.payment-option {
+  font-size: 1.5rem;
+  font-weight: 400;
 }
 
 .phone-number {
-  margin: 20px 0;
-  padding: 10px;
-  border-radius: 5px;
-  border: none;
   width: 100%;
+  height: 40px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-top: 10px;
+  font-size: 1.5rem;
 }
 
 .place-order-button {
-  background-color: #4caf50;
-  color: white;
-  padding: 10px 20px;
-  border: none;
+  width: 100%;
+  height: 40px;
   border-radius: 5px;
-  cursor: pointer;
+  border: none;
+  background-color: var(--primary);
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-top: 10px;
 }
 
-.place-order-button:hover {
-  background-color: #3e8e41;
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
 }

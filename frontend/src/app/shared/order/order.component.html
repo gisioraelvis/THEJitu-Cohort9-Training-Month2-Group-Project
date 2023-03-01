@@ -3,44 +3,61 @@
 <div class="order-container">
     <div class="order-details">
         <div class="cart-details">
-            <p class="title">Order ID:</p>
-            <p class="order-id">{{ order.id }}</p>
+            <p class="order-id">Order ID: {{ order.id }}</p>
             <hr>
-            <p class="title">Shipping To:</p>
-            <p class="shipping-address">{{ order.shippingAddress }}</p>
-            <!-- <p class="delivery-state">{{ order.shippingState }}</p> -->
+            <p class="shipping-address">Shipping To: {{ order.shippingAddress }}</p>
             <hr>
-            <p class="title">Payment Method:</p>
-            <p class="payment-method">{{ order.paymentMethod }}</p>
-            <p class="payment-state">{{ order.paymentResultStatus }}</p>
+            <p class="payment-method">Payment Method: {{ order.paymentMethod }}</p>
             <hr>
+            <p class="payment-status">Payment Status: {{ order.paymentResultStatus }}</p>
         </div>
-        <div class="order-summary">
-            <p class="title">Order Summary</p>
-            <hr>
-            <div class="item-summary">
-                <p>Items:</p>
-                <!-- <p class="item-price">(3 x KSH {{ order. }})</p> -->
+    </div>
+    <!-- 
+        <div class="products-container">
+                <div class="cart-product" *ngFor="let orderProduct of orderProducts">
+                    <div class="product-image">
+                        <img src={{orderProduct.image}} alt="product image">
+                    </div>
+                    <div class="product-details">
+                        <div class="product-title-price">
+                            <div>
+                                <h2 class="product-title">{{orderProduct.name}}</h2>
+                            </div>
+                            <div>
+
+                                <p class="product-qty">Qty: {{getorderProductQty(orderProduct.id)}}</p>
+                            </div>
+                            <div>
+                                <p class="product-price">@{{orderProduct.price | currency:"Ksh "}}</p>
+                            </div>
+                        </div>
+                        <div class="product-delete-btn">
+                            <button class="delete-btn" type="button" (click)="deleteCartItem(orderProduct.id)">
+                                <span class="material-icons" title="Remove from cart">delete</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <hr>
-            <div class="shipping-summary">
-                <p>Shipping:</p>
-                <p class="shipping-price">{{ order.shippingPrice }}</p>
-            </div>
-            <hr>
-            <div class="tax-summary">
-                <p>Tax:</p>
-                <p class="tax-price">Ksh {{ order.taxPrice }}</p>
-            </div>
-            <hr>
-            <div class="total-summary">
-                <p>Total:</p>
-                <p class="total-price">Ksh {{ order.totalPrice }}</p>
-            </div>
-            <hr>
-            <p class="payment-option">Pay With M-pesa Xpress</p>
-            <input type="text" class="phone-number" placeholder="Enter your M-Pesa" [(ngModel)]="phoneNumber">
-            <button class="place-order-button" (click)="pay()">Pay</button>
+     -->
+    <div class="order-summary">
+        <p class="title">Order Summary</p>
+        <hr>
+        <div class="shipping-summary">
+            <p class="shipping-price">Shipping: {{ order.shippingPrice }}</p>
         </div>
+        <hr>
+        <div class="tax-summary">
+            <p class="tax-price">Tax: Ksh {{ order.taxPrice }}</p>
+        </div>
+        <hr>
+        <div class="total-summary">
+            <p class="total-price">Total: Ksh {{ order.totalPrice }}</p>
+        </div>
+        <hr>
+        <!-- TODO: Dynamicaly change the payment method -->
+        <p class="payment-option">Pay With M-pesa Xpress</p>
+        <input type="text" class="phone-number" placeholder="Enter your M-Pesa number" [(ngModel)]="phoneNumber">
+        <button class="place-order-button" (click)="pay()" disabled>Pay</button>
     </div>
 </div>

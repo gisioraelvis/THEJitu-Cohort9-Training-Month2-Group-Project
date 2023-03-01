@@ -27,9 +27,15 @@ export class OrderComponent implements OnInit {
     const orderId = Number(this.route.snapshot.paramMap.get('id'));
     this.orderService.getOrder(orderId).subscribe((order: any) => {
       this.order = order;
-      // this.totalPrice = this.itemPrice * 3 + this.shippingPrice + this.taxPrice;
     });
   }
+
+  // TODO: Get order products
+  // getOrderProducts() {
+  //   this.cartService.getCartProducts().subscribe((cartProducts) => {
+  //     this.cartProducts = cartProducts;
+  //   });
+  // }
 
   // TODO: Implement payment
   pay(): void {

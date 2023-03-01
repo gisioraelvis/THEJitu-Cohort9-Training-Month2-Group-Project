@@ -3,6 +3,7 @@ import { Observable, of } from 'rxjs';
 
 import { ORDERS } from 'src/app/mock-data';
 import { IOrderItem } from '../interfaces/order';
+import { IProductObject } from '../interfaces/product';
 
 @Injectable({
   providedIn: 'root',
@@ -39,6 +40,17 @@ export class OrderService {
     ORDERS.splice(0, ORDERS.length);
     return of(ORDERS);
   }
+
+  // TODO: Get order products
+  // getCartProducts(): Observable<IProductObject[]> {
+  //   const cartProducts: IProductObject[] = [];
+  //   ORDERS.forEach((orderItem) => {
+  //     this.productService
+  //       .getProduct(orderItem.productId)
+  //       .subscribe((product) => cartProducts.push(product));
+  //   });
+  //   return of(cartProducts);
+  // }
 
   // TODO: Implement payment
   pay(orderId: number, phoneNumber: string): Observable<IOrderItem> {

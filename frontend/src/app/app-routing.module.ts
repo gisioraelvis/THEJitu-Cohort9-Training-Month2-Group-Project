@@ -10,6 +10,20 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'login',
+    loadComponent: () =>
+      import('./core/login/login.component').then(
+        (l) => l.LoginComponent
+      ),
+  },
+  {
+    path: 'register',
+    loadComponent: () =>
+      import('./core/register/register.component').then(
+        (r) => r.RegisterComponent
+      ),
+  },
+  {
     path: 'product/:id',
     loadComponent: () =>
       import('./shopping/product-page/product.component').then(

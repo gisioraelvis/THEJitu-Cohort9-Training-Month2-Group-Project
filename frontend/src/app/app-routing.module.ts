@@ -26,6 +26,20 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'shipping',
+    loadComponent: () =>
+      import('./shopping/components/shipping/shipping.component').then(
+        (s) => s.ShippingComponent
+      ),
+  },
+  {
+    path: 'payment',
+    loadComponent: () =>
+      import('./shopping/components/payment/payment.component').then(
+        (p) => p.PaymentComponent
+      ),
+  },
+  {
     path: 'product/:id',
     loadComponent: () =>
       import('./shopping/components/product-page/product.component').then(

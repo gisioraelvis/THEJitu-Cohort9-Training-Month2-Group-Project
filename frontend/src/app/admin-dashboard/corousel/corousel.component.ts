@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component,OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { HomeComponent } from '../home/home.component';
 
 @Component({
   selector: 'app-corousel',
   standalone: true,
-  imports: [CommonModule,RouterModule],
+  imports: [CommonModule,RouterModule, HomeComponent],
   templateUrl: './corousel.component.html',
   styleUrls: ['./corousel.component.css']
 })

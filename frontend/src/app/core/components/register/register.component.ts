@@ -42,7 +42,6 @@ export class RegisterComponent {
   register(){
     console.log(this.registerForm.value)
     let user:User = this.registerForm.value
-    let users: User[] = [];
     console.log(this.registerForm.value)
      this.userService.postUser(user)
       .subscribe((response: User) => {

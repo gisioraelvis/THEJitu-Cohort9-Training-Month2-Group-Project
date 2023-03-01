@@ -6,7 +6,7 @@ const routes: Routes = [
   {
     path: '',
     loadComponent: () =>
-      import('./shopping/components/shop/shop.component').then(
+      import('./shopping/shop/shop.component').then(
         (c) => c.ShopComponent
       ),
   },
@@ -28,7 +28,7 @@ const routes: Routes = [
   {
     path: 'cart',
     loadComponent: () =>
-      import('./shopping/components/cart/cart.component').then(
+      import('./shopping/cart/cart.component').then(
         (c) => c.CartComponent
       ),
     // canActivate: [AuthguardService],
@@ -36,7 +36,7 @@ const routes: Routes = [
   {
     path: 'product/:id',
     loadComponent: () =>
-      import('./shopping/components/product-page/product.component').then(
+      import('./shopping/product-page/product.component').then(
         (c) => c.ProductComponent
       ),
     // canActivate: [AuthguardService]

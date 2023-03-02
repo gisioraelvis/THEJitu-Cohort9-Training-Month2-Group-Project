@@ -21,6 +21,7 @@ header h3{
     /* margin: auto; */
     /* border: 1px solid red;
      */
+     
 }
 .Products_search_pro{
     display: flex;
@@ -113,15 +114,9 @@ header h3{
     width: calc(200vw/ 7); /* divide by number of columns */
   }
   .td-image{
-<<<<<<< HEAD
    
     display: flex;
 
-=======
-    /* width: 90px; */
-    display: flex;
-    flex-wrap: wrap;
->>>>>>> 2af464c8b5a0035b9e9c8770da1a9206cbb2d171
   }
 
 td button{

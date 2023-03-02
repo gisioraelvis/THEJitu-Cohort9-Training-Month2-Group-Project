@@ -49,13 +49,32 @@ export class UserService {
       );
   }
 
+  // deleteUser(id: string) {
+  //   this.http
+  //     .delete(
+  //       `https://angul-a3143-default-rtdb.firebaseio.com/Users/${id}.json`
+  //     )
+  //     .subscribe((response) => {
+  //       console.log(response);
+  //     });
+  // }
+
   deleteUser(id: string) {
     this.http
-      .delete(
-        `https://angul-a3143-default-rtdb.firebaseio.com/Users/${id}.json`
-      )
-      .subscribe((response) => {
-        console.log(response);
-      });
+      .delete(`${API_URL}/users/${id}`, {
+        headers: { Authorization: `Bearer ${this.token}` },
+      })
+      .pipe(
+        catchError((error: HttpErrorResponse) => {
+          if (error.status === 401 || error.status === 403) {
+            this.router.navigate(['/login']);
+          }
+          this.httpErrorPopupService.showError(
+            error.status,
+            error.error.message
+          );
+          return throwError(error);
+        })
+      );
   }
 }

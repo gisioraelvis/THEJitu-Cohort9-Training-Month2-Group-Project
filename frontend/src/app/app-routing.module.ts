@@ -1,18 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthguardService } from './shared/services/guard/authguard.service';
 
 const routes: Routes = [
   {
     path: '',
     loadComponent: () =>
-      import('./shopping/shop/shop.component').then((c) => c.ShopComponent),
+      import('./shopping/shop/shop.component').then(
+        (c) => c.ShopComponent
+      ),
   },
-
   {
     path: 'login',
     loadComponent: () =>
-      import('./core/login/login.component').then((l) => l.LoginComponent),
+      import('./core/login/login.component').then(
+        (l) => l.LoginComponent
+      ),
   },
   {
     path: 'register',
@@ -53,13 +55,27 @@ const routes: Routes = [
       import('./shopping/product-page/product.component').then(
         (c) => c.ProductComponent
       ),
-    // canActivate: [AuthguardService]
   },
   {
-    path: 'user/orders/:id',
+    path: 'editProfile', 
     loadComponent: () =>
-      import('./shared/order/order.component').then((c) => c.OrderComponent),
-    // canActivate: [AuthguardService]
+      import('./customer-dashboard/edit-profile/edit-profile.component').then(
+        (c) => c.EditProfileComponent
+      ),
+  },
+  {
+    path: 'myOrders',
+    loadComponent: () =>
+      import('./customer-dashboard/my-orders/my-orders.component').then(
+        (c) => c.MyOrdersComponent
+      ),
+  },
+  {
+    path: 'customer-profile',
+    loadComponent: () =>
+      import('./customer-dashboard/customer/customer.component').then(
+        (c) => c.CustomerComponent
+      ),
   },
   {
     path: 'not-found',

@@ -11,6 +11,9 @@ form {
   gap: 10px;
   background-color: white;
 }
+.error p{
+  color:red;
+}
 /* html {
     font-size: 100%;
   } */

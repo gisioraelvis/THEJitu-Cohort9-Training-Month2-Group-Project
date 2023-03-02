@@ -63,18 +63,18 @@ export const UserUpdateProfileDto = Joi.object({
     "string.empty": "Please provide an email",
     "string.email": "Invalid email",
   }),
-  password: Joi.string()
-    .required()
-    .pattern(
-      new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*]).{8,}$")
-    )
-    .messages({
-      "string.pattern.base":
-        "Password must contain at least 8 characters, one uppercase, one lowercase, one number and one special case character",
-    }),
-  confirmPassword: Joi.equal(ref("password")).required().messages({
-    "any.only": "Passwords do not match",
-  }),
+  // password: Joi.string()
+  //   .required()
+  //   .pattern(
+  //     new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*]).{8,}$")
+  //   )
+  //   .messages({
+  //     "string.pattern.base":
+  //       "Password must contain at least 8 characters, one uppercase, one lowercase, one number and one special case character",
+  //   }),
+  // confirmPassword: Joi.equal(ref("password")).required().messages({
+  //   "any.only": "Passwords do not match",
+  // }),
 });
 
 // update user password dto

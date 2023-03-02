@@ -110,6 +110,18 @@
   cursor: pointer;
 }
 
+<<<<<<< HEAD
+=======
+.sign-btn a{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: #fff;
+}
+
+>>>>>>> 2af464c8b5a0035b9e9c8770da1a9206cbb2d171
 .sign-btn .material-icons {
   font-size: 4rem;
 }

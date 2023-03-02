@@ -1,0 +1,11 @@
+<div class="overlay" (click)="onClose()">
+    <div class="popup" (click)="onClose()" (keydown.escape)="onClose()" tabindex="0">
+        <div class="header">
+            <span>HTTP Error {{ code }}</span>
+            <button type="button" class="close" (click)="onClose()">X</button>
+        </div>
+        <div class="content">
+            <p>{{ errorMessage }}</p>
+        </div>
+    </div>
+</div>

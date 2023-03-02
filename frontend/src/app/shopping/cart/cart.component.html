@@ -1,8 +1,9 @@
 <app-navbar></app-navbar>
 <app-go-back></app-go-back>
 <div class="cart-page-container">
-    <app-loading-spinner *ngIf="(!cartItems!.length&&cartItems!.length!==0)"></app-loading-spinner>
-    <div class="empty-cart-container" *ngIf="cartItems!.length==0">
+    <app-loading-spinner *ngIf="cartItems.length===0"></app-loading-spinner>
+    <!-- TODO: Proper check for empty cart -->
+    <div class="empty-cart-container" *ngIf="cartItems.length===0">
         <h2>No Items in Cart</h2>
         <button>
             <a routerLink="/">
@@ -11,7 +12,7 @@
             </a>
         </button>
     </div>
-    <div class="product-cart-container" *ngIf="cartItems!.length>0">
+    <div class="product-cart-container" *ngIf="cartItems.length>0">
         <div class="products-container">
             <div class="cart-product" *ngFor="let cartProduct of cartProducts">
                 <div class="product-image">

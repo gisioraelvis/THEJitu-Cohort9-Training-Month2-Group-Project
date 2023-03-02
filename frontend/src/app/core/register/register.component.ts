@@ -16,6 +16,7 @@ import {
 } from '@angular/common/http';
 import { NavbarComponent } from 'src/app/shared/navbar/navbar.component';
 import { User } from 'src/app/shared/interfaces/user';
+import { HttpErrorPopupService } from 'src/app/shared/http-error-popup/http-error-popup.service';
 // import { throwError } from 'rxjs';
 
 @Component({
@@ -40,7 +41,8 @@ export class RegisterComponent {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private userService: AuthService
+    private userService: AuthService,
+    private httpErrorPopupService: HttpErrorPopupService
   ) {}
   // isLoggedIn=false
   private tokenKey = 'token';
@@ -73,7 +75,8 @@ export class RegisterComponent {
       (error) => {
         this.error = true;
         this.errorMessage = error.error;
-        console.log(error.error);
+        console.log(error);
+        this.httpErrorPopupService.showError(error.status, error.error.message);
       }
     );
   }

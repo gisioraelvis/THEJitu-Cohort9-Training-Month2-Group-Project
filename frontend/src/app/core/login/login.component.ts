@@ -58,6 +58,7 @@ export class LoginComponent {
         this.router.navigate(['/']);
       },
       (error) => {
+        // this.errorMessage = error.error.message;
         this.httpErrorPopupService.showError(error.status, error.error.message);
       }
     );

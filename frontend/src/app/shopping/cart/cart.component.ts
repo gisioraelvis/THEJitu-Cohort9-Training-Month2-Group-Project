@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { CartService } from './cart.service';
 import { ICartItem } from 'src/app/shared/interfaces/cart';
 import { IProductObject } from 'src/app/shared/interfaces/product';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { GoBackComponent } from 'src/app/shared/go-back/go-back.component';
 import { LoadingSpinnerComponent } from 'src/app/shared/loading-spinner/loading-spinner.component';
 import { NavbarComponent } from 'src/app/shared/navbar/navbar.component';
@@ -22,11 +22,11 @@ import { NavbarComponent } from 'src/app/shared/navbar/navbar.component';
   ],
 })
 export class CartComponent implements OnInit {
-  cartItems?: ICartItem[];
+  cartItems: ICartItem[] = [];
   cartProducts?: IProductObject[];
   cartTotal: number = 0;
 
-  constructor(private cartService: CartService) {}
+  constructor(private cartService: CartService, private router: Router) {}
 
   ngOnInit(): void {
     this.getCartItems();
@@ -38,6 +38,7 @@ export class CartComponent implements OnInit {
     this.cartService
       .getCartItems()
       .subscribe((cartItems) => (this.cartItems = cartItems));
+    console.log(this.cartItems);
   }
 
   getCartTotal(): void {
@@ -74,9 +75,21 @@ export class CartComponent implements OnInit {
     });
   }
 
-  checkOut() {
-    // this.cartService.checkOut().subscribe((cartItems) => {
-    //   this.cartItems = cartItems;
-    // });
+  // TODO: find cleaner way
+  // given product id return id of product in cart
+  getProductIdAsCartItemId(productId: number): number {
+    const cartItemId = this.cartItems?.find(
+      (cartItem) => cartItem.productId === productId
+    );
+    return cartItemId!.id as number;
+  }
+
+  // pass cartTotal
+  checkOut(): void {
+    this.cartService.checkOut(this.cartTotal).subscribe((cartItems) => {
+      this.cartItems = cartItems;
+    });
+
+    this.router.navigate(['/shipping']);
   }
 }

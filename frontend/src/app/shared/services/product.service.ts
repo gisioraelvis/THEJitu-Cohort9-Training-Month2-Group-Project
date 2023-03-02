@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Observable, catchError, throwError } from 'rxjs';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpErrorPopupService } from '../http-error-popup/http-error-popup.service';
 import { IProduct, IProductObject } from '../interfaces/product';
 import { API_URL } from 'src/app/constants';
-import { HttpErrorPopupService } from '../http-error-popup/http-error-popup.service';
 
 @Injectable({
   providedIn: 'root',

@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule, Location } from '@angular/common';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { IProductObject } from 'src/app/shared/interfaces/product';
 import { ProductService } from 'src/app/shared/services/product.service';
 import { FormsModule } from '@angular/forms';
 import { GoBackComponent } from 'src/app/shared/go-back/go-back.component';
 import { LoadingSpinnerComponent } from 'src/app/shared/loading-spinner/loading-spinner.component';
 import { NavbarComponent } from 'src/app/shared/navbar/navbar.component';
+import { CartService } from '../cart/cart.service';
+import { AuthService } from 'src/app/shared/services/auth/auth.service';
 
 @Component({
   standalone: true,
@@ -19,6 +21,7 @@ import { NavbarComponent } from 'src/app/shared/navbar/navbar.component';
     NavbarComponent,
     GoBackComponent,
     LoadingSpinnerComponent,
+    RouterModule,
   ],
 })
 export class ProductComponent implements OnInit {
@@ -28,7 +31,9 @@ export class ProductComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private productService: ProductService,
-    private router: Router
+    private router: Router,
+    private cartService: CartService,
+    public authService: AuthService
   ) {}
 
   ngOnInit(): void {
@@ -43,6 +48,7 @@ export class ProductComponent implements OnInit {
   }
 
   addToCart(): void {
+    this.cartService.addToCart(this.product!.id, this.qty).subscribe();
     this.router.navigate(['/cart']);
   }
 }

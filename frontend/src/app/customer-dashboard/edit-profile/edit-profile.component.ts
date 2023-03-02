@@ -1,10 +1,13 @@
 import { ProfileService } from './../profile.service';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Params, Router, ActivatedRoute } from '@angular/router';
+import { Observable } from "rxjs"
+
 
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CustomerComponent } from '../customer/customer.component';
+import { User, Profile } from '../interface';
 
 @Component({
   selector: 'app-edit-profile',
@@ -14,8 +17,19 @@ import { CustomerComponent } from '../customer/customer.component';
   styleUrls: ['./edit-profile.component.css']
 })
 export class EditProfileComponent implements OnInit {
+  user: User ={
+    name: '',
+    email: '',
+    password:'',
+    confirmPassword:'',
+    id:'',
+    isAdmin: false
+  }
+  id=''
+  updated = false
+
   form!: FormGroup
-  constructor(private fb: FormBuilder, public profileService: ProfileService) {
+  constructor(private fb: FormBuilder, public profileService: ProfileService, private route:ActivatedRoute, private router:Router) {
 
   }
 
@@ -24,27 +38,54 @@ export class EditProfileComponent implements OnInit {
       name: [null, [Validators.required]],
       email: [null, [Validators.required]],
       password: [null, [Validators.required]],
-      confirmpass: [null, [Validators.required]]
+      confirmPassword: [null, [Validators.required]]
+      
     })
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
-
-    // this.route.params.subscribe((param: Params) => {
-    //   this.profileService.getUserById(param['id']).subscribe(res => {
-    //     this.id = param['id']
-    //     let date = new Date(res.TravelDate).toISOString().slice(0, 10)
-    //     this.form.setValue({
-    //       Destination: res.Destination,
-    //       TravelDate: date
-    //     })
-
-    //   })
-    // })
-
+    this.profileService.getUserProfile().subscribe((user) => {
+      this.user = user
+      // users = this.
+      // let custom: User[]=this.users
+      console.log(user)
+      this.form.setValue({
+        name: this.user.name,
+        email: this.user.email,
+        password: '',
+        confirmPassword: ''
+      })
+      
+    })
+    
   }
-  submitData() {
 
-    // this.profileService.updateProfile(this.id, this.form.value).subscribe()
+  
+  updateProfile() {
+    console.log(this.user);
+    
+
+    // let user:User={this.user}
+    this.profileService.updateProfile(this.user)
+    this.router.navigate(['../'],{relativeTo:this.route})
+    this.updated=true    
   }
+
+  canDeactive(): boolean | Promise<boolean> | Observable<boolean> {
+
+    if ((
+      this.form.value.name !== this.user.name ||
+      this.form.value.email !== this.user.email ||
+      this.form.value.password !== this.user.password ||
+      this.form.value.confirmPassword !== this.user.confirmPassword
+    ) && !this.updated) {
+      const prom = new Promise<boolean>((resolve, reject) => {
+        setTimeout(() => {
+          resolve(confirm('Are you Sure you want to Discard the Changes'))
+        }, 1000)       
+      })
+      console.log("confirm");
+      return prom
+    } else {
+      return true
+    }
+  };
 
 }

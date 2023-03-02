@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
-import { IUser } from './interface';
+import { User } from './interface';
 
 @Injectable({
   providedIn: 'root'
@@ -12,10 +12,16 @@ export class ProfileService {
   constructor(private http:HttpClient) { }
 
 
-  getUserById():Observable<IUser[]>{
-    return this.http.get<IUser[]>('http://localhost:5500/api/orders/myorders')
+  getUserProfile():Observable<User>{
+    
+    const accessToken = localStorage.getItem('token') || " ";
+    return this.http.get<User>('http://localhost:5500/api/users/profile', {
+     headers: new HttpHeaders().set("Authorization", 'Bearer ' + accessToken)})
   }
-  // updateProfile(id: string, updateProfile): Observable<Message> {
-  //   return this.http.put<Message>(`http://localhost:4000/api/users/profile`, updatedProfile)
-  // }
+
+  updateProfile(user:User){
+    const accessToken = localStorage.getItem('token') || " ";
+    return this.http.put(`http://localhost:5500/api/users/profile`, user,{
+     headers: new HttpHeaders().set("Authorization", 'Bearer ' + accessToken)}).subscribe(response=>{console.log(response)})
+  }
 }

@@ -1,7 +1,7 @@
 
 <div class="container">
   <div class="content">    
-    <form [formGroup]="form" (ngSubmit)="submitData()">
+    <form [formGroup]="form" (ngSubmit)="updateProfile()">
       <div class="form-group">
         <div class="heading">
           <h2>USER PROFILE</h2>
@@ -22,24 +22,26 @@
           <div class="input-control">
             <input type="email" name="email" id="email" required email formControlName="email" />
           </div>
-
         </div>
+
         <div class="input-group">
           <div class="label-control">
             <label for="password">Password</label>
           </div>
           <div class="input-control">
-            <input type="password" name="password" id="password" formControlName="password" required />
+            <input type="password" name="password" id="password" required formControlName="password" />
           </div>
         </div>
+
         <div class="input-group">
           <div class="label-control">
-            <label for="confirmpass">Confirm Password</label>
+            <label for="confirmPassword">Confirm Password</label>
           </div>
           <div class="input-control">
-            <input type="password" name="confirmpass" id="confirmpass" formControlName="confirmpass" required />
+            <input type="password" name="confirmPassword" id="confirmPassword" required formControlName="confirmPassword" />
           </div>
         </div>
+        
 
         <div class="btn-style">
           <button type="submit">UPDATE</button>

@@ -1,3 +1,5 @@
+import { Observable } from "rxjs"
+
 export interface IOrder {
   id: number;
   userId: number;
@@ -17,11 +19,22 @@ export interface IOrder {
   JWT:string;
 }
 
-export interface IUser {
+export interface User {
   id: string;
   name: string;
   email: string;
   password: string;
+  confirmPassword:string;
   isDeleted?: boolean;
   isAdmin: boolean;
+}
+
+export interface Profile {
+  name: string;
+  email: string;
+  // password: string;
+} 
+
+export interface CanDeactivateComponent {
+  canDeactive: () => Promise<boolean> | Observable<boolean> | boolean
 }

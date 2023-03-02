@@ -63,7 +63,7 @@ export class EditProfileComponent implements OnInit {
   
   updateProfile() {
     this.profileService.updateProfile(this.form.value)
-    this.router.navigate(['/customer-profile'],{relativeTo:this.route})
+    this.router.navigate(['/dashboard'],{relativeTo:this.route})
     this.updated=true    
   }
   

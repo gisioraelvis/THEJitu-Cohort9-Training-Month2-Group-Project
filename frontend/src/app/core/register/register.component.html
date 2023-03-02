@@ -1,0 +1,41 @@
+<app-navbar></app-navbar>
+<form [formGroup]="registerForm" (ngSubmit)="register()">
+    <h3 style="text-align: center;">Sign Up</h3>
+    <div class="input">
+        <label for="name">Name</label>
+        <input type="text" placeholder="Enter your name" formControlName="name">
+    </div>
+    <div *ngIf="registerForm.controls['name'].invalid && (registerForm.controls['name'].dirty || registerForm.controls['name'].touched)"
+        class="alert">
+        <div *ngIf="registerForm.controls['name'].errors">
+            Please enter username
+        </div>
+    </div>
+
+    <div class="input">
+        <label for="name">Email</label>
+        <input type="text" placeholder="Enter your email" formControlName="email">
+    </div>
+
+
+    <div class="input">
+        <label for="name">Password</label>
+        <input type="password" placeholder="Enter your password" formControlName="password">
+    </div>
+
+    <div class="input">
+        <label for="name">Confirm Password</label>
+        <input type="password" placeholder="Enter your password" formControlName="confirmPassword">
+    </div>
+
+    <div class="error" *ngIf="error">
+        <p>{{errorMessage}}</p>
+    </div>
+
+    <button type="submit">Sign Up</button>
+
+    <!-- <p>Form status: {{registerForm.valid}}</p> -->
+
+
+    <p>New Customer? <a routerLink="/login">Sign In</a></p>
+</form>

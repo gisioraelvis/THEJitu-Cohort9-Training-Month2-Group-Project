@@ -32,7 +32,7 @@ export class ProductStartComponent implements OnInit {
 
   })
   }
-   printTable() {
+  printTable() {
     window.print();
   }
   deleteProduct(id: string) {

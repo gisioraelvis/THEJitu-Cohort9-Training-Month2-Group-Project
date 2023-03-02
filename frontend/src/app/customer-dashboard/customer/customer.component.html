@@ -8,11 +8,11 @@
           <!-- <li><input type="text" placeholder="search a product"></li> -->
         </div>
         <div class="right-navbar">
-          <li><a><i class="fa fa-address-book" aria-hidden="true"></i></a></li>
+          <!-- <li><a><i class="fa fa-address-book" aria-hidden="true"></i></a></li>
           <li><a routerLink="/editProfile">Customer</a></li>
           <li><a href="#"><span class="material-symbols-outlined">
                 person
-              </span></a></li>
+              </span></a></li> -->
           <!-- <span class="material-symbols-outlined">
             person
           </span>
@@ -39,8 +39,8 @@
             alt="" />
         </div>
         <div class="profile-end">
-          <h4>Zoey Melody</h4>
-          <p>zoey@gmail.com</p>
+          <h4>{{this.user.name}}</h4>
+          <p>{{this.user.email}}</p>
         </div>
       </div>
       <div class="sub-container">
@@ -48,15 +48,15 @@
         <hr />
         <div class="sub-container-1">
           <ul>
-    
+
             <div class="ul-style">
-              <li><a routerLink="/editProfile">Edit Profile</a></li>
-              <li><a routerLink="/myOrders">My Orders</a></li>
+              <li><a routerLink="dashboard/edit-profile">Edit Profile</a></li>
+              <li><a routerLink="dashboard/my-orders">My Orders</a></li>
             </div>
 
             <div class="logout">
               <li><i class="fa fa-sign-out" aria-hidden="true"></i><a>Logout</a></li>
-            </div>            
+            </div>
           </ul>
         </div>
       </div>
@@ -66,7 +66,9 @@
 
 
   <div class="two">
-    <!-- <router-outlet></router-outlet> -->
+    <!-- <app-my-orders></app-my-orders> -->
+    <router-outlet></router-outlet>
+    
   </div>
 </div>
 

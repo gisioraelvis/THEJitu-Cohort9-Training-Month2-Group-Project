@@ -3,21 +3,22 @@
   margin: 0;
   box-sizing: border-box;
   font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
 }
 .customer{
-  padding: 2em;
+  padding: 10px;
 }
 h2 {
-  padding: 2rem;
+  padding: 10px;
   color: white;
 }
 
 header {
   background: hsl(257, 71%, 15%);
-  padding: 2em 0;
+  padding: 20px 0;
   text-align: center;
-  margin-bottom: 1.5em;
-  border-radius: .5em;
+  margin-bottom: 15px;
+  border-radius: 5px;
 }
 
 /* navigation */

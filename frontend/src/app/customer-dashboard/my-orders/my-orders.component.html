@@ -3,7 +3,7 @@
 <div class="heading">
 <h2>MY ORDERS</h2>
 </div>
-<table class="customers">
+<table class="customers" >
   <tr>
     <th>ID</th>
     <th>DATE</th>
@@ -13,15 +13,21 @@
 
 
   </tr>
+
+
+    <tr *ngFor="let order of orders" >
+      <td>{{order.id}}</td>
+      <td>{{order.updatedAt|date:"short"}}</td>
+      <td>{{order.totalPrice}}</td>
+      <td>{{order.isPaid}}</td>
+      <td>{{order.isDelivered}}</td>
+      <td><button>DETAILS</button></td>
+    </tr>
+
   
-  <tr *ngFor="let order of orders">
-    <td>{{order.id}}</td>
-    <td>{{order.updatedAt|date:"short"}}</td>
-    <td>{{order.totalPrice}}</td>
-    <td>{{order.isPaid}}</td>
-    <td>{{order.isDelivered}}</td>
-    <td><button>DETAILS</button></td>
-  </tr>
+ 
 </table>
+<div ng-show="!orders.length" style="display:none" style="color:black"><h2>You have no order history</h2></div>
 
 </div>
+

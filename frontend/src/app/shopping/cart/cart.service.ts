@@ -179,14 +179,18 @@ export class CartService {
     const cartProducts: IProductObject[] = [];
     return new Observable((observer) => {
       this.getCartItems().subscribe((cartItems) => {
-        cartItems.forEach((cartItem) => {
-          this.productService
-            .getProduct(cartItem.productId)
-            .subscribe((product) => {
-              cartProducts.push(product);
-              observer.next(cartProducts);
-            });
-        });
+        if (cartItems.length > 0) {
+          cartItems.forEach((cartItem) => {
+            this.productService
+              .getProduct(cartItem.productId)
+              .subscribe((product) => {
+                cartProducts.push(product);
+                observer.next(cartProducts);
+              });
+          });
+        } else {
+          observer.next(cartProducts);
+        }
       });
     });
   }

@@ -23,8 +23,9 @@ import { NavbarComponent } from 'src/app/shared/navbar/navbar.component';
 })
 export class CartComponent implements OnInit {
   cartItems: ICartItem[] = [];
-  cartProducts?: IProductObject[];
+  cartProducts: IProductObject[] = [];
   cartTotal: number = 0;
+  loading: boolean = true;
 
   constructor(
     private cartService: CartService,
@@ -33,49 +34,55 @@ export class CartComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.getCartItems();
-    this.getCartProducts();
-    this.getCartTotal();
-  }
-
-  getCartItems(): void {
-    this.cartService
-      .getCartItems()
-      .subscribe((cartItems) => (this.cartItems = cartItems));
-    console.log(this.cartItems);
-  }
-
-  getCartTotal(): void {
-    this.cartService.getCartTotal().subscribe((cartTotal) => {
-      this.cartTotal = cartTotal;
-    });
-  }
-
-  getCartProducts() {
-    this.cartService.getCartProducts().subscribe((cartProducts) => {
-      this.cartProducts = cartProducts;
+    this.cartService.getCartItems().subscribe((cartItems) => {
+      this.cartItems = cartItems;
+      this.cartService.getCartProducts().subscribe((cartProducts) => {
+        this.cartProducts = cartProducts;
+        this.cartService.getCartTotal().subscribe((cartTotal) => {
+          this.cartTotal = cartTotal;
+          setTimeout(() => {
+            this.loading = false;
+          }, 1000);
+        });
+      });
     });
   }
 
   getCartProductQty(cartProductId: number): number {
-    const cartItem = this.cartItems?.find(
+    const cartItem = this.cartItems.find(
       (cartItem) => cartItem.productId === cartProductId
     );
-    return cartItem?.qty || 0;
+    return cartItem?.qty || 1;
   }
 
   deleteCartItem(cartProductId: number): void {
+    this.loading = true;
     this.cartService.deleteCartItem(cartProductId).subscribe((cartItems) => {
       this.cartItems = cartItems;
+      this.cartService.getCartProducts().subscribe((cartProducts) => {
+        this.cartProducts = cartProducts;
+        this.cartService.getCartTotal().subscribe((cartTotal) => {
+          this.cartTotal = cartTotal;
+          setTimeout(() => {
+            this.loading = false;
+          }, 1000);
+        });
+      });
     });
-
-    this.getCartProducts();
-    this.getCartTotal();
   }
 
   updateCartItem(cartItem: ICartItem): void {
     this.cartService.updateCartItem(cartItem).subscribe((cartItems) => {
       this.cartItems = cartItems;
+      this.cartService.getCartProducts().subscribe((cartProducts) => {
+        this.cartProducts = cartProducts;
+        this.cartService.getCartTotal().subscribe((cartTotal) => {
+          this.cartTotal = cartTotal;
+          setTimeout(() => {
+            this.loading = false;
+          }, 1000);
+        });
+      });
     });
   }
 

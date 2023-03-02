@@ -60,6 +60,8 @@ export class UserService {
   // }
 
   deleteUser(id: string) {
+    console.log("--------------------")
+    console.log(id)
     this.http
       .delete(`${API_URL}/users/${id}`, {
         headers: { Authorization: `Bearer ${this.token}` },

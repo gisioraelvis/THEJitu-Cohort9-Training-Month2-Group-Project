@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { OrdersResolverService } from './admin-dashboard/Services/Guards/order-resolver.service';
-import { ProductResolverService } from './admin-dashboard/Services/Guards/product-resolver.service';
 import { CanDeactiveService } from './customer-dashboard/can-deactivate.service';
 import { AuthguardService } from './shared/services/guard/authguard.service';
 
@@ -29,7 +27,7 @@ const routes: Routes = [
     path: 'cart',
     loadComponent: () =>
       import('./shopping/cart/cart.component').then((c) => c.CartComponent),
-    // canActivate: [AuthguardService],
+    canActivate: [AuthguardService],
   },
   {
     path: 'shipping',
@@ -49,7 +47,6 @@ const routes: Routes = [
     path: 'product/:id',
     loadComponent: () =>
       import('./shopping/cart/cart.component').then((c) => c.CartComponent),
-    // canActivate: [AuthguardService],
   },
   {
     path: 'products/:id',
@@ -57,13 +54,12 @@ const routes: Routes = [
       import('./shopping/product-page/product.component').then(
         (c) => c.ProductComponent
       ),
-    // canActivate: [AuthguardService]
   },
   {
     path: 'user/orders/:id',
     loadComponent: () =>
       import('./shared/order/order.component').then((c) => c.OrderComponent),
-    // canActivate: [AuthguardService]
+    // canActivate: [AuthguardService],
   },
   // admin dashboard routes
   {
@@ -73,7 +69,7 @@ const routes: Routes = [
         (mod) => mod.ADMIN_ROUTES
       ),
   },
-  // customer dashboard
+  // customer dashboard routes
   {
     path: 'dashboard',
     loadComponent: () =>

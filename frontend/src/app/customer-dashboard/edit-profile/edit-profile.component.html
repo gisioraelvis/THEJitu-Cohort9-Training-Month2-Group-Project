@@ -1,0 +1,72 @@
+
+<div class="container">
+  <div class="content">    
+    <form [formGroup]="form" (ngSubmit)="updateProfile()">
+      <div class="form-group">
+        <div class="heading">
+          <h2>USER PROFILE</h2>
+        </div>
+        <div class="input-group">
+          <div class="label-control">
+            <label for="name">Name</label>
+          </div>
+          <div class="input-control">
+            <input type="text" name="name" id="name" required formControlName="name">
+          </div>
+        </div>
+
+        <div class="input-group">
+          <div class="label-control">
+            <label for="email">Email Address</label>
+          </div>
+          <div class="input-control">
+            <input type="email" name="email" id="email" required email formControlName="email" />
+          </div>
+          
+        </div>
+        <div *ngIf="!form.get('email')?.valid && form.get('email')?.touched " class="error">
+          <span *ngIf="form.get('email')!.errors!['required']">Please input a Value</span>
+          <span *ngIf="form.get('email')!.errors!['email']">Please Enter a valid
+            Email</span>
+        </div>
+
+        <div class="input-group">
+          <div class="label-control">
+            <label for="password">Password</label>
+          </div>
+          <div class="input-control">
+            <input type="password" name="password" id="password" required formControlName="password" />
+          </div>
+        </div>
+
+
+        <div class="error" *ngIf="!form.get('password')?.valid && form.get('password')?.touched ">
+          <span *ngIf="form.get('password')!.errors!['required']">Please enter a Password</span>
+          <span *ngIf="form.get('password')!.errors!['pattern']">Please enter a valid Password</span>
+        </div>
+
+
+        <div class="input-group">
+          <div class="label-control">
+            <label for="confirmPassword">Confirm Password</label>
+          </div>
+          <div class="input-control">
+            <input type="password" name="confirmPassword" id="confirmPassword" required formControlName="confirmPassword" />
+          </div>
+        </div>
+        <div class="error" *ngIf="!form.get('password')?.valid && form.get('password')?.touched ">
+          <span *ngIf="form.get('password')!.errors!['required']">Please enter a Password</span>
+          <span *ngIf="form.get('password')!.errors!['pattern']">Please enter a valid Password</span>
+        </div>
+        
+
+        <div class="btn-style">
+          <button type="submit">UPDATE</button>
+        </div>
+      </div>
+    </form>
+
+  </div>
+
+
+</div>

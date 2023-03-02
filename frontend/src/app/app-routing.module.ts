@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { OrdersResolverService } from './admin-dashboard/Services/Guards/order-resolver.service';
 import { ProductResolverService } from './admin-dashboard/Services/Guards/product-resolver.service';
+import { CanDeactiveService } from './customer-dashboard/can-deactivate.service';
 import { AuthguardService } from './shared/services/guard/authguard.service';
 
 const routes: Routes = [
@@ -71,6 +72,38 @@ const routes: Routes = [
       import('./admin-dashboard/admin-dashboard.routes').then(
         (mod) => mod.ADMIN_ROUTES
       ),
+  },
+  // customer dashboard
+  {
+    path: 'dashboard',
+    loadComponent: () =>
+      import('./customer-dashboard/customer/customer.component').then(
+        (c) => c.CustomerComponent
+      ),
+    children: [
+      {
+        path: 'dashboard/edit-profile',
+        canDeactivate: [CanDeactiveService],
+        loadComponent: () =>
+          import(
+            './customer-dashboard/edit-profile/edit-profile.component'
+          ).then((c) => c.EditProfileComponent),
+      },
+      {
+        path: 'dashboard/my-orders',
+        loadComponent: () =>
+          import('./customer-dashboard/my-orders/my-orders.component').then(
+            (c) => c.MyOrdersComponent
+          ),
+      },
+      {
+        path: '',
+        loadComponent: () =>
+          import('./customer-dashboard/my-orders/my-orders.component').then(
+            (c) => c.MyOrdersComponent
+          ),
+      },
+    ],
   },
   {
     path: 'not-found',

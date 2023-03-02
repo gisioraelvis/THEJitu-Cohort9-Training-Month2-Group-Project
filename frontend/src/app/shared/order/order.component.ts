@@ -25,7 +25,7 @@ export class OrderComponent implements OnInit {
 
   ngOnInit(): void {
     const orderId = Number(this.route.snapshot.paramMap.get('id'));
-    this.orderService.getOrder(orderId).subscribe((order: any) => {
+    this.orderService.getOrderById(orderId).subscribe((order: any) => {
       this.order = order;
     });
   }

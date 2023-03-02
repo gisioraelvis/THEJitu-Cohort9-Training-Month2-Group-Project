@@ -1,7 +1,8 @@
 import { Route } from '@angular/router';
 import { OrdersResolverService } from './Services/Guards/order-resolver.service';
-
+import { CanDeactiveService } from './Services/Guards/can-deactive.service';
 export const ADMIN_ROUTES: Route[] = [
+    {path: 'home',    loadComponent:() => import('./home/home.component').then(f => f.HomeComponent), children: [
   {
     path: '',
     loadComponent: () =>
@@ -48,10 +49,10 @@ export const ADMIN_ROUTES: Route[] = [
       ),
   },
   {
-    path: 'products/:id',
+    path: 'products/:id', canDeactivate: [CanDeactiveService],
     loadComponent: () =>
       import('./products/edit-product/edit-product.component').then(
         (m) => m.EditProductComponent
       ),
   },
-];
+]}];

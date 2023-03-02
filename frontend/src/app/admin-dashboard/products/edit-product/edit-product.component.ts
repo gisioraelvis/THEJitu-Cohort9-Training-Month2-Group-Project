@@ -57,7 +57,8 @@ export class EditProductComponent implements OnInit, CanDeactivateComponent {
     let product:Product= {...this.product ,...this.form.value}
     this.productService.updateProduct(this.product.id, product)
     this.router.navigate(['../'],{relativeTo:this.route})
-    this.updated=true
+    this.updated=true;
+    this.form.reset();
   }
 
 

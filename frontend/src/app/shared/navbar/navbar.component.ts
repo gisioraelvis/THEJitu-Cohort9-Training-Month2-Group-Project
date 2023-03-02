@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { IUserProfile } from '../interfaces/user';
 import { AuthService } from '../services/auth/auth.service';
 import { UserService } from '../services/user.service';
 
@@ -13,7 +14,7 @@ import { UserService } from '../services/user.service';
   imports: [RouterModule, CommonModule, ReactiveFormsModule],
 })
 export class NavbarComponent implements OnInit {
-  userName?: string;
+  user?: IUserProfile;
   constructor(
     public authService: AuthService,
     private userService: UserService
@@ -22,7 +23,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     if (this.authService.isLoggedIn) {
       this.userService.getUserProfile().subscribe((userProfile) => {
-        this.userName = userProfile.name;
+        this.user = userProfile;
       });
     }
   }

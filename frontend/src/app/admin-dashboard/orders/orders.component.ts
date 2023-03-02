@@ -32,6 +32,9 @@ export class OrdersComponent implements OnInit {
 
   })
   }
+  printTable() {
+    window.print();
+  }
   deleteOrders(id: string) {
     this.OrdersService.deleteOrders(id);
     // remove the deleted product from the local products array

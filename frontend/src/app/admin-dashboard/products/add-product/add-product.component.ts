@@ -27,6 +27,7 @@ export class AddProductComponent implements OnInit {
 
   AddProduct(){
     let product :Product= {...this.addProduct.value, id:Math.floor(Math.random() *10000)};
-    this.productService.addProduct(product)
+    this.productService.addProduct(product);
+    this.addProduct.reset();
   }
 }

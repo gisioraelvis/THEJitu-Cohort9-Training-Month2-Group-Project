@@ -94,4 +94,7 @@ td button{
     padding: 4px;
     outline: none;
   }
-    
+.del{
+    display: flex;
+    align-items: center;
+}

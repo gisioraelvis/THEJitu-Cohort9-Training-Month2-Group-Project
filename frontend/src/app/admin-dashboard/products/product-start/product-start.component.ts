@@ -32,6 +32,9 @@ export class ProductStartComponent implements OnInit {
 
   })
   }
+  printTable() {
+    window.print();
+  }
   deleteProduct(id: string) {
     this.productService.deleteProduct(id);
     // remove the deleted product from the local products array

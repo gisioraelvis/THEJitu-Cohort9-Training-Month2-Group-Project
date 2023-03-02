@@ -5,11 +5,14 @@
         <div class="cart-details">
             <p class="order-id">Order ID: {{ order.id }}</p>
             <hr>
-            <p class="shipping-address">Shipping To: {{ order.shippingAddress }}</p>
+            <!-- <p class="shipping-address">Shipping To: {{ order.shippingAddress }}</p> -->
+            <p class="shipping-address">Shipping To: Not Specified</p>
+
             <hr>
-            <p class="payment-method">Payment Method: {{ order.paymentMethod }}</p>
+            <!-- <p class="payment-method">Payment Method: {{ order.paymentMethod }}</p> -->
+            <p class="payment-method">Payment Method: M-pesa Xpress</p>
             <hr>
-            <p class="payment-status">Payment Status: {{ order.paymentResultStatus }}</p>
+            <p class="payment-status pending">Payment Status: <span class="pending">{{ order.paymentResultStatus }}</span></p>
         </div>
     </div>
     <!-- 
@@ -44,11 +47,14 @@
         <p class="title">Order Summary</p>
         <hr>
         <div class="shipping-summary">
-            <p class="shipping-price">Shipping: {{ order.shippingPrice }}</p>
+            <!-- <p class="shipping-price">Shipping: {{ order.shippingPrice }}</p> -->
+            <p class="shipping-price">Shipping: Not Set</p>
         </div>
         <hr>
         <div class="tax-summary">
-            <p class="tax-price">Tax: Ksh {{ order.taxPrice }}</p>
+            <!-- <p class="tax-price">Tax: Ksh {{ order.taxPrice }}</p> -->
+            <p class="tax-price">Tax: Not Set</p>
+
         </div>
         <hr>
         <div class="total-summary">

@@ -37,8 +37,8 @@ export class EditProfileComponent implements OnInit {
     this.form = this.fb.group({
       name: [null, [Validators.required]],
       email: [null, [Validators.required]],
-      password: [null, [Validators.required]],
-      confirmPassword: [null, [Validators.required]]
+      password: [null, [Validators.required, Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*]).{8,}$')]],
+      confirmPassword: [null, [Validators.required, Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*]).{8,}$')]]
       
     })
     this.profileService.getUserProfile().subscribe((user) => {
@@ -63,18 +63,20 @@ export class EditProfileComponent implements OnInit {
     
 
     // let user:User={this.user}
-    this.profileService.updateProfile(this.user)
-    this.router.navigate(['../'],{relativeTo:this.route})
+    this.profileService.updateProfile(this.form.value)
+    this.router.navigate(['/dashboard'],{relativeTo:this.route})
     this.updated=true    
   }
+  
+  
 
   canDeactive(): boolean | Promise<boolean> | Observable<boolean> {
 
     if ((
-      this.form.value.name !== this.user.name ||
-      this.form.value.email !== this.user.email ||
-      this.form.value.password !== this.user.password ||
-      this.form.value.confirmPassword !== this.user.confirmPassword
+      this.form.value.name != this.user.name ||
+      this.form.value.email != this.user.email ||
+      this.form.value.password != this.user.password ||
+      this.form.value.confirmPassword != this.user.confirmPassword
     ) && !this.updated) {
       const prom = new Promise<boolean>((resolve, reject) => {
         setTimeout(() => {

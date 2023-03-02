@@ -21,7 +21,12 @@ export class ProfileService {
 
   updateProfile(user:User){
     const accessToken = localStorage.getItem('token') || " ";
+    
     return this.http.put(`http://localhost:5500/api/users/profile`, user,{
      headers: new HttpHeaders().set("Authorization", 'Bearer ' + accessToken)}).subscribe(response=>{console.log(response)})
+
   }
+
+
+  
 }

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CanDeactiveService } from './customer-dashboard/can-deactivate.service'
 
 const routes: Routes = [
   {
@@ -30,27 +31,38 @@ const routes: Routes = [
         (c) => c.ProductComponent
       ),
   },
+  
   {
-    path: 'editProfile',
-    loadComponent: () =>
-      import('./customer-dashboard/edit-profile/edit-profile.component').then(
-        (c) => c.EditProfileComponent
-      ),
-  },
-  {
-    path: 'myOrders',
-    loadComponent: () =>
-      import('./customer-dashboard/my-orders/my-orders.component').then(
-        (c) => c.MyOrdersComponent
-      ),
-  },
-  {
-    path: 'customer-profile',
+    path: 'dashboard',
     loadComponent: () =>
       import('./customer-dashboard/customer/customer.component').then(
         (c) => c.CustomerComponent
-      ),
-  },
+      ), children: [
+        {
+          path: 'dashboard/edit-profile', canDeactivate: [CanDeactiveService],
+        loadComponent: () =>
+          import('./customer-dashboard/edit-profile/edit-profile.component').then(
+            (c) => c.EditProfileComponent
+          ),
+      },
+        {
+          path: 'dashboard/my-orders',
+          loadComponent: () =>
+            import('./customer-dashboard/my-orders/my-orders.component').then(
+              (c) => c.MyOrdersComponent
+            ),
+            
+        },
+      {
+        path: '',
+        loadComponent: () =>
+          import('./customer-dashboard/my-orders/my-orders.component').then(
+            (c) => c.MyOrdersComponent
+          ),
+
+      }
+      ]},
+  
   {
     path: 'not-found',
     loadComponent: () =>
@@ -59,7 +71,7 @@ const routes: Routes = [
       ),
     data: { message: 'Page not found!' },
   },
-  { path: '**', redirectTo: '/not-found' },
+  { path: '**', redirectTo: '/not-found' }
 ];
 
 @NgModule({

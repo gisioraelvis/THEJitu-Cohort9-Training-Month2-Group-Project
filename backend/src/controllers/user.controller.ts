@@ -285,11 +285,11 @@ export const updateUserProfile = async (
   req: IRequestWithUser,
   res: Response
 ) => {
-  const { error } = UserUpdateProfileDto.validate(req.body);
+  // const { error } = UserUpdateProfileDto.validate(req.body);
 
-  if (error) {
-    return res.status(422).json(error.details[0].message);
-  }
+  // if (error) {
+  //   return res.status(422).json(error.details[0].message);
+  // }
 
   const userId = req.user?.id as string;
   const { name, email, password } = req.body;

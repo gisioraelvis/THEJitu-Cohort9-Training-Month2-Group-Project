@@ -1,21 +1,34 @@
 import { Injectable } from '@angular/core';
-
-import { Observable, of } from 'rxjs';
-import { PRODUCTOBJ, PRODUCTS } from 'src/app/mock-data';
+import { Observable, catchError, throwError } from 'rxjs';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { IProduct, IProductObject } from '../interfaces/product';
+import { API_URL } from 'src/app/constants';
+import { HttpErrorPopupService } from '../http-error-popup/http-error-popup.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ProductService {
-  constructor() {}
+  constructor(
+    private http: HttpClient,
+    private httpErrorPopupService: HttpErrorPopupService
+  ) {}
 
   getProducts(): Observable<IProduct[]> {
-    const products = of(PRODUCTS);
-    return products;
+    return this.http.get<IProduct[]>(`${API_URL}/products`).pipe(
+      catchError((error: HttpErrorResponse) => {
+        this.httpErrorPopupService.showError(error.status, error.error.message);
+        return throwError(error);
+      })
+    );
   }
 
   getProduct(id: number): Observable<IProductObject> {
-    return of(PRODUCTOBJ);
+    return this.http.get<IProductObject>(`${API_URL}/products/${id}`).pipe(
+      catchError((error: HttpErrorResponse) => {
+        this.httpErrorPopupService.showError(error.status, error.error.message);
+        return throwError(error);
+      })
+    );
   }
 }

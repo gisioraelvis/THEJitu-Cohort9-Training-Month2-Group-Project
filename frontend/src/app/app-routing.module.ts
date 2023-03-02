@@ -72,64 +72,6 @@ const routes: Routes = [
         (mod) => mod.ADMIN_ROUTES
       ),
   },
-  // {
-  //   path: 'admin',
-  //   loadComponent: () =>
-  //     import('./admin-dashboard/corousel/corousel.component').then(
-  //       (p) => p.CorouselComponent
-  //     ),
-  //   pathMatch: 'full',
-  // },
-  // {
-  //   path: 'admin/orders',
-  //   loadComponent: () =>
-  //     import('./admin-dashboard/orders/orders.component').then(
-  //       (p) => p.OrdersComponent
-  //     ),
-  // },
-  // {
-  //   path: 'admin/orders/:id',
-  //   resolve: { Order: OrdersResolverService },
-  //   loadComponent: () =>
-  //     import('./admin-dashboard/orders/edit-oders/edit-orders.component').then(
-  //       (p) => p.OrderEditComponent
-  //     ),
-  // },
-  // {
-  //   path: 'admin/users',
-  //   loadComponent: () =>
-  //     import('./admin-dashboard/users/users.component').then(
-  //       (p) => p.UsersComponent
-  //     ),
-  // },
-  // {
-  //   path: 'admin/users/soft-deleted',
-  //   loadComponent: () =>
-  //     import('./admin-dashboard/users/softdelete/softdelete.component').then(
-  //       (p) => p.SoftdeleteComponent
-  //     ),
-  // },
-  // {
-  //   path: 'admin/products',
-  //   loadComponent: () =>
-  //     import(
-  //       './admin-dashboard/products/product-start/product-start.component'
-  //     ).then((p) => p.ProductStartComponent),
-  // },
-  // {
-  //   path: 'admin/products/add-new',
-  //   loadComponent: () =>
-  //     import(
-  //       './admin-dashboard/products/add-product/add-product.component'
-  //     ).then((p) => p.AddProductComponent),
-  // },
-  // {
-  //   path: 'admin/products/:id',
-  //   loadComponent: () =>
-  //     import(
-  //       './admin-dashboard/products/edit-product/edit-product.component'
-  //     ).then((m) => m.EditProductComponent),
-  // },
   {
     path: 'not-found',
     loadComponent: () =>

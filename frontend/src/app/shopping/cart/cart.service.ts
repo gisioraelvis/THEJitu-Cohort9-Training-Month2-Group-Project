@@ -11,6 +11,7 @@ import { IProductObject } from 'src/app/shared/interfaces/product';
 import { ProductService } from 'src/app/shared/services/product.service';
 import { LocalStorageService } from 'src/app/shared/services/local-storage.service';
 import { AuthService } from 'src/app/shared/services/auth/auth.service';
+import { IOrderItem } from 'src/app/shared/interfaces/order';
 
 @Injectable({
   providedIn: 'root',
@@ -213,9 +214,9 @@ export class CartService {
   }
 
   // get cart/checkout?totalPrice=19.99
-  checkOut(cartTotal: number): Observable<ICartItem[]> {
+  checkOut(cartTotal: number): Observable<IOrderItem[]> {
     return this.http
-      .get<ICartItem[]>(`${API_URL}/cart/checkout?totalPrice${cartTotal}`, {
+      .get<IOrderItem[]>(`${API_URL}/cart/checkout?totalPrice${cartTotal}`, {
         headers: { Authorization: `Bearer ${this.token}` },
       })
       .pipe(

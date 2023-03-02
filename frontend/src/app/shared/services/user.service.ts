@@ -3,17 +3,26 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { catchError, Observable, throwError } from 'rxjs';
 import { IUserProfile } from '../interfaces/user';
 import { Router } from '@angular/router';
+import { LocalStorageService } from './local-storage.service';
+import { API_URL } from 'src/app/constants';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
-  baserUrl: string = 'http://localhost:5500/api';
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+    private localStorage: LocalStorageService
+  ) {}
+
+  token = this.localStorage.getToken() as string;
 
   getUserProfile(): Observable<IUserProfile> {
     return this.http
-      .get<IUserProfile>(`${this.baserUrl}/api/user/profile`)
+      .get<IUserProfile>(`${API_URL}/user/profile`, {
+        headers: { Authorization: `Bearer ${this.token}` },
+      })
       .pipe(
         catchError((err: HttpErrorResponse) => {
           if (err.status === 401) {

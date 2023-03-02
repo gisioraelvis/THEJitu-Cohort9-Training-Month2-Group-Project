@@ -49,7 +49,14 @@ export class AuthService {
   }
 
   public loginUser(userlogin: Login): Observable<Login> {
-    return this.http.post<Login>(this.loginUrl, userlogin);
+    // return this.http.post<Login>(this.loginUrl, userlogin);
+    return this.http.post<Login>(this.loginUrl, userlogin).pipe(
+      catchError((error) => { 
+        this.errorMessage = error.error;
+        console.log(error);
+        return throwError(error);
+      } )
+    );
   }
 
   getAuthStatus(): Promise<boolean> {

@@ -1,0 +1,49 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+}
+
+.popup {
+  background-color: #ffffff;
+  padding: 20px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+  max-width: 500px;
+  text-align: center;
+}
+
+.header {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: red;
+}
+
+.close {
+  position: absolute;
+  top: 40%;
+  right: 31%;
+  border: none;
+  color: red;
+  cursor: pointer;
+  font-size: 24px;
+  background-color: transparent;
+}
+
+.close:hover {
+  color: #ff0000;
+  scale: 1.2;
+}
+
+.content {
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}

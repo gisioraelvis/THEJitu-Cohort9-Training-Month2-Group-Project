@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 <app-go-back></app-go-back>
 <app-loading-spinner *ngIf="loading"></app-loading-spinner>
-<div class="order-container" *ngIf="loading">
+<div class="order-container" *ngIf="!loading">
     <div class="order-details">
         <div class="cart-details">
             <p class="order-id">Order ID: {{ order.id }}</p>

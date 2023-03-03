@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component,OnInit } from '@angular/core';
+import { Component} from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { AuthService } from '../../shared/services/auth/auth.service';
 @Component({
@@ -9,7 +9,7 @@ import { AuthService } from '../../shared/services/auth/auth.service';
   standalone: true,
   imports: [CommonModule,RouterModule],
 })
-export class HomeComponent implements OnInit  {
+export class HomeComponent  {
 
   constructor(
     public authService: AuthService,

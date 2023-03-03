@@ -1,8 +1,12 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, catchError, throwError } from 'rxjs';
 import { Product } from '../../Interfaces';
 import { API_URL } from 'src/app/constants';
+import { Router } from '@angular/router';
+import { LocalStorageService } from 'src/app/shared/services/local-storage.service';
+import { HttpErrorPopupService } from 'src/app/shared/http-error-popup/http-error-popup.service';
+import { AuthService } from 'src/app/shared/services/auth/auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +16,13 @@ export class ProductService {
 
   public products:Product[]=[]
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient,
+    private router: Router,
+    private localStorage: LocalStorageService,
+    private httpErrorPopupService: HttpErrorPopupService,
+    private authService: AuthService) { }
+
+    token = this.localStorage.getToken() as string;
 
   addProduct(product:Product):void{
     // this.products.push(product)
@@ -24,11 +34,40 @@ export class ProductService {
 
   getProducts():Observable<Product[]>{
     // return this.products
-    return this.http.get<Product[]>('https://angul-a3143-default-rtdb.firebaseio.com/Products.json')
+    return this.http.get<Product[]>(`${API_URL}/products`,{
+      headers: { Authorization: `Bearer ${this.token}` },
+    })
+    .pipe(
+      catchError((error: HttpErrorResponse) => {
+        if (error.status === 401 || error.status === 403) {
+          this.router.navigate(['/login']);
+        }
+        this.httpErrorPopupService.showError(
+          error.status,
+          error.error.message
+        );
+        return throwError(error);
+      })
+    );
   }
 
   getOneProduct(id:string):Observable<Product> {
-    return this.http.get<Product>(`https://angul-a3143-default-rtdb.firebaseio.com/Products/${id}.json`)
+    return this.http.get<Product>(`${API_URL}/products/${id}`,
+    {
+      headers: { Authorization: `Bearer ${this.token}` },
+    })
+    .pipe(
+      catchError((error: HttpErrorResponse) => {
+        if (error.status === 401 || error.status === 403) {
+          this.router.navigate(['/login']);
+        }
+        this.httpErrorPopupService.showError(
+          error.status,
+          error.error.message
+        );
+        return throwError(error);
+      })
+    );
   }
 
   // getProductCategories():string[]{
@@ -51,10 +90,13 @@ export class ProductService {
   updateProduct(id:string, product:Product){
     // let index= this.products.findIndex(x=>x.id===id)
     // this.products[index]=product
-    this.http.put(`https://angul-a3143-default-rtdb.firebaseio.com/Products/${id}.json`,product).subscribe(response=>{
+    this.http.put(`${API_URL}/products/${id}`,{
+      headers: { Authorization: `Bearer ${this.token}` },
+    }).subscribe(response=>{
       console.log(response);
       
     })
+    
   }
   // deleteProduct(id:string){
   //   this.http.delete(`https://angul-a3143-default-rtdb.firebaseio.com/Products/${id}.json`).subscribe(response=>{

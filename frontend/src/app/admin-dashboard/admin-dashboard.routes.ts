@@ -49,7 +49,7 @@ export const ADMIN_ROUTES: Route[] = [
       ),
   },
   {
-    path: 'products/:id', canDeactivate: [CanDeactiveService],
+    path: 'products/:id', 
     loadComponent: () =>
       import('./products/edit-product/edit-product.component').then(
         (m) => m.EditProductComponent

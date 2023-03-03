@@ -10,16 +10,17 @@
     rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 
-.nav .logo {
+.nav .logo, .logout {
   color: var(--background);
   font-size: 2rem;
   font-weight: 700;
 }
 
-.nav .logo a {
+.nav .logo a, .logout {
   text-decoration: none;
   color: #fff;
 }
+
 
 .nav .search {
   display: flex;

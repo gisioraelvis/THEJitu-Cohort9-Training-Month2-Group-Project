@@ -36,7 +36,7 @@
                     {{user?.name}}
                 </a>
             </button>
-            <a *ngIf="authService.isLoggedIn" (click)="authService.logout()">Logout</a>
+            <a *ngIf="authService.isLoggedIn" (click)="authService.logout()" class="logout">Logout</a>
         </div>
     </div>
 </header>

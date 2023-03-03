@@ -1,4 +1,4 @@
-import { User } from "../interfaces/t";
+import { IUser} from '../interfaces/user.interface'
 import { DatabaseUtils } from "../utils/db.util";
 import { sendEmail } from "../utils/email.util";
 import dotenv from "dotenv";
@@ -17,7 +17,7 @@ export const sendWelcomeEmail = async () => {
       //   CreateLog.info(
       //     `Sending welcome email to ${result.recordset.length} new users`
       //   );
-      const newUsers = result.recordset as User[];
+      const newUsers = result.recordset as IUser[];
       newUsers.forEach((user) => {
         const subject = "Welcome to GadgetHub";
         const html = `<h1>Welcome to GadgetHub</h1>

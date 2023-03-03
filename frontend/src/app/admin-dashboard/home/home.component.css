@@ -3,7 +3,8 @@ header{
     /* border: 1px solid red; */
     display: flex;
     justify-content: space-between;
-    background-color: rgba(11, 6, 29, 0.822);
+    /* background-color: rgba(11, 6, 29, 0.822); */
+    background-color: var(--primary);
     align-items: center;
     color:white;
     width: 100%;
@@ -72,7 +73,8 @@ header{
     flex: 0.2;
     height: inherit;
     /* border: 1px solid green; */
-    background-color: rgba(4, 2, 14, 0.822);
+    /* background-color: rgba(4, 2, 14, 0.822); */
+    background-color: var(--primary);
 }
 .container-1 h3{
     text-align: start;

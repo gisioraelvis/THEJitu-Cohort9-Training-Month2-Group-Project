@@ -1,9 +1,10 @@
-## THEJitu Month 1 Group Project(E-Commerce)
+## THEJitu Month 2 Group Project(E-Commerce)
+### A Fullstack E-Commerce(GadgetHub - for electronic gadgets and accessories) WebApp
 
 ### Tech Stack
 
 - Frontend: Angular & CSS
-- Backend: Node.js, Express.js, MSSQL(Stored Procedures & Queries)
+- Backend: NodeJS(Express, Nodemailer, Node Cron), MSSQL (Stored Procedures & Queries)
 
 screenshots
 ![Shop](./frontend/src/assets/GadgetHub-Screenshot.png)

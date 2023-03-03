@@ -65,12 +65,21 @@ export class RegisterComponent {
     console.log(this.registerForm.value);
     this.userService.postUser(user).subscribe(
       (response: User) => {
-        console.log(response);
+        // console.log(response);
 
+        // localStorage.setItem(this.tokenKey, response.JWT);
+        // this.userService.setLoginTrue();
+        // this.router.navigate(['/']);
+        // users.push({ name: response.name, email: response.email, password: response.password, isAdmin: response.isAdmin=false});
+        localStorage.removeItem(this.tokenKey);
         localStorage.setItem(this.tokenKey, response.JWT);
         this.userService.setLoginTrue();
-        this.router.navigate(['/']);
-        // users.push({ name: response.name, email: response.email, password: response.password, isAdmin: response.isAdmin=false});
+
+        if (response.isAdmin) {
+          this.router.navigate(['/admin/home']);
+        } else {
+          this.router.navigate(['/dashboard']);
+        }
       },
       (error) => {
         this.error = true;

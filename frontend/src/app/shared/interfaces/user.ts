@@ -11,6 +11,7 @@ export interface Login {
   email: string;
   password: string;
   JWT: string;
+  isAdmin?: boolean;
 }
 
 export interface IUserProfile {

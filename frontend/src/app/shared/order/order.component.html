@@ -1,6 +1,7 @@
 <app-navbar></app-navbar>
 <app-go-back></app-go-back>
-<div class="order-container">
+<app-loading-spinner *ngIf="loading"></app-loading-spinner>
+<div class="order-container" *ngIf="loading">
     <div class="order-details">
         <div class="cart-details">
             <p class="order-id">Order ID: {{ order.id }}</p>
@@ -12,7 +13,8 @@
             <!-- <p class="payment-method">Payment Method: {{ order.paymentMethod }}</p> -->
             <p class="payment-method">Payment Method: M-pesa Xpress</p>
             <hr>
-            <p class="payment-status pending">Payment Status: <span class="pending">{{ order.paymentResultStatus }}</span></p>
+            <p class="payment-status pending">Payment Status: <span class="pending">{{ order.paymentResultStatus
+                    }}</span></p>
         </div>
     </div>
     <!-- 

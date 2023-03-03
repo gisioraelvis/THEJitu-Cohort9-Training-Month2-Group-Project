@@ -18,12 +18,7 @@ import { HttpErrorPopupService } from 'src/app/shared/http-error-popup/http-erro
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [
-    CommonModule,
-    RouterModule,
-    ReactiveFormsModule,
-    NavbarComponent,
-  ],
+  imports: [CommonModule, RouterModule, ReactiveFormsModule, NavbarComponent],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
@@ -47,15 +42,18 @@ export class LoginComponent {
   }
 
   login() {
-    console.log(this.loginForm.value);
     let user: Login = this.loginForm.value;
     this.userService.loginUser(user).subscribe(
       (response: Login) => {
-        console.log(response);
-
+        localStorage.removeItem(this.tokenKey);
         localStorage.setItem(this.tokenKey, response.JWT);
         this.userService.setLoginTrue();
-        this.router.navigate(['/']);
+
+        if (response.isAdmin) {
+          this.router.navigate(['/admin/home']);
+        } else {
+          this.router.navigate(['/dashboard']);
+        }
       },
       (error) => {
         // this.errorMessage = error.error.message;

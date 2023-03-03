@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { GoBackComponent } from '../go-back/go-back.component';
 import { IOrderItem } from '../interfaces/order';
+import { LoadingSpinnerComponent } from '../loading-spinner/loading-spinner.component';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { OrderService } from './order.service';
 
@@ -12,11 +13,18 @@ import { OrderService } from './order.service';
   selector: 'app-order',
   templateUrl: './order.component.html',
   styleUrls: ['./order.component.css'],
-  imports: [CommonModule, FormsModule, NavbarComponent, GoBackComponent],
+  imports: [
+    CommonModule,
+    FormsModule,
+    NavbarComponent,
+    GoBackComponent,
+    LoadingSpinnerComponent,
+  ],
 })
 export class OrderComponent implements OnInit {
   order!: IOrderItem;
   phoneNumber!: string;
+  loading = true;
 
   constructor(
     private route: ActivatedRoute,
@@ -27,6 +35,7 @@ export class OrderComponent implements OnInit {
     const orderId = Number(this.route.snapshot.paramMap.get('id'));
     this.orderService.getOrderById(orderId).subscribe((order: any) => {
       this.order = order;
+      this.loading = false;
     });
   }
 

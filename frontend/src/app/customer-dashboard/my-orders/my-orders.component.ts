@@ -9,29 +9,22 @@ import { IOrder } from '../interface';
   standalone: true,
   imports: [CommonModule, RouterModule],
   templateUrl: './my-orders.component.html',
-  styleUrls: ['./my-orders.component.css']
+  styleUrls: ['./my-orders.component.css'],
 })
 export class MyOrdersComponent implements OnInit {
-  orders: IOrder[]=[]
-  
+  orders: IOrder[] = [];
 
-  constructor(public ordersService:OrdersService){
-
-  }
+  constructor(public ordersService: OrdersService) {}
 
   ngOnInit(): void {
-
-    this.ordersService.getUserOrders().subscribe((order)=>{
-      this.orders = order
-    })
-
-    
-    
+    this.ordersService.getUserOrders().subscribe((order) => {
+      this.orders = order;
+    });
   }
   // console.log(this.orderService.order$)
 
-  id=''
-  
+  id = '';
+
   // checkOut(): void {
   //   // TODO: add types
   //   this.cartService.checkOut(this.cartTotal).subscribe((order: any) => {
@@ -39,6 +32,4 @@ export class MyOrdersComponent implements OnInit {
   //     this.router.navigate([`/user/orders/${order.order[0].id}`]);
   //   });
   // }
-
-  
 }

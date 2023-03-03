@@ -1,0 +1,33 @@
+<section>
+    <header>
+     <h3>Add A New Product</h3>
+    </header>
+  
+    <hr/>
+    <div class="show_products">
+        <div class="addButton"><a routerLink="products"><button type="button">  Manage Products</button></a></div>
+     <div class="form">
+    <form [formGroup]="addProduct" (ngSubmit)="AddProduct()">
+    <div class="right">
+      
+        <h1> Add a New Product</h1>
+        <Label>Name</Label>
+        <input type="text" formControlName="name" />
+
+        <Label>Description</Label>
+        <input type="text" formControlName="description" />
+
+        <Label>Image</Label>
+        <input type="text" formControlName="image" />
+
+          <Label>Price</Label>
+        <input type="text" formControlName="price" />
+
+        <button type="submit"> Submit Data</button>
+    
+    </div>
+</form>
+</div>
+ 
+</div>
+</section>

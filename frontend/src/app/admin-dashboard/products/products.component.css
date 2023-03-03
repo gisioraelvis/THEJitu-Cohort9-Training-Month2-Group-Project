@@ -1,0 +1,37 @@
+
+
+.container{
+    width: 90vw;
+   
+    display: flex;
+    gap:20px
+}
+
+.left{
+    width: 15%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    /* border: 2px solid green; */
+    margin-top: 10px;
+    /* border: 1px solid gray; */
+}
+
+.left li{
+    list-style: none;
+    padding: 10px;
+    border: 1px solid grey;
+}
+
+.right{
+    width: 80%;
+    /* border: 2px solid red; */
+}
+
+.error{
+    width: 500px;
+    height: 200px;
+    background-color: red;
+    color: white;
+    padding: 10px;
+}

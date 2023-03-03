@@ -1,0 +1,99 @@
+section{
+    width: 90%;
+    margin: auto;
+}
+header{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    
+}
+header h3{
+    text-align: start;
+    padding-left: 20px;
+    color: black;
+    font-size: larger;
+    font-weight: 700;
+}
+
+.Products_search_pro button{
+    width: 100px;
+    background-color: green;
+    color:white;
+    outline: none;
+    height: 35px;
+    margin-left: -101px;
+    border: none;
+    border-radius: 10px;
+}
+
+
+.show_products .addButton{
+    text-align: end;
+    padding: 10px;
+}
+.show_products .addButton button{
+    cursor: pointer;
+    background-color: green;
+    text-align: center;
+    color: white;
+    width: 150px;
+    border: none;
+    outline: none;
+    padding: 10px;
+    border-radius: 9px;
+}
+.form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height:60vh;
+    width: 70%;
+
+    border-radius: 5px;
+    /* background-color: #f2f2f2; */
+    padding: 20px;
+    object-fit: contain;
+}
+
+
+
+input[type=text], select {
+    width: 100%;
+    padding: 10px 10px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=url], select {
+    width: 100%;
+    padding: 10px 10px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.form form button{
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 10px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.form form button:hover {
+    background-color: #45a049;
+}
+.form-group span{
+    color:red;
+    font-size: smaller;
+    font-weight: 200;
+    text-align: center;
+}

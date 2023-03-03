@@ -1,0 +1,34 @@
+<section>
+    <header>
+     <h3>Update Orders</h3>
+    </header>
+  
+    <hr/>
+    <div class="show_products">
+<<<<<<< HEAD
+        <div class="addButton"><a routerLink="orders"><button type="button">  Manage Orders</button></a></div>
+=======
+        <div class="addButton"><a routerLink="/orders"><button type="button">  Manage Orders</button></a></div>
+>>>>>>> 2af464c8b5a0035b9e9c8770da1a9206cbb2d171
+        <div class="form">
+    <form [formGroup]="form" (ngSubmit)="updateOrder()">
+    <div class="right">
+      
+        <h1> Update Orders</h1>
+        <Label>Shipping Address</Label>
+        <input type="text" formControlName="shippingAddress" />
+
+        <Label>Payment Method</Label>
+        <input type="text" formControlName="paymentMethod" />
+
+        <Label>Total Price</Label>
+        <input type="text" formControlName="totalPrice" />
+      
+        <input type="checkbox" style="padding: 10px; width: 30px;" formControlName="isDelivered"/>  <Label>Delivery status</Label>
+        <button type="submit">Update Order</button>
+    
+    </div>
+</form>
+</div>
+    </div>
+</section>

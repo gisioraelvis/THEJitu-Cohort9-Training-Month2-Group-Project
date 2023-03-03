@@ -10,7 +10,11 @@
     </div>
 </a>
 <div class="add-to-cart">
-    <button class="add-to-cart-btn" type="button">
+    <button class="add-to-cart-btn" type="button" *ngIf="!authService.isLoggedIn" routerLink="/login">
+        <span class="material-icons" title="add to cart">add_shopping_cart</span>
+        Add to Cart
+    </button>
+    <button class="add-to-cart-btn" type="button" *ngIf="authService.isLoggedIn" (click)="addToCart()" >
         <span class="material-icons" title="add to cart">add_shopping_cart</span>
         Add to Cart
     </button>

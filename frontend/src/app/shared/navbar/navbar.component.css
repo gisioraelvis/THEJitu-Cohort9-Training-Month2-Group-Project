@@ -110,6 +110,15 @@
   cursor: pointer;
 }
 
+.sign-btn a{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: #fff;
+}
+
 .sign-btn .material-icons {
   font-size: 4rem;
 }

@@ -20,9 +20,9 @@
     <td>{{order.totalPrice}}</td>
     <td>{{order.isPaid}}</td>
     <td>{{order.isDelivered}}</td>
-    <td><button>DETAILS</button></td>
+    <td><button routerLink="/user/orders/{{order.id}}" >DETAILS</button></td>
   </tr>
 </table>
-<div ng-show="!orders.length" style="display:none">There is no sites avaiable for you.</div>
+<div ng-show="!orders.length" style="display:none">You have no orders yet</div>
 
 </div>

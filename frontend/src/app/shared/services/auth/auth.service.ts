@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-// import { catchError, retry } from 'rxjs/operators';
 import { catchError, Observable, throwError } from 'rxjs';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Login, User } from '../../interfaces/user';
 import { Router } from '@angular/router';
 
@@ -49,7 +48,14 @@ export class AuthService {
   }
 
   public loginUser(userlogin: Login): Observable<Login> {
-    return this.http.post<Login>(this.loginUrl, userlogin);
+    // return this.http.post<Login>(this.loginUrl, userlogin);
+    return this.http.post<Login>(this.loginUrl, userlogin).pipe(
+      catchError((error) => { 
+        this.errorMessage = error.error;
+        console.log(error);
+        return throwError(error);
+      } )
+    );
   }
 
   getAuthStatus(): Promise<boolean> {

@@ -9,8 +9,11 @@ import {
   Validators,
 } from '@angular/forms';
 import { AuthService } from 'src/app/shared/services/auth/auth.service';
-import { HttpClientModule } from '@angular/common/http';
+
+import { NavbarComponent } from 'src/app/shared/navbar/navbar.component';
 import { Login } from 'src/app/shared/interfaces/user';
+import { HttpErrorPopupComponent } from 'src/app/shared/http-error-popup/http-error-popup.component';
+import { HttpErrorPopupService } from 'src/app/shared/http-error-popup/http-error-popup.service';
 
 @Component({
   selector: 'app-login',
@@ -19,8 +22,7 @@ import { Login } from 'src/app/shared/interfaces/user';
     CommonModule,
     RouterModule,
     ReactiveFormsModule,
-    HttpClientModule,
-    FormsModule,
+    NavbarComponent,
   ],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
@@ -29,7 +31,8 @@ export class LoginComponent {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private userService: AuthService
+    private userService: AuthService,
+    private httpErrorPopupService: HttpErrorPopupService
   ) {}
   private tokenKey = 'token';
   error = false;
@@ -55,9 +58,8 @@ export class LoginComponent {
         this.router.navigate(['/']);
       },
       (error) => {
-        this.error = true;
-        this.errorMessage = error.error;
-        console.log(error.error);
+        // this.errorMessage = error.error.message;
+        this.httpErrorPopupService.showError(error.status, error.error.message);
       }
     );
   }

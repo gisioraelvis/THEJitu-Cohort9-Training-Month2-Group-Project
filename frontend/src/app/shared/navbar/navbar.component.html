@@ -12,19 +12,31 @@
             </button>
         </div>
         <div class="cart">
-            <button class="cart-btn" type="button">
+            <button class="cart-btn" type="button" *ngIf="!authService.isLoggedIn" routerLink="/login">
+                <span class="material-icons" title="cart">add_shopping_cart</span>
+                Cart
+            </button>
+            <button class="cart-btn" type="button" *ngIf="authService.isLoggedIn" routerLink="/cart">
                 <span class="material-icons" title="cart">add_shopping_cart</span>
                 Cart
             </button>
         </div>
         <div class="sign">
-            <button routerLink="/dashboard" class="sign-btn" type="button">
-                <span class="material-icons" title="profile">person</span>
-                SignIn
+            <button class="sign-btn" type="button">
+                <a *ngIf="!authService.isLoggedIn" routerLink="/login">
+                    <span class="material-icons" title="login">person</span>
+                    SignIn
+                </a>
+                <a *ngIf="(authService.isLoggedIn&&!user?.isAdmin)" routerLink="/dashboard">
+                    <span class="material-icons" title="profile">person</span>
+                    {{user?.name}}
+                </a>
+                <a *ngIf="(authService.isLoggedIn&&user?.isAdmin)" routerLink="/admin/home">
+                    <span class="material-icons" title="profile">person</span>
+                    {{user?.name}}
+                </a>
             </button>
             <a *ngIf="authService.isLoggedIn" (click)="authService.logout()">Logout</a>
-       
         </div>
-        
     </div>
 </header>

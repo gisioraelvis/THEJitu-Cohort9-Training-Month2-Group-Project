@@ -6,6 +6,7 @@ import { EditProfileComponent } from "../edit-profile/edit-profile.component";
 import { MyOrdersComponent } from "../my-orders/my-orders.component";
 import { ProfileService } from '../profile.service';
 import { User } from '../interface';
+import { AuthService } from 'src/app/shared/services/auth/auth.service';
 
 @Component({
     selector: 'app-customer',
@@ -17,7 +18,7 @@ import { User } from '../interface';
 export class CustomerComponent implements OnInit {
   user!:User
   constructor(
-    private modalService: ModalService, public profileService: ProfileService
+    private modalService: ModalService, public profileService: ProfileService, public authService: AuthService
   ) { }
   
 
@@ -30,6 +31,7 @@ export class CustomerComponent implements OnInit {
     this.profileService.getUserProfile().subscribe((user) => {
       this.user = user
     })
+
   }
 
   

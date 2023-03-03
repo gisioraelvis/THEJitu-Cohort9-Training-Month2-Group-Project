@@ -55,7 +55,7 @@
             </div>
 
             <div class="logout">
-              <li><i class="fa fa-sign-out" aria-hidden="true"></i><a>Logout</a></li>
+              <li><i class="fa fa-sign-out" aria-hidden="true"></i><a *ngIf="authService.isLoggedIn" (click)="authService.logout()">Logout</a></li>
             </div>
           </ul>
         </div>

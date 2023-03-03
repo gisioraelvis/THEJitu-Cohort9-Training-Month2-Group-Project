@@ -30,5 +30,15 @@ export class MyOrdersComponent implements OnInit {
   }
   // console.log(this.orderService.order$)
 
+  id=''
+  
+  // checkOut(): void {
+  //   // TODO: add types
+  //   this.cartService.checkOut(this.cartTotal).subscribe((order: any) => {
+  //     console.log(order);
+  //     this.router.navigate([`/user/orders/${order.order[0].id}`]);
+  //   });
+  // }
+
   
 }

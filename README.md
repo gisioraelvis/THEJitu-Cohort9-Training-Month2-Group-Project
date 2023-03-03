@@ -1,4 +1,5 @@
 ## THEJitu Month 2 Group Project(E-Commerce)
+
 ### A Fullstack E-Commerce(GadgetHub - for electronic gadgets and accessories) WebApp
 
 ### Tech Stack
